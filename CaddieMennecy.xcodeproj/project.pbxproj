@@ -38,6 +38,7 @@
 		B61CD6601918B78E00E172CD /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD65F1918B78E00E172CD /* Player.m */; };
 		B61CD6631918B78E00E172CD /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6621918B78E00E172CD /* Game.m */; };
 		B61CD6661918BB2600E172CD /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6651918BB2600E172CD /* Hole.m */; };
+		B61CD6951919256D00E172CD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B61CD6941919256D00E172CD /* Podfile */; };
 		B62EECB5190F7BA300390F0D /* EXTGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EECB4190F7BA300390F0D /* EXTGameViewController.m */; };
 		B62EECB8190F7D3500390F0D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB6190F7D3500390F0D /* AddressBook.framework */; };
 		B62EECB9190F7D3500390F0D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB7190F7D3500390F0D /* AddressBookUI.framework */; };
@@ -141,6 +142,7 @@
 		B61CD6621918B78E00E172CD /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		B61CD6641918BB2600E172CD /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
 		B61CD6651918BB2600E172CD /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
+		B61CD6941919256D00E172CD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 		B62EECB3190F7BA300390F0D /* EXTGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTGameViewController.h; sourceTree = "<group>"; };
 		B62EECB4190F7BA300390F0D /* EXTGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTGameViewController.m; sourceTree = "<group>"; };
 		B62EECB6190F7D3500390F0D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -399,6 +401,7 @@
 		B68A5540190E28D90002A4CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B61CD6941919256D00E172CD /* Podfile */,
 				B68A5541190E28D90002A4CE /* CaddieMennecy-Info.plist */,
 				B68A5542190E28D90002A4CE /* InfoPlist.strings */,
 				B68A5545190E28D90002A4CE /* main.m */,
@@ -508,6 +511,7 @@
 			files = (
 				B68A5558190E28D90002A4CE /* Images.xcassets in Resources */,
 				B68A5544190E28D90002A4CE /* InfoPlist.strings in Resources */,
+				B61CD6951919256D00E172CD /* Podfile in Resources */,
 				B68A5556190E28D90002A4CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
