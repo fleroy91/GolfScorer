@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
-#import "EXTRootViewController.h"
+#import "EXTHolesRootViewController.h"
 
 #import "EXTModelController.h"
 
-#import "EXTDataViewController.h"
+#import "EXTHoleDataViewController.h"
 
-@interface EXTRootViewController ()
+@interface EXTHolesRootViewController ()
 @property (readonly, strong, nonatomic) EXTModelController *modelController;
 @end
 
-@implementation EXTRootViewController
+@implementation EXTHolesRootViewController
 
 @synthesize modelController = _modelController;
 
@@ -25,10 +25,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     // Configure the page view controller and add it as a child view controller.
-    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll    navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
 
-    EXTDataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
+    EXTHoleDataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 

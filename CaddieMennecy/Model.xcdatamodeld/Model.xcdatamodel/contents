@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Game" representedClassName="Game" syncable="YES">
+        <attribute name="kind" optional="YES" attributeType="String" defaultValueString="18 trous" syncable="YES"/>
+        <attribute name="when" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="thePlayers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PlayerGame" inverseName="inGame" inverseEntity="PlayerGame" syncable="YES"/>
+    </entity>
+    <entity name="Player" representedClassName="Player" syncable="YES">
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inPlayerGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerGame" inverseName="withPlayer" inverseEntity="PlayerGame" syncable="YES"/>
+    </entity>
+    <entity name="PlayerGame" syncable="YES">
+        <relationship name="inGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="thePlayers" inverseEntity="Game" syncable="YES"/>
+        <relationship name="withPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="inPlayerGame" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Game" positionX="-416" positionY="-142" width="128" height="88"/>
+        <element name="Player" positionX="-11" positionY="-172" width="128" height="118"/>
+        <element name="PlayerGame" positionX="-234" positionY="-142" width="128" height="73"/>
+    </elements>
+</model>

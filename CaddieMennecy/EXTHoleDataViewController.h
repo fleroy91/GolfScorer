@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EXTDataViewController : UIViewController
+@interface EXTHoleDataViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *dataLabel;
 @property (strong, nonatomic) id dataObject;

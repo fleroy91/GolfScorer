@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EXTRootViewController : UIViewController <UIPageViewControllerDelegate>
+@interface EXTHolesRootViewController : UIViewController <UIPageViewControllerDelegate>
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 

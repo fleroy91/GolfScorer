@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class EXTDataViewController;
+@class EXTHoleDataViewController;
 
 @interface EXTModelController : NSObject <UIPageViewControllerDataSource>
 
-- (EXTDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
-- (NSUInteger)indexOfViewController:(EXTDataViewController *)viewController;
+- (EXTHoleDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
+- (NSUInteger)indexOfViewController:(EXTHoleDataViewController *)viewController;
 
 @end

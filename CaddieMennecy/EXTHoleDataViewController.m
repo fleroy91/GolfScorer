@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
-#import "EXTDataViewController.h"
+#import "EXTHoleDataViewController.h"
 
-@interface EXTDataViewController ()
+@interface EXTHoleDataViewController ()
 
 @end
 
-@implementation EXTDataViewController
+@implementation EXTHoleDataViewController
 
 - (void)viewDidLoad
 {
