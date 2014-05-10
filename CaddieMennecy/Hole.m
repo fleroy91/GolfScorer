@@ -2,25 +2,26 @@
 //  Hole.m
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 06/05/2014.
+//  Created by Frédéric Leroy on 10/05/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
 #import "Hole.h"
+#import "Course.h"
+#import "PlayerGameHole.h"
+
 
 @implementation Hole
 
--(Hole *)initWithArray:(NSArray *)holeData
-{
-    assert([holeData count] >= 7);
-    self.num = (NSInteger)holeData[0];
-    self.par = (NSInteger)holeData[1];
-    self.hcp = (NSInteger)holeData[2];
-    self.range2 = (NSInteger)holeData[3];
-    self.range3 = (NSInteger)holeData[4];
-    self.range4 = (NSInteger)holeData[5];
-    self.range5  = (NSInteger)holeData[6];
-    return self;
-}
+@dynamic handicap;
+@dynamic number;
+@dynamic par;
+@dynamic range1;
+@dynamic range2;
+@dynamic range3;
+@dynamic range4;
+@dynamic range5;
+@dynamic thePlayerGameHoles;
+@dynamic forCourse;
 
 @end

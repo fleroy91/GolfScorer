@@ -9,5 +9,11 @@
 #import "Game.h"
 
 @interface Game (init)
+
 +(Game *)create;
+-(NSUInteger)nbPlayers;
+-(void)findOrCreateHolesForPlayers;
+-(void)setIsOver:(BOOL)over;
+-(void)setIsStarted:(BOOL)started;
+
 @end

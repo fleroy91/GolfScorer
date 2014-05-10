@@ -2,12 +2,12 @@
 //  Player.m
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 06/05/2014.
+//  Created by Frédéric Leroy on 10/05/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
 #import "Player.h"
-#import "Game.h"
+#import "PlayerGame.h"
 
 
 @implementation Player
@@ -16,6 +16,8 @@
 @dynamic index;
 @dynamic lastname;
 @dynamic surname;
-@dynamic game;
+@dynamic gender;
+@dynamic start_color;
+@dynamic thePlayerGames;
 
 @end

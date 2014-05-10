@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FXForms.h>
+#import "EXTModelController.h"
 
-@interface EXTHoleDataViewController : UIViewController
+@interface EXTHoleDataViewController : UIViewController <FXFormControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *dataLabel;
-@property (strong, nonatomic) id dataObject;
+@property (strong, nonatomic) NSArray *playerGameHoles;
+@property (strong, nonatomic) Hole *hole;
+@property NSUInteger pageIndex;
+@property EXTModelController *modelController;
 
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "EXTPlayersViewController.h"
+#import "Game+init.h"
+#import "Player+create.h"
+#import "PlayerGame.h"
 
 @interface EXTPlayersViewController ()
 - (IBAction)showPicker:(id)sender;
@@ -18,8 +21,12 @@
 
 - (void)addPlayer:(ABRecordRef)person
 {
-    Player * player = [Player createFromPerson:person];    
-    [currentGame addPlayersObject:player];
+    Player * player = [Player createFromPerson:person];
+    PlayerGame *playerGame = [PlayerGame MR_createEntity];
+    playerGame.forPlayer = player;
+    playerGame.row = [NSNumber numberWithInteger:[currentGame.thePlayerGames count] + 1];
+    playerGame.inGame = currentGame;
+    [playerGame.managedObjectContext MR_saveToPersistentStoreAndWait];
     [self.tableView reloadData];
 }
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
@@ -46,7 +53,7 @@
 
 - (IBAction)showPicker:(id)sender
 {
-    if([currentGame.players count] < 4) {
+    if([currentGame.thePlayerGames count] < 4) {
         ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
         picker.peoplePickerDelegate = self;
         [self presentViewController:picker animated:YES completion:^(void){
@@ -92,12 +99,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [currentGame.players count];
+    return [currentGame.thePlayerGames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Player * player = currentGame.players [indexPath.row];
+    PlayerGame *playerGame = [currentGame.thePlayerGames objectAtIndex:indexPath.row];
+    Player *player = [playerGame forPlayer];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"player" forIndexPath:indexPath];
     
     // Configure the cell...

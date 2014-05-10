@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *kindLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nbPlayersLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *startGameButton;
+@property (weak, nonatomic) IBOutlet UIButton *endGameButton;
+- (IBAction)endGame:(id)sender;
 @end
 
 @implementation EXTGameViewController
@@ -30,10 +34,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self.dateLabel setText:[currentGame.when description]];
     [self.kindLabel setText:currentGame.kind];
-    [self.nbPlayersLabel setText:[NSString stringWithFormat:@"%d", [currentGame.players count]]];
+    [self.nbPlayersLabel setText:[NSString stringWithFormat:@"%d", [currentGame.thePlayerGames count]]];
+    assert(currentGame);
+    self.endGameButton.hidden = ! currentGame.is_started;
+    if(currentGame.is_started) {
+        self.startGameButton.titleLabel.text = @"Continuer la partie";
+    } else {
+        self.startGameButton.titleLabel.text = @"Démarrer la partie";
+    }
 }
+
+- (IBAction)endGame:(id)sender
+{
+    [currentGame setIsOver:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -49,6 +71,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"startGame"] ){
+        [currentGame findOrCreateHolesForPlayers];
+    }
 }
+
 
 @end

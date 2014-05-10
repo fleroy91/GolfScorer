@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EXTHomeViewController : UIViewController
+@interface EXTHomeViewController : UIViewController <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end

@@ -2,23 +2,34 @@
 //  Hole.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 06/05/2014.
+//  Created by Frédéric Leroy on 10/05/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Hole : NSObject
+@class Course, PlayerGameHole;
 
-@property NSInteger num;
-@property NSInteger par;
-@property NSInteger hcp;
-@property NSInteger range1; // Black
-@property NSInteger range2; // White
-@property NSInteger range3; // Yellow
-@property NSInteger range4; // Red
-@property NSInteger range5; // Blue
+@interface Hole : NSManagedObject
 
--(Hole *)initWithArray:(NSArray *)holeData;
+@property (nonatomic, retain) NSNumber * handicap;
+@property (nonatomic, retain) NSNumber * number;
+@property (nonatomic, retain) NSNumber * par;
+@property (nonatomic, retain) NSNumber * range1;
+@property (nonatomic, retain) NSNumber * range2;
+@property (nonatomic, retain) NSNumber * range3;
+@property (nonatomic, retain) NSNumber * range4;
+@property (nonatomic, retain) NSNumber * range5;
+@property (nonatomic, retain) NSSet *thePlayerGameHoles;
+@property (nonatomic, retain) Course *forCourse;
+@end
+
+@interface Hole (CoreDataGeneratedAccessors)
+
+- (void)addThePlayerGameHolesObject:(PlayerGameHole *)value;
+- (void)removeThePlayerGameHolesObject:(PlayerGameHole *)value;
+- (void)addThePlayerGameHoles:(NSSet *)values;
+- (void)removeThePlayerGameHoles:(NSSet *)values;
 
 @end

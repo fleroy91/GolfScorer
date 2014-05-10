@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class EXTHoleDataViewController;
+@class Hole;
 
 @interface EXTModelController : NSObject <UIPageViewControllerDataSource>
 
 - (EXTHoleDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
-- (NSUInteger)indexOfViewController:(EXTHoleDataViewController *)viewController;
+- (void)pageForward:(UIPageViewController *)pageViewController;
+- (void)saveCurrentHole:(UIPageViewController *)pageViewController;
+- (void)saveCurrentHoleWithHole:(Hole *)hole;
+@property PlayerGameHole *playerGameHole;
 
 @end

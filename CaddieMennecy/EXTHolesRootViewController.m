@@ -25,7 +25,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     // Configure the page view controller and add it as a child view controller.
-    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll    navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
 
     EXTHoleDataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
@@ -38,8 +38,9 @@
     [self.view addSubview:self.pageViewController.view];
 
     // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
-    CGRect pageViewRect = self.view.bounds;
-    self.pageViewController.view.frame = pageViewRect;
+    // CGRect pageViewRect = self.view.bounds;
+    // self.pageViewController.view.frame = pageViewRect;
+    // self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
 
     [self.pageViewController didMoveToParentViewController:self];
 
@@ -65,6 +66,11 @@
 
 #pragma mark - UIPageViewController delegate methods
 
+-(void)pageViewController:(UIPageViewController *)pvc willTransitionToViewControllers:(NSArray *)pendingViewControllers
+{
+    [self.modelController saveCurrentHole:pvc];
+}
+
 /*
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
@@ -72,6 +78,7 @@
 }
  */
 
+/*
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
     // Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
@@ -82,5 +89,5 @@
     self.pageViewController.doubleSided = NO;
     return UIPageViewControllerSpineLocationMin;
 }
-
+*/
 @end

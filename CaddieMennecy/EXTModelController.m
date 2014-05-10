@@ -20,7 +20,7 @@
  */
 
 @interface EXTModelController()
-@property (readonly, strong, nonatomic) NSArray *pageData;
+@property (strong, nonatomic) NSArray *holes;
 @end
 
 @implementation EXTModelController
@@ -29,31 +29,8 @@
 {
     self = [super init];
     if (self) {
-        // Create the data model.
-        _pageData = [[NSArray alloc] init];
-        NSArray *holesData = @[@[@1, @4, @6, @375, @363, @327, @315],
-                               @[@2, @4, @2, @375, @363, @327, @315],
-                               @[@3, @4, @5, @375, @363, @327, @315],
-                               @[@4, @3, @16, @375, @363, @327, @315],
-                               @[@5, @4, @17, @375, @363, @327, @315],
-                               @[@6, @5, @13, @375, @363, @327, @315],
-                               @[@7, @4, @8, @375, @363, @327, @315],
-                               @[@8, @3, @18, @375, @363, @327, @315],
-                               @[@9, @4, @9, @375, @363, @327, @315],
-                               @[@10, @4, @15, @375, @363, @327, @315],
-                               @[@11, @4, @14, @375, @363, @327, @315],
-                               @[@12, @5, @5, @375, @363, @327, @315],
-                               @[@13, @3, @11, @375, @363, @327, @315],
-                               @[@14, @4, @4, @375, @363, @327, @315],
-                               @[@15, @4, @10, @375, @363, @327, @315],
-                               @[@16, @5, @12, @375, @363, @327, @315],
-                               @[@17, @3, @7, @375, @363, @327, @315],
-                               @[@18, @4, @1, @375, @363, @327, @315]];
-        for(int i=0; i < [holesData count]; i++){
-            NSArray *holeData = holesData[i];
-            Hole *hole = [[Hole alloc] initWithArray:holeData];
-        }
-                               
+        // We need to create all the PlayerGameHoles for the currentGame
+        _holes = [Hole MR_findAllSortedBy:@"number" ascending:YES];
     }
     return self;
 }
@@ -61,28 +38,59 @@
 - (EXTHoleDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
 {   
     // Return the data view controller for the given index.
-    if (([self.pageData count] == 0) || (index >= [self.pageData count])) {
+    if (([self.holes count] == 0) || (index >= [self.holes count])) {
         return nil;
     }
     
     // Create a new view controller and pass suitable data.
-    EXTHoleDataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"EXTHoleViewController"];
-    dataViewController.dataObject = self.pageData[index];
+    EXTHoleDataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"EXTHoleDataViewController"];
+    dataViewController.hole = self.holes[index];
+    dataViewController.playerGameHoles = [self findPlayerGameHolesForHole:self.holes[index]];
+    dataViewController.pageIndex = index;
+    dataViewController.modelController = self;
     return dataViewController;
 }
 
-- (NSUInteger)indexOfViewController:(EXTHoleDataViewController *)viewController
-{   
-     // Return the index of the given data view controller.
-     // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
-    return [self.pageData indexOfObject:viewController.dataObject];
+-(NSMutableArray *)findPlayerGameHolesForHole:(Hole *)hole
+{
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    for(PlayerGame *pg in currentGame.thePlayerGames) {
+        for(PlayerGameHole *pgh in pg.thePlayerGameHoles) {
+            assert(pgh.forHole);
+            if(pgh.number == hole.number) {
+                [ret addObject:pgh];
+            }
+        }
+    }
+    return ret;
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
+{
+    return [self.holes count];
+}
+- (void)saveCurrentHole:(UIPageViewController *)pageViewController {
+    EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
+    Hole * hole = self.holes[theCurrentViewController.pageIndex];
+    [self saveCurrentHoleWithHole:hole];
+}
+- (void)saveCurrentHoleWithHole:(Hole *)hole
+{
+    [self.playerGameHole.managedObjectContext MR_saveToPersistentStoreAndWait];
+    [self.playerGameHole.inPlayerGame saveAndComputeScoreUntil:hole];
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
+{
+    EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
+    return theCurrentViewController.pageIndex;
 }
 
 #pragma mark - Page View Controller Data Source
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:(EXTHoleDataViewController *)viewController];
+    NSUInteger index = ((EXTHoleDataViewController *) viewController).pageIndex;
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
@@ -93,16 +101,34 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:(EXTHoleDataViewController *)viewController];
+    NSUInteger index = ((EXTHoleDataViewController *) viewController).pageIndex;
     if (index == NSNotFound) {
         return nil;
     }
     
     index++;
-    if (index == [self.pageData count]) {
+    if (index == [self.holes count]) {
         return nil;
     }
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
 }
 
+- (void)pageForward:(UIPageViewController *)pageViewController
+{
+    //get current index of current page
+    EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
+    NSUInteger retreivedIndex = ((EXTHoleDataViewController *) theCurrentViewController).pageIndex;
+    
+    //check that current page isn't first page
+    if (retreivedIndex < [self.holes count]){
+        
+        //get the page to go to
+        EXTHoleDataViewController *targetPageViewController = [self viewControllerAtIndex:(retreivedIndex + 1) storyboard:theCurrentViewController.storyboard];
+        
+        //add page view
+        [pageViewController setViewControllers:@[targetPageViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+        
+    }
+    
+}
 @end
