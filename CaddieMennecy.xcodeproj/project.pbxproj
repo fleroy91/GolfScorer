@@ -47,6 +47,17 @@
 		B61CD7AC191E89EC00E172CD /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD7AB191E89EC00E172CD /* Course.m */; };
 		B61CD7B0191E90DE00E172CD /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7AE191E90DE00E172CD /* home.png */; };
 		B61CD7B1191E90DE00E172CD /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7AF191E90DE00E172CD /* home@2x.png */; };
+		B61CD7B6191E9BCC00E172CD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B2191E9BCC00E172CD /* icon.png */; };
+		B61CD7B7191E9BCC00E172CD /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B3191E9BCC00E172CD /* icon@2x.png */; };
+		B61CD7B8191E9BCC00E172CD /* launch-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B4191E9BCC00E172CD /* launch-568h@2x.png */; };
+		B61CD7B9191E9BCC00E172CD /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B5191E9BCC00E172CD /* launch@2x.png */; };
+		B61CD7BB191E9C4100E172CD /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7BA191E9C4100E172CD /* background.png */; };
+		B61CD7BD191E9E1F00E172CD /* icon60.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7BC191E9E1F00E172CD /* icon60.png */; };
+		B61CD7BF191E9F2A00E172CD /* icon40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7BE191E9F2A00E172CD /* icon40@2x.png */; };
+		B61CD7C4191EA1F100E172CD /* game@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C0191EA1F100E172CD /* game@2x.png */; };
+		B61CD7C5191EA1F100E172CD /* games@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C1191EA1F100E172CD /* games@2x.png */; };
+		B61CD7C6191EA1F100E172CD /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C2191EA1F100E172CD /* play@2x.png */; };
+		B61CD7C7191EA1F100E172CD /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C3191EA1F100E172CD /* settings@2x.png */; };
 		B62EECB5190F7BA300390F0D /* EXTGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EECB4190F7BA300390F0D /* EXTGameViewController.m */; };
 		B62EECB8190F7D3500390F0D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB6190F7D3500390F0D /* AddressBook.framework */; };
 		B62EECB9190F7D3500390F0D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB7190F7D3500390F0D /* AddressBookUI.framework */; };
@@ -165,6 +176,17 @@
 		B61CD7AB191E89EC00E172CD /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		B61CD7AE191E90DE00E172CD /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = CaddieMennecy/images/home.png; sourceTree = "<group>"; };
 		B61CD7AF191E90DE00E172CD /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home@2x.png"; path = "CaddieMennecy/images/home@2x.png"; sourceTree = "<group>"; };
+		B61CD7B2191E9BCC00E172CD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = CaddieMennecy/images/icon.png; sourceTree = "<group>"; };
+		B61CD7B3191E9BCC00E172CD /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "CaddieMennecy/images/icon@2x.png"; sourceTree = "<group>"; };
+		B61CD7B4191E9BCC00E172CD /* launch-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-568h@2x.png"; path = "CaddieMennecy/images/launch-568h@2x.png"; sourceTree = "<group>"; };
+		B61CD7B5191E9BCC00E172CD /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch@2x.png"; path = "CaddieMennecy/images/launch@2x.png"; sourceTree = "<group>"; };
+		B61CD7BA191E9C4100E172CD /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = CaddieMennecy/images/background.png; sourceTree = "<group>"; };
+		B61CD7BC191E9E1F00E172CD /* icon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon60.png; path = CaddieMennecy/images/icon60.png; sourceTree = "<group>"; };
+		B61CD7BE191E9F2A00E172CD /* icon40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon40@2x.png"; path = "CaddieMennecy/images/icon40@2x.png"; sourceTree = "<group>"; };
+		B61CD7C0191EA1F100E172CD /* game@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "game@2x.png"; path = "CaddieMennecy/images/game@2x.png"; sourceTree = "<group>"; };
+		B61CD7C1191EA1F100E172CD /* games@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "games@2x.png"; path = "CaddieMennecy/images/games@2x.png"; sourceTree = "<group>"; };
+		B61CD7C2191EA1F100E172CD /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@2x.png"; path = "CaddieMennecy/images/play@2x.png"; sourceTree = "<group>"; };
+		B61CD7C3191EA1F100E172CD /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "CaddieMennecy/images/settings@2x.png"; sourceTree = "<group>"; };
 		B62EECB3190F7BA300390F0D /* EXTGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTGameViewController.h; sourceTree = "<group>"; };
 		B62EECB4190F7BA300390F0D /* EXTGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTGameViewController.m; sourceTree = "<group>"; };
 		B62EECB6190F7D3500390F0D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -341,6 +363,17 @@
 		B61CD7AD191E90CC00E172CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B61CD7C0191EA1F100E172CD /* game@2x.png */,
+				B61CD7C1191EA1F100E172CD /* games@2x.png */,
+				B61CD7C2191EA1F100E172CD /* play@2x.png */,
+				B61CD7C3191EA1F100E172CD /* settings@2x.png */,
+				B61CD7BE191E9F2A00E172CD /* icon40@2x.png */,
+				B61CD7BC191E9E1F00E172CD /* icon60.png */,
+				B61CD7BA191E9C4100E172CD /* background.png */,
+				B61CD7B2191E9BCC00E172CD /* icon.png */,
+				B61CD7B3191E9BCC00E172CD /* icon@2x.png */,
+				B61CD7B4191E9BCC00E172CD /* launch-568h@2x.png */,
+				B61CD7B5191E9BCC00E172CD /* launch@2x.png */,
 				B61CD7AE191E90DE00E172CD /* home.png */,
 				B61CD7AF191E90DE00E172CD /* home@2x.png */,
 			);
@@ -553,12 +586,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61CD7BF191E9F2A00E172CD /* icon40@2x.png in Resources */,
+				B61CD7C6191EA1F100E172CD /* play@2x.png in Resources */,
+				B61CD7BD191E9E1F00E172CD /* icon60.png in Resources */,
+				B61CD7C7191EA1F100E172CD /* settings@2x.png in Resources */,
 				B68A5558190E28D90002A4CE /* Images.xcassets in Resources */,
+				B61CD7B7191E9BCC00E172CD /* icon@2x.png in Resources */,
+				B61CD7B6191E9BCC00E172CD /* icon.png in Resources */,
 				B61CD7B0191E90DE00E172CD /* home.png in Resources */,
+				B61CD7B8191E9BCC00E172CD /* launch-568h@2x.png in Resources */,
 				B68A5544190E28D90002A4CE /* InfoPlist.strings in Resources */,
 				B61CD6951919256D00E172CD /* Podfile in Resources */,
 				B68A5556190E28D90002A4CE /* Main.storyboard in Resources */,
 				B61CD7B1191E90DE00E172CD /* home@2x.png in Resources */,
+				B61CD7BB191E9C4100E172CD /* background.png in Resources */,
+				B61CD7B9191E9BCC00E172CD /* launch@2x.png in Resources */,
+				B61CD7C5191EA1F100E172CD /* games@2x.png in Resources */,
+				B61CD7C4191EA1F100E172CD /* game@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,7 +810,7 @@
 		B68A556F190E28D90002A4CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -780,7 +824,7 @@
 		B68A5570190E28D90002A4CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

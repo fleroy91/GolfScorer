@@ -44,9 +44,9 @@
     assert(currentGame);
     self.endGameButton.hidden = ! currentGame.is_started;
     if(currentGame.is_started) {
-        self.startGameButton.titleLabel.text = @"Continuer la partie";
+        [self.startGameButton setTitle: @"Continuer la partie" forState:UIControlStateNormal];
     } else {
-        self.startGameButton.titleLabel.text = @"Démarrer la partie";
+        [self.startGameButton setTitle: @"Démarrer la partie" forState:UIControlStateNormal];
     }
 }
 

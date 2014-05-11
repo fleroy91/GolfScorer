@@ -372,31 +372,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NnZ-Ie-pUK">
-                                <rect key="frame" x="54" y="208" width="213" height="30"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZfY-4a-8IF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="578"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <button opaque="NO" alpha="0.74999999999999978" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NnZ-Ie-pUK">
+                                <rect key="frame" x="54" y="207" width="213" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Nouvelle partie"/>
+                                <color key="backgroundColor" red="0.3529411764705882" green="0.44705882352941173" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Nouvelle partie" image="game.png"/>
                                 <connections>
                                     <segue destination="Hbk-ly-gtS" kind="push" identifier="NewGame" id="m7c-VG-dp1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-R2-cz5">
-                                <rect key="frame" x="54" y="269" width="213" height="30"/>
+                            <button opaque="NO" alpha="0.74999999999999978" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-R2-cz5">
+                                <rect key="frame" x="54" y="263" width="213" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Anciennes parties"/>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.44705882349999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Anciennes parties" image="games.png"/>
                                 <connections>
                                     <segue destination="XUb-Nm-OI9" kind="push" identifier="OldGames" id="O68-53-V8Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3e-Kk-Vae">
-                                <rect key="frame" x="54" y="327" width="213" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="News"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxm-B9-k7c">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxm-B9-k7c">
                                 <rect key="frame" x="54" y="512" width="213" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -405,16 +403,22 @@
                                     <action selector="resetAction:" destination="6Aa-ix-dFe" eventType="touchUpInside" id="Zuv-ft-DhC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diR-RG-emD">
-                                <rect key="frame" x="54" y="386" width="213" height="30"/>
+                            <button opaque="NO" alpha="0.74999999999999978" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diR-RG-emD">
+                                <rect key="frame" x="54" y="321" width="213" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Paramètres"/>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.44705882349999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Paramètres" image="settings.png"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NnZ-Ie-pUK" firstAttribute="height" secondItem="5Sn-R2-cz5" secondAttribute="height" id="0dq-lk-yWb"/>
+                            <constraint firstItem="5Sn-R2-cz5" firstAttribute="height" secondItem="diR-RG-emD" secondAttribute="height" id="1q3-3O-s9H"/>
+                            <constraint firstItem="diR-RG-emD" firstAttribute="top" secondItem="5Sn-R2-cz5" secondAttribute="bottom" constant="16" id="Bfp-8Q-y3y"/>
+                            <constraint firstItem="5Sn-R2-cz5" firstAttribute="top" secondItem="NnZ-Ie-pUK" secondAttribute="bottom" constant="16" id="KXQ-i6-Sxh"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Bienvenue" id="hjG-bQ-Pfq"/>
+                    <navigationItem key="navigationItem" title="Golf Scorer" id="hjG-bQ-Pfq"/>
                     <connections>
                         <outlet property="gameButton" destination="NnZ-Ie-pUK" id="F7v-lQ-acC"/>
                     </connections>
@@ -546,7 +550,9 @@
                             <outlet property="delegate" destination="Hbk-ly-gtS" id="41H-ZW-fR2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Partie" id="eae-Df-ilX"/>
+                    <navigationItem key="navigationItem" title="Partie" id="eae-Df-ilX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="GXz-Pf-MNs"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="cj8-Ei-tBh" id="c8Z-Mm-b5r"/>
                         <outlet property="endGameButton" destination="vHt-UG-78I" id="0EM-ni-o71"/>
@@ -651,7 +657,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background.png" width="160" height="284"/>
+        <image name="game.png" width="27" height="27"/>
+        <image name="games.png" width="27" height="27"/>
         <image name="home.png" width="32" height="22"/>
+        <image name="settings.png" width="27" height="27"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

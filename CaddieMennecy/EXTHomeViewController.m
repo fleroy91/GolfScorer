@@ -46,9 +46,9 @@
 {
     currentGame = [Game MR_findFirstByAttribute:@"is_over" withValue:@"NO"];
     if(currentGame) {
-        self.gameButton.titleLabel.text = @"Partie en cours";
+        [self.gameButton setTitle: @"Partie en cours" forState:UIControlStateNormal];
     } else {
-        self.gameButton.titleLabel.text = @"Nouvelle partie";
+        [self.gameButton setTitle: @"Nouvelle partie" forState:UIControlStateNormal];
     }
 }
 
