@@ -10,13 +10,9 @@
 #import "EXTPlayersViewController.h"
 
 @interface EXTGameViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *kindLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nbPlayersLabel;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) FXFormController *formController;
 
-@property (weak, nonatomic) IBOutlet UIButton *startGameButton;
-@property (weak, nonatomic) IBOutlet UIButton *endGameButton;
-- (IBAction)endGame:(id)sender;
 @end
 
 @implementation EXTGameViewController
@@ -34,10 +30,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.formController = [[FXFormController alloc] init];
+    self.formController.tableView = self.tableView;
+    self.formController.delegate = self;
+    self.formController.form = currentGame;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.formController.form = currentGame;
+    [self.tableView reloadData];
+    /*
     [self.dateLabel setText:[currentGame.when description]];
     [self.kindLabel setText:currentGame.kind];
     [self.nbPlayersLabel setText:[NSString stringWithFormat:@"%d", [currentGame.thePlayerGames count]]];
@@ -48,6 +52,7 @@
     } else {
         [self.startGameButton setTitle: @"Démarrer la partie" forState:UIControlStateNormal];
     }
+     */
 }
 
 - (IBAction)endGame:(id)sender
@@ -75,6 +80,13 @@
         [currentGame findOrCreateHolesForPlayers];
     }
 }
+- (void)choosePlayers:(UITableViewCell<FXFormFieldCell> *)cell {
+    [self performSegueWithIdentifier: @"choosePlayers" sender: self];
+}
 
+- (void)doNothing:(UITableViewCell<FXFormFieldCell> *)cell
+{
+    
+}
 
 @end
