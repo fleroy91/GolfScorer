@@ -7,28 +7,34 @@
 //
 
 #import "EXTPlayersViewController.h"
+#import "EXTPlayerViewController.h"
 #import "Game+init.h"
 #import "Player+create.h"
 #import "PlayerGame.h"
 
 @interface EXTPlayersViewController ()
-- (IBAction)showPicker:(id)sender;
-- (void)addPlayer:(ABRecordRef)person;
+- (IBAction)addPlayerFromButton:(id)sender;
+- (void)createPlayerFromPerson:(ABRecordRef)person;
 - (IBAction)enterEditMode:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAddPlayer;
 
 @end
 
 @implementation EXTPlayersViewController
 
-- (void)addPlayer:(ABRecordRef)person
+- (void)createPlayerFromPerson:(ABRecordRef)person
 {
     Player * player = [Player createFromPerson:person];
-    PlayerGame *playerGame = [PlayerGame MR_createEntity];
-    playerGame.forPlayer = player;
-    playerGame.row = [NSNumber numberWithInteger:[currentGame.thePlayerGames count] + 1];
-    playerGame.inGame = currentGame;
-    [playerGame.managedObjectContext MR_saveToPersistentStoreAndWait];
-    [self.tableView reloadData];
+    // We need to display the form
+    [self editPlayer:player withIsNew:YES];
+}
+
+- (void)editPlayer:(Player *)player withIsNew:(BOOL)isNew
+{
+    EXTPlayerViewController *vc = [[EXTPlayerViewController alloc] init];
+    vc.player = player;
+    vc.isNewObject = isNew;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)enterEditMode:(id)sender {
@@ -44,7 +50,7 @@
 // Return NO  to do nothing (the delegate is responsible for dismissing the peoplePicker).
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {
-    [self addPlayer:person];
+    [self createPlayerFromPerson:person];
     [self dismissViewControllerAnimated:YES completion:^(void){ NSLog(@" Dismiss"); }];
     return NO;
 }
@@ -56,14 +62,29 @@
     return NO;
 }
 
-- (IBAction)showPicker:(id)sender
+- (IBAction)addPlayerFromButton:(id)sender
 {
-    if([currentGame.thePlayerGames count] < 4) {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Créer un nouveau joueur"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Annuler"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Nouveau joueur", @"Choisir parmi les contacts", nil];
+    [actionSheet showFromBarButtonItem:self.btnAddPlayer animated:YES];
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    // TODO : do not compare with strings
+    if([buttonTitle isEqualToString:@"Annuler"]) {
+        // We do nothing
+    } else if([buttonTitle isEqualToString:@"Nouveau Joueur"]) {
+        // We need to show a new player form
+        Player *player = [Player MR_createEntity];
+        [self editPlayer:player withIsNew:YES];
+    } else {
         ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
         picker.peoplePickerDelegate = self;
-        [self presentViewController:picker animated:YES completion:^(void){
-            NSLog(@"Done");
-        }];
+        [self presentViewController:picker animated:YES completion:nil];
     }
 }
 
@@ -76,9 +97,10 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

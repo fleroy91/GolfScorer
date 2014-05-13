@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <FXForms.h>
 
 @class PlayerGame;
 
-@interface Player : NSManagedObject
+@interface Player : NSManagedObject <FXForm>
 
 @property (nonatomic, retain) NSString * firstname;
 @property (nonatomic, retain) NSNumber * index;

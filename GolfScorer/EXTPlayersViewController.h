@@ -11,6 +11,8 @@
 #import "Game+init.h"
 
 @interface EXTPlayersViewController : UITableViewController
-<ABPeoplePickerNavigationControllerDelegate>
+<ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate>
+
+- (void)editPlayer:(Player *)player withIsNew:(BOOL)isNew;
 
 @end

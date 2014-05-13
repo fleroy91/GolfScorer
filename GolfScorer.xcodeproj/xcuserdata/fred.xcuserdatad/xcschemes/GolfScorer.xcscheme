@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0510"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -56,24 +56,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B68A555C190E28D90002A4CE"
-               BuildableName = "CaddieMennecyTests.xctest"
-               BlueprintName = "CaddieMennecyTests"
-               ReferencedContainer = "container:CaddieMennecy.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B68A5535190E28D90002A4CE"
-            BuildableName = "CaddieMennecy.app"
-            BlueprintName = "CaddieMennecy"
-            ReferencedContainer = "container:CaddieMennecy.xcodeproj">
+            BuildableName = "GolfScorer.app"
+            BlueprintName = "GolfScorer"
+            ReferencedContainer = "container:GolfScorer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -90,13 +80,17 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B68A5535190E28D90002A4CE"
-            BuildableName = "CaddieMennecy.app"
-            BlueprintName = "CaddieMennecy"
-            ReferencedContainer = "container:CaddieMennecy.xcodeproj">
+            BuildableName = "GolfScorer.app"
+            BlueprintName = "GolfScorer"
+            ReferencedContainer = "container:GolfScorer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
+      <LocationScenarioReference
+         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+         referenceType = "1">
+      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"
