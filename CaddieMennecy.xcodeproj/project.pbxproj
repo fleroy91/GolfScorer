@@ -8,46 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4B19937F1D1145178ECDDA0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F4352125AD4C28BD64781E /* libPods.a */; };
-		B609BB921920F226004B930E /* EXTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB811920F226004B930E /* EXTAppDelegate.m */; };
-		B609BB931920F226004B930E /* EXTGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB831920F226004B930E /* EXTGameViewController.m */; };
-		B609BB941920F226004B930E /* EXTHoleDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB861920F226004B930E /* EXTHoleDataViewController.m */; };
-		B609BB951920F226004B930E /* EXTHolesRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB881920F226004B930E /* EXTHolesRootViewController.m */; };
-		B609BB961920F226004B930E /* EXTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB8A1920F226004B930E /* EXTHomeViewController.m */; };
-		B609BB971920F226004B930E /* EXTModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB8C1920F226004B930E /* EXTModelController.m */; };
-		B609BB981920F226004B930E /* EXTOldGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB8E1920F226004B930E /* EXTOldGamesTableViewController.m */; };
-		B609BB991920F226004B930E /* EXTPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB901920F226004B930E /* EXTPlayersViewController.m */; };
-		B609BB9A1920F226004B930E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B609BB911920F226004B930E /* Images.xcassets */; };
-		B609BBB11920F244004B930E /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB9C1920F244004B930E /* Course.m */; };
-		B609BBB21920F244004B930E /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BB9E1920F244004B930E /* Game.m */; };
-		B609BBB31920F244004B930E /* Game+init.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBA01920F244004B930E /* Game+init.m */; };
-		B609BBB41920F244004B930E /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBA21920F244004B930E /* Hole.m */; };
-		B609BBB51920F244004B930E /* Hole+create.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBA41920F244004B930E /* Hole+create.m */; };
-		B609BBB61920F244004B930E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBA61920F244004B930E /* Player.m */; };
-		B609BBB71920F244004B930E /* Player+create.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBA81920F244004B930E /* Player+create.m */; };
-		B609BBB81920F244004B930E /* PlayerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBAA1920F244004B930E /* PlayerGame.m */; };
-		B609BBB91920F244004B930E /* PlayerGame+addon.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBAC1920F244004B930E /* PlayerGame+addon.m */; };
-		B609BBBA1920F244004B930E /* PlayerGameHole.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBAE1920F244004B930E /* PlayerGameHole.m */; };
-		B609BBBB1920F244004B930E /* PlayerGameHole+form.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBB01920F244004B930E /* PlayerGameHole+form.m */; };
-		B609BBC91920F265004B930E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBBC1920F265004B930E /* background.png */; };
-		B609BBCA1920F265004B930E /* game@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBBD1920F265004B930E /* game@2x.png */; };
-		B609BBCB1920F265004B930E /* games@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBBE1920F265004B930E /* games@2x.png */; };
-		B609BBCC1920F265004B930E /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBBF1920F265004B930E /* home.png */; };
-		B609BBCD1920F265004B930E /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC01920F265004B930E /* home@2x.png */; };
-		B609BBCE1920F265004B930E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC11920F265004B930E /* icon.png */; };
-		B609BBCF1920F265004B930E /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC21920F265004B930E /* icon@2x.png */; };
-		B609BBD01920F265004B930E /* icon40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC31920F265004B930E /* icon40@2x.png */; };
-		B609BBD11920F265004B930E /* icon60.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC41920F265004B930E /* icon60.png */; };
-		B609BBD21920F265004B930E /* launch-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC51920F265004B930E /* launch-568h@2x.png */; };
-		B609BBD31920F265004B930E /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC61920F265004B930E /* launch@2x.png */; };
-		B609BBD41920F265004B930E /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC71920F265004B930E /* play@2x.png */; };
-		B609BBD51920F265004B930E /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B609BBC81920F265004B930E /* settings@2x.png */; };
-		B609BBD81920F2AD004B930E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B609BBD61920F2AD004B930E /* Main.storyboard */; };
-		B609BBDA1920F2D3004B930E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B609BBD91920F2D3004B930E /* Podfile */; };
-		B609BBDE1920F2F0004B930E /* GolfScorer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B609BBDB1920F2F0004B930E /* GolfScorer-Info.plist */; };
-		B609BBDF1920F2F0004B930E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBDD1920F2F0004B930E /* main.m */; };
-		B609BBE21920F307004B930E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B609BBE01920F307004B930E /* InfoPlist.strings */; };
-		B609BBE41920F436004B930E /* GolfScorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBE31920F436004B930E /* GolfScorerTests.m */; };
-		B609BBE51920F442004B930E /* GolfScorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBE31920F436004B930E /* GolfScorerTests.m */; };
 		B61CD5FE19182E2800E172CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CD5FD19182E2800E172CD /* CoreData.framework */; };
 		B61CD63D1918328100E172CD /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6031918328100E172CD /* MagicalImportFunctions.m */; };
 		B61CD63E1918328100E172CD /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6051918328100E172CD /* NSAttributeDescription+MagicalDataImport.m */; };
@@ -75,16 +35,54 @@
 		B61CD6541918328100E172CD /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6341918328100E172CD /* MagicalRecord+Setup.m */; };
 		B61CD6551918328100E172CD /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6361918328100E172CD /* MagicalRecord+ShorthandSupport.m */; };
 		B61CD6561918328100E172CD /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6381918328100E172CD /* MagicalRecord.m */; };
+		B61CD6951919256D00E172CD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B61CD6941919256D00E172CD /* Podfile */; };
+		B61CD6E0191A0A2800E172CD /* Hole+create.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6DF191A0A2800E172CD /* Hole+create.m */; };
+		B61CD707191C108400E172CD /* PlayerGame+addon.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD706191C108400E172CD /* PlayerGame+addon.m */; };
+		B61CD72E191E30AB00E172CD /* PlayerGameHole+form.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD72D191E30AB00E172CD /* PlayerGameHole+form.m */; };
+		B61CD79D191E89EB00E172CD /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD79C191E89EB00E172CD /* Game.m */; };
+		B61CD7A0191E89EC00E172CD /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD79F191E89EC00E172CD /* Player.m */; };
+		B61CD7A3191E89EC00E172CD /* PlayerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD7A2191E89EC00E172CD /* PlayerGame.m */; };
+		B61CD7A6191E89EC00E172CD /* PlayerGameHole.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD7A5191E89EC00E172CD /* PlayerGameHole.m */; };
+		B61CD7A9191E89EC00E172CD /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD7A8191E89EC00E172CD /* Hole.m */; };
+		B61CD7AC191E89EC00E172CD /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD7AB191E89EC00E172CD /* Course.m */; };
+		B61CD7B0191E90DE00E172CD /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7AE191E90DE00E172CD /* home.png */; };
+		B61CD7B1191E90DE00E172CD /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7AF191E90DE00E172CD /* home@2x.png */; };
+		B61CD7B6191E9BCC00E172CD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B2191E9BCC00E172CD /* icon.png */; };
+		B61CD7B7191E9BCC00E172CD /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B3191E9BCC00E172CD /* icon@2x.png */; };
+		B61CD7B8191E9BCC00E172CD /* launch-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B4191E9BCC00E172CD /* launch-568h@2x.png */; };
+		B61CD7B9191E9BCC00E172CD /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7B5191E9BCC00E172CD /* launch@2x.png */; };
+		B61CD7BB191E9C4100E172CD /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7BA191E9C4100E172CD /* background.png */; };
+		B61CD7BD191E9E1F00E172CD /* icon60.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7BC191E9E1F00E172CD /* icon60.png */; };
+		B61CD7BF191E9F2A00E172CD /* icon40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7BE191E9F2A00E172CD /* icon40@2x.png */; };
+		B61CD7C4191EA1F100E172CD /* game@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C0191EA1F100E172CD /* game@2x.png */; };
+		B61CD7C5191EA1F100E172CD /* games@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C1191EA1F100E172CD /* games@2x.png */; };
+		B61CD7C6191EA1F100E172CD /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C2191EA1F100E172CD /* play@2x.png */; };
+		B61CD7C7191EA1F100E172CD /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C3191EA1F100E172CD /* settings@2x.png */; };
+		B62EECB5190F7BA300390F0D /* EXTGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EECB4190F7BA300390F0D /* EXTGameViewController.m */; };
 		B62EECB8190F7D3500390F0D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB6190F7D3500390F0D /* AddressBook.framework */; };
 		B62EECB9190F7D3500390F0D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB7190F7D3500390F0D /* AddressBookUI.framework */; };
+		B62EECC2190F88DC00390F0D /* EXTPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EECC1190F88DC00390F0D /* EXTPlayersViewController.m */; };
 		B63926901911715100AC48D0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B639268E1911715100AC48D0 /* Model.xcdatamodeld */; };
+		B639269919136D8000AC48D0 /* EXTOldGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B639269819136D8000AC48D0 /* EXTOldGamesTableViewController.m */; };
+		B639269C19136ED000AC48D0 /* EXTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B639269B19136ED000AC48D0 /* EXTHomeViewController.m */; };
+		B63926A51914065A00AC48D0 /* Game+init.m in Sources */ = {isa = PBXBuildFile; fileRef = B63926A41914065A00AC48D0 /* Game+init.m */; };
+		B63926A91914081000AC48D0 /* Player+create.m in Sources */ = {isa = PBXBuildFile; fileRef = B63926A81914081000AC48D0 /* Player+create.m */; };
 		B68A553A190E28D90002A4CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A5539190E28D90002A4CE /* Foundation.framework */; };
 		B68A553C190E28D90002A4CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553B190E28D90002A4CE /* CoreGraphics.framework */; };
 		B68A553E190E28D90002A4CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553D190E28D90002A4CE /* UIKit.framework */; };
+		B68A5544190E28D90002A4CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A5542190E28D90002A4CE /* InfoPlist.strings */; };
+		B68A5546190E28D90002A4CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A5545190E28D90002A4CE /* main.m */; };
+		B68A554A190E28D90002A4CE /* EXTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A5549190E28D90002A4CE /* EXTAppDelegate.m */; };
+		B68A554D190E28D90002A4CE /* EXTHolesRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A554C190E28D90002A4CE /* EXTHolesRootViewController.m */; };
+		B68A5550190E28D90002A4CE /* EXTHoleDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A554F190E28D90002A4CE /* EXTHoleDataViewController.m */; };
+		B68A5553190E28D90002A4CE /* EXTModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A5552190E28D90002A4CE /* EXTModelController.m */; };
+		B68A5556190E28D90002A4CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68A5554190E28D90002A4CE /* Main.storyboard */; };
+		B68A5558190E28D90002A4CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68A5557190E28D90002A4CE /* Images.xcassets */; };
 		B68A555F190E28D90002A4CE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A555E190E28D90002A4CE /* XCTest.framework */; };
 		B68A5560190E28D90002A4CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A5539190E28D90002A4CE /* Foundation.framework */; };
 		B68A5561190E28D90002A4CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553D190E28D90002A4CE /* UIKit.framework */; };
 		B68A5569190E28D90002A4CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A5567190E28D90002A4CE /* InfoPlist.strings */; };
+		B68A556B190E28D90002A4CE /* CaddieMennecyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A556A190E28D90002A4CE /* CaddieMennecyTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,66 +97,6 @@
 
 /* Begin PBXFileReference section */
 		52F4352125AD4C28BD64781E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B609BB801920F226004B930E /* EXTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTAppDelegate.h; path = GolfScorer/EXTAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		B609BB811920F226004B930E /* EXTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTAppDelegate.m; path = GolfScorer/EXTAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		B609BB821920F226004B930E /* EXTGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTGameViewController.h; path = GolfScorer/EXTGameViewController.h; sourceTree = SOURCE_ROOT; };
-		B609BB831920F226004B930E /* EXTGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTGameViewController.m; path = GolfScorer/EXTGameViewController.m; sourceTree = SOURCE_ROOT; };
-		B609BB841920F226004B930E /* EXTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTGlobal.h; path = GolfScorer/EXTGlobal.h; sourceTree = SOURCE_ROOT; };
-		B609BB851920F226004B930E /* EXTHoleDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTHoleDataViewController.h; path = GolfScorer/EXTHoleDataViewController.h; sourceTree = SOURCE_ROOT; };
-		B609BB861920F226004B930E /* EXTHoleDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTHoleDataViewController.m; path = GolfScorer/EXTHoleDataViewController.m; sourceTree = SOURCE_ROOT; };
-		B609BB871920F226004B930E /* EXTHolesRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTHolesRootViewController.h; path = GolfScorer/EXTHolesRootViewController.h; sourceTree = SOURCE_ROOT; };
-		B609BB881920F226004B930E /* EXTHolesRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTHolesRootViewController.m; path = GolfScorer/EXTHolesRootViewController.m; sourceTree = SOURCE_ROOT; };
-		B609BB891920F226004B930E /* EXTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTHomeViewController.h; path = GolfScorer/EXTHomeViewController.h; sourceTree = SOURCE_ROOT; };
-		B609BB8A1920F226004B930E /* EXTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTHomeViewController.m; path = GolfScorer/EXTHomeViewController.m; sourceTree = SOURCE_ROOT; };
-		B609BB8B1920F226004B930E /* EXTModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTModelController.h; path = GolfScorer/EXTModelController.h; sourceTree = SOURCE_ROOT; };
-		B609BB8C1920F226004B930E /* EXTModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTModelController.m; path = GolfScorer/EXTModelController.m; sourceTree = SOURCE_ROOT; };
-		B609BB8D1920F226004B930E /* EXTOldGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTOldGamesTableViewController.h; path = GolfScorer/EXTOldGamesTableViewController.h; sourceTree = SOURCE_ROOT; };
-		B609BB8E1920F226004B930E /* EXTOldGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTOldGamesTableViewController.m; path = GolfScorer/EXTOldGamesTableViewController.m; sourceTree = SOURCE_ROOT; };
-		B609BB8F1920F226004B930E /* EXTPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXTPlayersViewController.h; path = GolfScorer/EXTPlayersViewController.h; sourceTree = SOURCE_ROOT; };
-		B609BB901920F226004B930E /* EXTPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXTPlayersViewController.m; path = GolfScorer/EXTPlayersViewController.m; sourceTree = SOURCE_ROOT; };
-		B609BB911920F226004B930E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GolfScorer/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		B609BB9B1920F244004B930E /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = GolfScorer/Course.h; sourceTree = SOURCE_ROOT; };
-		B609BB9C1920F244004B930E /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = GolfScorer/Course.m; sourceTree = SOURCE_ROOT; };
-		B609BB9D1920F244004B930E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = GolfScorer/Game.h; sourceTree = SOURCE_ROOT; };
-		B609BB9E1920F244004B930E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = GolfScorer/Game.m; sourceTree = SOURCE_ROOT; };
-		B609BB9F1920F244004B930E /* Game+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Game+init.h"; path = "GolfScorer/Game+init.h"; sourceTree = SOURCE_ROOT; };
-		B609BBA01920F244004B930E /* Game+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Game+init.m"; path = "GolfScorer/Game+init.m"; sourceTree = SOURCE_ROOT; };
-		B609BBA11920F244004B930E /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hole.h; path = GolfScorer/Hole.h; sourceTree = SOURCE_ROOT; };
-		B609BBA21920F244004B930E /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hole.m; path = GolfScorer/Hole.m; sourceTree = SOURCE_ROOT; };
-		B609BBA31920F244004B930E /* Hole+create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hole+create.h"; path = "GolfScorer/Hole+create.h"; sourceTree = SOURCE_ROOT; };
-		B609BBA41920F244004B930E /* Hole+create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Hole+create.m"; path = "GolfScorer/Hole+create.m"; sourceTree = SOURCE_ROOT; };
-		B609BBA51920F244004B930E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = GolfScorer/Player.h; sourceTree = SOURCE_ROOT; };
-		B609BBA61920F244004B930E /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = GolfScorer/Player.m; sourceTree = SOURCE_ROOT; };
-		B609BBA71920F244004B930E /* Player+create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Player+create.h"; path = "GolfScorer/Player+create.h"; sourceTree = SOURCE_ROOT; };
-		B609BBA81920F244004B930E /* Player+create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Player+create.m"; path = "GolfScorer/Player+create.m"; sourceTree = SOURCE_ROOT; };
-		B609BBA91920F244004B930E /* PlayerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerGame.h; path = GolfScorer/PlayerGame.h; sourceTree = SOURCE_ROOT; };
-		B609BBAA1920F244004B930E /* PlayerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerGame.m; path = GolfScorer/PlayerGame.m; sourceTree = SOURCE_ROOT; };
-		B609BBAB1920F244004B930E /* PlayerGame+addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PlayerGame+addon.h"; path = "GolfScorer/PlayerGame+addon.h"; sourceTree = SOURCE_ROOT; };
-		B609BBAC1920F244004B930E /* PlayerGame+addon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PlayerGame+addon.m"; path = "GolfScorer/PlayerGame+addon.m"; sourceTree = SOURCE_ROOT; };
-		B609BBAD1920F244004B930E /* PlayerGameHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerGameHole.h; path = GolfScorer/PlayerGameHole.h; sourceTree = SOURCE_ROOT; };
-		B609BBAE1920F244004B930E /* PlayerGameHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerGameHole.m; path = GolfScorer/PlayerGameHole.m; sourceTree = SOURCE_ROOT; };
-		B609BBAF1920F244004B930E /* PlayerGameHole+form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PlayerGameHole+form.h"; path = "GolfScorer/PlayerGameHole+form.h"; sourceTree = SOURCE_ROOT; };
-		B609BBB01920F244004B930E /* PlayerGameHole+form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PlayerGameHole+form.m"; path = "GolfScorer/PlayerGameHole+form.m"; sourceTree = SOURCE_ROOT; };
-		B609BBBC1920F265004B930E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = GolfScorer/images/background.png; sourceTree = "<group>"; };
-		B609BBBD1920F265004B930E /* game@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "game@2x.png"; path = "GolfScorer/images/game@2x.png"; sourceTree = "<group>"; };
-		B609BBBE1920F265004B930E /* games@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "games@2x.png"; path = "GolfScorer/images/games@2x.png"; sourceTree = "<group>"; };
-		B609BBBF1920F265004B930E /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = GolfScorer/images/home.png; sourceTree = "<group>"; };
-		B609BBC01920F265004B930E /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home@2x.png"; path = "GolfScorer/images/home@2x.png"; sourceTree = "<group>"; };
-		B609BBC11920F265004B930E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = GolfScorer/images/icon.png; sourceTree = "<group>"; };
-		B609BBC21920F265004B930E /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "GolfScorer/images/icon@2x.png"; sourceTree = "<group>"; };
-		B609BBC31920F265004B930E /* icon40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon40@2x.png"; path = "GolfScorer/images/icon40@2x.png"; sourceTree = "<group>"; };
-		B609BBC41920F265004B930E /* icon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon60.png; path = GolfScorer/images/icon60.png; sourceTree = "<group>"; };
-		B609BBC51920F265004B930E /* launch-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-568h@2x.png"; path = "GolfScorer/images/launch-568h@2x.png"; sourceTree = "<group>"; };
-		B609BBC61920F265004B930E /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch@2x.png"; path = "GolfScorer/images/launch@2x.png"; sourceTree = "<group>"; };
-		B609BBC71920F265004B930E /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@2x.png"; path = "GolfScorer/images/play@2x.png"; sourceTree = "<group>"; };
-		B609BBC81920F265004B930E /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "GolfScorer/images/settings@2x.png"; sourceTree = "<group>"; };
-		B609BBD71920F2AD004B930E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GolfScorer/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
-		B609BBD91920F2D3004B930E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
-		B609BBDB1920F2F0004B930E /* GolfScorer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GolfScorer-Info.plist"; path = "GolfScorer/GolfScorer-Info.plist"; sourceTree = SOURCE_ROOT; };
-		B609BBDC1920F2F0004B930E /* GolfScorer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GolfScorer-Prefix.pch"; path = "GolfScorer/GolfScorer-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		B609BBDD1920F2F0004B930E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GolfScorer/main.m; sourceTree = SOURCE_ROOT; };
-		B609BBE11920F307004B930E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = GolfScorer/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		B609BBE31920F436004B930E /* GolfScorerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GolfScorerTests.m; path = GolfScorerTests/GolfScorerTests.m; sourceTree = SOURCE_ROOT; };
 		B61CD5FD19182E2800E172CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B61CD6021918328100E172CD /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		B61CD6031918328100E172CD /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
@@ -216,17 +154,77 @@
 		B61CD63A1918328100E172CD /* MagicalRecordLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordLogging.h; sourceTree = "<group>"; };
 		B61CD63B1918328100E172CD /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		B61CD63C1918328100E172CD /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		B61CD6571918339700E172CD /* EXTGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTGlobal.h; sourceTree = "<group>"; };
+		B61CD6941919256D00E172CD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
+		B61CD6DE191A0A2800E172CD /* Hole+create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hole+create.h"; sourceTree = "<group>"; };
+		B61CD6DF191A0A2800E172CD /* Hole+create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Hole+create.m"; sourceTree = "<group>"; };
+		B61CD705191C108400E172CD /* PlayerGame+addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerGame+addon.h"; sourceTree = "<group>"; };
+		B61CD706191C108400E172CD /* PlayerGame+addon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayerGame+addon.m"; sourceTree = "<group>"; };
+		B61CD72C191E30AB00E172CD /* PlayerGameHole+form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerGameHole+form.h"; sourceTree = "<group>"; };
+		B61CD72D191E30AB00E172CD /* PlayerGameHole+form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayerGameHole+form.m"; sourceTree = "<group>"; };
+		B61CD79B191E89EB00E172CD /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		B61CD79C191E89EB00E172CD /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		B61CD79E191E89EC00E172CD /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B61CD79F191E89EC00E172CD /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		B61CD7A1191E89EC00E172CD /* PlayerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGame.h; sourceTree = "<group>"; };
+		B61CD7A2191E89EC00E172CD /* PlayerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGame.m; sourceTree = "<group>"; };
+		B61CD7A4191E89EC00E172CD /* PlayerGameHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGameHole.h; sourceTree = "<group>"; };
+		B61CD7A5191E89EC00E172CD /* PlayerGameHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGameHole.m; sourceTree = "<group>"; };
+		B61CD7A7191E89EC00E172CD /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
+		B61CD7A8191E89EC00E172CD /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
+		B61CD7AA191E89EC00E172CD /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		B61CD7AB191E89EC00E172CD /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		B61CD7AE191E90DE00E172CD /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = CaddieMennecy/images/home.png; sourceTree = "<group>"; };
+		B61CD7AF191E90DE00E172CD /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home@2x.png"; path = "CaddieMennecy/images/home@2x.png"; sourceTree = "<group>"; };
+		B61CD7B2191E9BCC00E172CD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = CaddieMennecy/images/icon.png; sourceTree = "<group>"; };
+		B61CD7B3191E9BCC00E172CD /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "CaddieMennecy/images/icon@2x.png"; sourceTree = "<group>"; };
+		B61CD7B4191E9BCC00E172CD /* launch-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-568h@2x.png"; path = "CaddieMennecy/images/launch-568h@2x.png"; sourceTree = "<group>"; };
+		B61CD7B5191E9BCC00E172CD /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch@2x.png"; path = "CaddieMennecy/images/launch@2x.png"; sourceTree = "<group>"; };
+		B61CD7BA191E9C4100E172CD /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = CaddieMennecy/images/background.png; sourceTree = "<group>"; };
+		B61CD7BC191E9E1F00E172CD /* icon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon60.png; path = CaddieMennecy/images/icon60.png; sourceTree = "<group>"; };
+		B61CD7BE191E9F2A00E172CD /* icon40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon40@2x.png"; path = "CaddieMennecy/images/icon40@2x.png"; sourceTree = "<group>"; };
+		B61CD7C0191EA1F100E172CD /* game@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "game@2x.png"; path = "CaddieMennecy/images/game@2x.png"; sourceTree = "<group>"; };
+		B61CD7C1191EA1F100E172CD /* games@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "games@2x.png"; path = "CaddieMennecy/images/games@2x.png"; sourceTree = "<group>"; };
+		B61CD7C2191EA1F100E172CD /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@2x.png"; path = "CaddieMennecy/images/play@2x.png"; sourceTree = "<group>"; };
+		B61CD7C3191EA1F100E172CD /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "CaddieMennecy/images/settings@2x.png"; sourceTree = "<group>"; };
+		B62EECB3190F7BA300390F0D /* EXTGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTGameViewController.h; sourceTree = "<group>"; };
+		B62EECB4190F7BA300390F0D /* EXTGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTGameViewController.m; sourceTree = "<group>"; };
 		B62EECB6190F7D3500390F0D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		B62EECB7190F7D3500390F0D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		B62EECC0190F88DC00390F0D /* EXTPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTPlayersViewController.h; sourceTree = "<group>"; };
+		B62EECC1190F88DC00390F0D /* EXTPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTPlayersViewController.m; sourceTree = "<group>"; };
 		B639268F1911715100AC48D0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		B68A5536190E28D90002A4CE /* GolfScorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfScorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B639269719136D8000AC48D0 /* EXTOldGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTOldGamesTableViewController.h; sourceTree = "<group>"; };
+		B639269819136D8000AC48D0 /* EXTOldGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTOldGamesTableViewController.m; sourceTree = "<group>"; };
+		B639269A19136ED000AC48D0 /* EXTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTHomeViewController.h; sourceTree = "<group>"; };
+		B639269B19136ED000AC48D0 /* EXTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTHomeViewController.m; sourceTree = "<group>"; };
+		B63926A31914065A00AC48D0 /* Game+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Game+init.h"; sourceTree = "<group>"; };
+		B63926A41914065A00AC48D0 /* Game+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Game+init.m"; sourceTree = "<group>"; };
+		B63926A71914081000AC48D0 /* Player+create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Player+create.h"; sourceTree = "<group>"; };
+		B63926A81914081000AC48D0 /* Player+create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Player+create.m"; sourceTree = "<group>"; };
+		B68A5536190E28D90002A4CE /* CaddieMennecy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaddieMennecy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68A5539190E28D90002A4CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B68A553B190E28D90002A4CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B68A553D190E28D90002A4CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B68A555D190E28D90002A4CE /* GolfScorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GolfScorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B68A5541190E28D90002A4CE /* CaddieMennecy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CaddieMennecy-Info.plist"; sourceTree = "<group>"; };
+		B68A5543190E28D90002A4CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B68A5545190E28D90002A4CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B68A5547190E28D90002A4CE /* CaddieMennecy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CaddieMennecy-Prefix.pch"; sourceTree = "<group>"; };
+		B68A5548190E28D90002A4CE /* EXTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTAppDelegate.h; sourceTree = "<group>"; };
+		B68A5549190E28D90002A4CE /* EXTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTAppDelegate.m; sourceTree = "<group>"; };
+		B68A554B190E28D90002A4CE /* EXTHolesRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTHolesRootViewController.h; sourceTree = "<group>"; };
+		B68A554C190E28D90002A4CE /* EXTHolesRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTHolesRootViewController.m; sourceTree = "<group>"; };
+		B68A554E190E28D90002A4CE /* EXTHoleDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTHoleDataViewController.h; sourceTree = "<group>"; };
+		B68A554F190E28D90002A4CE /* EXTHoleDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTHoleDataViewController.m; sourceTree = "<group>"; };
+		B68A5551190E28D90002A4CE /* EXTModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTModelController.h; sourceTree = "<group>"; };
+		B68A5552190E28D90002A4CE /* EXTModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTModelController.m; sourceTree = "<group>"; };
+		B68A5555190E28D90002A4CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B68A5557190E28D90002A4CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B68A555D190E28D90002A4CE /* CaddieMennecyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaddieMennecyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68A555E190E28D90002A4CE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B68A5566190E28D90002A4CE /* GolfScorerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GolfScorerTests-Info.plist"; sourceTree = "<group>"; };
+		B68A5566190E28D90002A4CE /* CaddieMennecyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CaddieMennecyTests-Info.plist"; sourceTree = "<group>"; };
 		B68A5568190E28D90002A4CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B68A556A190E28D90002A4CE /* CaddieMennecyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaddieMennecyTests.m; sourceTree = "<group>"; };
 		BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -365,19 +363,19 @@
 		B61CD7AD191E90CC00E172CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B609BBBC1920F265004B930E /* background.png */,
-				B609BBBD1920F265004B930E /* game@2x.png */,
-				B609BBBE1920F265004B930E /* games@2x.png */,
-				B609BBBF1920F265004B930E /* home.png */,
-				B609BBC01920F265004B930E /* home@2x.png */,
-				B609BBC11920F265004B930E /* icon.png */,
-				B609BBC21920F265004B930E /* icon@2x.png */,
-				B609BBC31920F265004B930E /* icon40@2x.png */,
-				B609BBC41920F265004B930E /* icon60.png */,
-				B609BBC51920F265004B930E /* launch-568h@2x.png */,
-				B609BBC61920F265004B930E /* launch@2x.png */,
-				B609BBC71920F265004B930E /* play@2x.png */,
-				B609BBC81920F265004B930E /* settings@2x.png */,
+				B61CD7C0191EA1F100E172CD /* game@2x.png */,
+				B61CD7C1191EA1F100E172CD /* games@2x.png */,
+				B61CD7C2191EA1F100E172CD /* play@2x.png */,
+				B61CD7C3191EA1F100E172CD /* settings@2x.png */,
+				B61CD7BE191E9F2A00E172CD /* icon40@2x.png */,
+				B61CD7BC191E9E1F00E172CD /* icon60.png */,
+				B61CD7BA191E9C4100E172CD /* background.png */,
+				B61CD7B2191E9BCC00E172CD /* icon.png */,
+				B61CD7B3191E9BCC00E172CD /* icon@2x.png */,
+				B61CD7B4191E9BCC00E172CD /* launch-568h@2x.png */,
+				B61CD7B5191E9BCC00E172CD /* launch@2x.png */,
+				B61CD7AE191E90DE00E172CD /* home.png */,
+				B61CD7AF191E90DE00E172CD /* home@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -385,29 +383,29 @@
 		B63926A61914070800AC48D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B609BB9B1920F244004B930E /* Course.h */,
-				B609BB9C1920F244004B930E /* Course.m */,
-				B609BB9D1920F244004B930E /* Game.h */,
-				B609BB9E1920F244004B930E /* Game.m */,
-				B609BB9F1920F244004B930E /* Game+init.h */,
-				B609BBA01920F244004B930E /* Game+init.m */,
-				B609BBA11920F244004B930E /* Hole.h */,
-				B609BBA21920F244004B930E /* Hole.m */,
-				B609BBA31920F244004B930E /* Hole+create.h */,
-				B609BBA41920F244004B930E /* Hole+create.m */,
-				B609BBA51920F244004B930E /* Player.h */,
-				B609BBA61920F244004B930E /* Player.m */,
-				B609BBA71920F244004B930E /* Player+create.h */,
-				B609BBA81920F244004B930E /* Player+create.m */,
-				B609BBA91920F244004B930E /* PlayerGame.h */,
-				B609BBAA1920F244004B930E /* PlayerGame.m */,
-				B609BBAB1920F244004B930E /* PlayerGame+addon.h */,
-				B609BBAC1920F244004B930E /* PlayerGame+addon.m */,
-				B609BBAD1920F244004B930E /* PlayerGameHole.h */,
-				B609BBAE1920F244004B930E /* PlayerGameHole.m */,
-				B609BBAF1920F244004B930E /* PlayerGameHole+form.h */,
-				B609BBB01920F244004B930E /* PlayerGameHole+form.m */,
+				B61CD6DE191A0A2800E172CD /* Hole+create.h */,
+				B61CD6DF191A0A2800E172CD /* Hole+create.m */,
+				B63926A31914065A00AC48D0 /* Game+init.h */,
+				B63926A41914065A00AC48D0 /* Game+init.m */,
+				B63926A71914081000AC48D0 /* Player+create.h */,
+				B63926A81914081000AC48D0 /* Player+create.m */,
+				B61CD705191C108400E172CD /* PlayerGame+addon.h */,
+				B61CD706191C108400E172CD /* PlayerGame+addon.m */,
 				B639268E1911715100AC48D0 /* Model.xcdatamodeld */,
+				B61CD7AA191E89EC00E172CD /* Course.h */,
+				B61CD7AB191E89EC00E172CD /* Course.m */,
+				B61CD7A7191E89EC00E172CD /* Hole.h */,
+				B61CD7A8191E89EC00E172CD /* Hole.m */,
+				B61CD7A4191E89EC00E172CD /* PlayerGameHole.h */,
+				B61CD7A5191E89EC00E172CD /* PlayerGameHole.m */,
+				B61CD7A1191E89EC00E172CD /* PlayerGame.h */,
+				B61CD7A2191E89EC00E172CD /* PlayerGame.m */,
+				B61CD79E191E89EC00E172CD /* Player.h */,
+				B61CD79F191E89EC00E172CD /* Player.m */,
+				B61CD79B191E89EB00E172CD /* Game.h */,
+				B61CD79C191E89EB00E172CD /* Game.m */,
+				B61CD72C191E30AB00E172CD /* PlayerGameHole+form.h */,
+				B61CD72D191E30AB00E172CD /* PlayerGameHole+form.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -417,8 +415,8 @@
 			children = (
 				B61CD7AD191E90CC00E172CD /* Images */,
 				B61CD5FF1918328100E172CD /* MagicalRecord */,
-				B68A553F190E28D90002A4CE /* GolfScorer */,
-				B68A5564190E28D90002A4CE /* GolfScorerTests */,
+				B68A553F190E28D90002A4CE /* CaddieMennecy */,
+				B68A5564190E28D90002A4CE /* CaddieMennecyTests */,
 				B68A5538190E28D90002A4CE /* Frameworks */,
 				B68A5537190E28D90002A4CE /* Products */,
 				BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */,
@@ -428,8 +426,8 @@
 		B68A5537190E28D90002A4CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B68A5536190E28D90002A4CE /* GolfScorer.app */,
-				B68A555D190E28D90002A4CE /* GolfScorerTests.xctest */,
+				B68A5536190E28D90002A4CE /* CaddieMennecy.app */,
+				B68A555D190E28D90002A4CE /* CaddieMennecyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -449,61 +447,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B68A553F190E28D90002A4CE /* GolfScorer */ = {
+		B68A553F190E28D90002A4CE /* CaddieMennecy */ = {
 			isa = PBXGroup;
 			children = (
-				B609BBD61920F2AD004B930E /* Main.storyboard */,
-				B609BB801920F226004B930E /* EXTAppDelegate.h */,
-				B609BB811920F226004B930E /* EXTAppDelegate.m */,
-				B609BB821920F226004B930E /* EXTGameViewController.h */,
-				B609BB831920F226004B930E /* EXTGameViewController.m */,
-				B609BB841920F226004B930E /* EXTGlobal.h */,
-				B609BB851920F226004B930E /* EXTHoleDataViewController.h */,
-				B609BB861920F226004B930E /* EXTHoleDataViewController.m */,
-				B609BB871920F226004B930E /* EXTHolesRootViewController.h */,
-				B609BB881920F226004B930E /* EXTHolesRootViewController.m */,
-				B609BB891920F226004B930E /* EXTHomeViewController.h */,
-				B609BB8A1920F226004B930E /* EXTHomeViewController.m */,
-				B609BB8B1920F226004B930E /* EXTModelController.h */,
-				B609BB8C1920F226004B930E /* EXTModelController.m */,
-				B609BB8D1920F226004B930E /* EXTOldGamesTableViewController.h */,
-				B609BB8E1920F226004B930E /* EXTOldGamesTableViewController.m */,
-				B609BB8F1920F226004B930E /* EXTPlayersViewController.h */,
-				B609BB901920F226004B930E /* EXTPlayersViewController.m */,
-				B609BB911920F226004B930E /* Images.xcassets */,
+				B61CD6571918339700E172CD /* EXTGlobal.h */,
+				B68A5548190E28D90002A4CE /* EXTAppDelegate.h */,
+				B68A5549190E28D90002A4CE /* EXTAppDelegate.m */,
+				B639269A19136ED000AC48D0 /* EXTHomeViewController.h */,
+				B639269B19136ED000AC48D0 /* EXTHomeViewController.m */,
+				B62EECB3190F7BA300390F0D /* EXTGameViewController.h */,
+				B62EECB4190F7BA300390F0D /* EXTGameViewController.m */,
+				B62EECC0190F88DC00390F0D /* EXTPlayersViewController.h */,
+				B62EECC1190F88DC00390F0D /* EXTPlayersViewController.m */,
+				B639269719136D8000AC48D0 /* EXTOldGamesTableViewController.h */,
+				B639269819136D8000AC48D0 /* EXTOldGamesTableViewController.m */,
+				B68A554B190E28D90002A4CE /* EXTHolesRootViewController.h */,
+				B68A554C190E28D90002A4CE /* EXTHolesRootViewController.m */,
+				B68A5551190E28D90002A4CE /* EXTModelController.h */,
+				B68A5552190E28D90002A4CE /* EXTModelController.m */,
+				B68A554E190E28D90002A4CE /* EXTHoleDataViewController.h */,
+				B68A554F190E28D90002A4CE /* EXTHoleDataViewController.m */,
+				B68A5554190E28D90002A4CE /* Main.storyboard */,
+				B68A5557190E28D90002A4CE /* Images.xcassets */,
 				B63926A61914070800AC48D0 /* Model */,
 				B68A5540190E28D90002A4CE /* Supporting Files */,
 			);
-			name = GolfScorer;
 			path = CaddieMennecy;
 			sourceTree = "<group>";
 		};
 		B68A5540190E28D90002A4CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B609BBE01920F307004B930E /* InfoPlist.strings */,
-				B609BBDB1920F2F0004B930E /* GolfScorer-Info.plist */,
-				B609BBDC1920F2F0004B930E /* GolfScorer-Prefix.pch */,
-				B609BBDD1920F2F0004B930E /* main.m */,
-				B609BBD91920F2D3004B930E /* Podfile */,
+				B61CD6941919256D00E172CD /* Podfile */,
+				B68A5541190E28D90002A4CE /* CaddieMennecy-Info.plist */,
+				B68A5542190E28D90002A4CE /* InfoPlist.strings */,
+				B68A5545190E28D90002A4CE /* main.m */,
+				B68A5547190E28D90002A4CE /* CaddieMennecy-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B68A5564190E28D90002A4CE /* GolfScorerTests */ = {
+		B68A5564190E28D90002A4CE /* CaddieMennecyTests */ = {
 			isa = PBXGroup;
 			children = (
-				B609BBE31920F436004B930E /* GolfScorerTests.m */,
+				B68A556A190E28D90002A4CE /* CaddieMennecyTests.m */,
 				B68A5565190E28D90002A4CE /* Supporting Files */,
 			);
-			name = GolfScorerTests;
 			path = CaddieMennecyTests;
 			sourceTree = "<group>";
 		};
 		B68A5565190E28D90002A4CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B68A5566190E28D90002A4CE /* GolfScorerTests-Info.plist */,
+				B68A5566190E28D90002A4CE /* CaddieMennecyTests-Info.plist */,
 				B68A5567190E28D90002A4CE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -512,9 +508,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B68A5535190E28D90002A4CE /* GolfScorer */ = {
+		B68A5535190E28D90002A4CE /* CaddieMennecy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B68A556E190E28D90002A4CE /* Build configuration list for PBXNativeTarget "GolfScorer" */;
+			buildConfigurationList = B68A556E190E28D90002A4CE /* Build configuration list for PBXNativeTarget "CaddieMennecy" */;
 			buildPhases = (
 				B68A5532190E28D90002A4CE /* Sources */,
 				B68A5533190E28D90002A4CE /* Frameworks */,
@@ -525,14 +521,14 @@
 			);
 			dependencies = (
 			);
-			name = GolfScorer;
+			name = CaddieMennecy;
 			productName = CaddieMennecy;
-			productReference = B68A5536190E28D90002A4CE /* GolfScorer.app */;
+			productReference = B68A5536190E28D90002A4CE /* CaddieMennecy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B68A555C190E28D90002A4CE /* GolfScorerTests */ = {
+		B68A555C190E28D90002A4CE /* CaddieMennecyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B68A5571190E28D90002A4CE /* Build configuration list for PBXNativeTarget "GolfScorerTests" */;
+			buildConfigurationList = B68A5571190E28D90002A4CE /* Build configuration list for PBXNativeTarget "CaddieMennecyTests" */;
 			buildPhases = (
 				B68A5559190E28D90002A4CE /* Sources */,
 				B68A555A190E28D90002A4CE /* Frameworks */,
@@ -543,9 +539,9 @@
 			dependencies = (
 				B68A5563190E28D90002A4CE /* PBXTargetDependency */,
 			);
-			name = GolfScorerTests;
+			name = CaddieMennecyTests;
 			productName = CaddieMennecyTests;
-			productReference = B68A555D190E28D90002A4CE /* GolfScorerTests.xctest */;
+			productReference = B68A555D190E28D90002A4CE /* CaddieMennecyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -561,9 +557,12 @@
 					B68A5535190E28D90002A4CE = {
 						DevelopmentTeam = 3CX4H4KREM;
 					};
+					B68A555C190E28D90002A4CE = {
+						TestTargetID = B68A5535190E28D90002A4CE;
+					};
 				};
 			};
-			buildConfigurationList = B68A5531190E28D90002A4CE /* Build configuration list for PBXProject "GolfScorer" */;
+			buildConfigurationList = B68A5531190E28D90002A4CE /* Build configuration list for PBXProject "CaddieMennecy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -576,8 +575,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B68A5535190E28D90002A4CE /* GolfScorer */,
-				B68A555C190E28D90002A4CE /* GolfScorerTests */,
+				B68A5535190E28D90002A4CE /* CaddieMennecy */,
+				B68A555C190E28D90002A4CE /* CaddieMennecyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -587,24 +586,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B609BBD51920F265004B930E /* settings@2x.png in Resources */,
-				B609BBCB1920F265004B930E /* games@2x.png in Resources */,
-				B609BBCC1920F265004B930E /* home.png in Resources */,
-				B609BBD31920F265004B930E /* launch@2x.png in Resources */,
-				B609BBCD1920F265004B930E /* home@2x.png in Resources */,
-				B609BB9A1920F226004B930E /* Images.xcassets in Resources */,
-				B609BBDA1920F2D3004B930E /* Podfile in Resources */,
-				B609BBE21920F307004B930E /* InfoPlist.strings in Resources */,
-				B609BBD81920F2AD004B930E /* Main.storyboard in Resources */,
-				B609BBD01920F265004B930E /* icon40@2x.png in Resources */,
-				B609BBC91920F265004B930E /* background.png in Resources */,
-				B609BBD11920F265004B930E /* icon60.png in Resources */,
-				B609BBD41920F265004B930E /* play@2x.png in Resources */,
-				B609BBCE1920F265004B930E /* icon.png in Resources */,
-				B609BBCA1920F265004B930E /* game@2x.png in Resources */,
-				B609BBDE1920F2F0004B930E /* GolfScorer-Info.plist in Resources */,
-				B609BBD21920F265004B930E /* launch-568h@2x.png in Resources */,
-				B609BBCF1920F265004B930E /* icon@2x.png in Resources */,
+				B61CD7BF191E9F2A00E172CD /* icon40@2x.png in Resources */,
+				B61CD7C6191EA1F100E172CD /* play@2x.png in Resources */,
+				B61CD7BD191E9E1F00E172CD /* icon60.png in Resources */,
+				B61CD7C7191EA1F100E172CD /* settings@2x.png in Resources */,
+				B68A5558190E28D90002A4CE /* Images.xcassets in Resources */,
+				B61CD7B7191E9BCC00E172CD /* icon@2x.png in Resources */,
+				B61CD7B6191E9BCC00E172CD /* icon.png in Resources */,
+				B61CD7B0191E90DE00E172CD /* home.png in Resources */,
+				B61CD7B8191E9BCC00E172CD /* launch-568h@2x.png in Resources */,
+				B68A5544190E28D90002A4CE /* InfoPlist.strings in Resources */,
+				B61CD6951919256D00E172CD /* Podfile in Resources */,
+				B68A5556190E28D90002A4CE /* Main.storyboard in Resources */,
+				B61CD7B1191E90DE00E172CD /* home@2x.png in Resources */,
+				B61CD7BB191E9C4100E172CD /* background.png in Resources */,
+				B61CD7B9191E9BCC00E172CD /* launch@2x.png in Resources */,
+				B61CD7C5191EA1F100E172CD /* games@2x.png in Resources */,
+				B61CD7C4191EA1F100E172CD /* game@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,54 +639,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68A5550190E28D90002A4CE /* EXTHoleDataViewController.m in Sources */,
 				B61CD6521918328100E172CD /* MagicalRecord+iCloud.m in Sources */,
 				B61CD6421918328100E172CD /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
+				B639269919136D8000AC48D0 /* EXTOldGamesTableViewController.m in Sources */,
 				B61CD64B1918328100E172CD /* NSManagedObjectContext+MagicalSaves.m in Sources */,
-				B609BBB91920F244004B930E /* PlayerGame+addon.m in Sources */,
 				B61CD64D1918328100E172CD /* NSManagedObjectModel+MagicalRecord.m in Sources */,
+				B68A554A190E28D90002A4CE /* EXTAppDelegate.m in Sources */,
 				B61CD64C1918328100E172CD /* NSManagedObjectContext+MagicalThreading.m in Sources */,
+				B61CD7A3191E89EC00E172CD /* PlayerGame.m in Sources */,
+				B62EECB5190F7BA300390F0D /* EXTGameViewController.m in Sources */,
 				B61CD6471918328100E172CD /* NSManagedObject+MagicalRecord.m in Sources */,
 				B61CD6431918328100E172CD /* NSString+MagicalDataImport.m in Sources */,
 				B61CD6411918328100E172CD /* NSObject+MagicalDataImport.m in Sources */,
+				B63926A91914081000AC48D0 /* Player+create.m in Sources */,
 				B61CD63D1918328100E172CD /* MagicalImportFunctions.m in Sources */,
+				B61CD79D191E89EB00E172CD /* Game.m in Sources */,
 				B61CD6531918328100E172CD /* MagicalRecord+Options.m in Sources */,
+				B61CD7A6191E89EC00E172CD /* PlayerGameHole.m in Sources */,
 				B61CD64F1918328100E172CD /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
-				B609BB981920F226004B930E /* EXTOldGamesTableViewController.m in Sources */,
-				B609BBBA1920F244004B930E /* PlayerGameHole.m in Sources */,
+				B639269C19136ED000AC48D0 /* EXTHomeViewController.m in Sources */,
+				B62EECC2190F88DC00390F0D /* EXTPlayersViewController.m in Sources */,
 				B61CD6541918328100E172CD /* MagicalRecord+Setup.m in Sources */,
-				B609BBB61920F244004B930E /* Player.m in Sources */,
 				B61CD6451918328100E172CD /* NSManagedObject+MagicalDataImport.m in Sources */,
 				B61CD6491918328100E172CD /* NSManagedObjectContext+MagicalObserving.m in Sources */,
-				B609BBB71920F244004B930E /* Player+create.m in Sources */,
-				B609BB921920F226004B930E /* EXTAppDelegate.m in Sources */,
-				B609BBB11920F244004B930E /* Course.m in Sources */,
-				B609BB971920F226004B930E /* EXTModelController.m in Sources */,
-				B609BBDF1920F2F0004B930E /* main.m in Sources */,
-				B609BBBB1920F244004B930E /* PlayerGameHole+form.m in Sources */,
+				B68A5553190E28D90002A4CE /* EXTModelController.m in Sources */,
+				B63926A51914065A00AC48D0 /* Game+init.m in Sources */,
 				B61CD6401918328100E172CD /* NSNumber+MagicalDataImport.m in Sources */,
 				B61CD6461918328100E172CD /* NSManagedObject+MagicalFinders.m in Sources */,
-				B609BB931920F226004B930E /* EXTGameViewController.m in Sources */,
 				B61CD6551918328100E172CD /* MagicalRecord+ShorthandSupport.m in Sources */,
 				B61CD64A1918328100E172CD /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				B63926901911715100AC48D0 /* Model.xcdatamodeld in Sources */,
-				B609BBB31920F244004B930E /* Game+init.m in Sources */,
+				B61CD7A9191E89EC00E172CD /* Hole.m in Sources */,
 				B61CD63E1918328100E172CD /* NSAttributeDescription+MagicalDataImport.m in Sources */,
-				B609BBB51920F244004B930E /* Hole+create.m in Sources */,
 				B61CD64E1918328100E172CD /* NSPersistentStore+MagicalRecord.m in Sources */,
-				B609BB941920F226004B930E /* EXTHoleDataViewController.m in Sources */,
+				B61CD72E191E30AB00E172CD /* PlayerGameHole+form.m in Sources */,
 				B61CD6561918328100E172CD /* MagicalRecord.m in Sources */,
+				B61CD7AC191E89EC00E172CD /* Course.m in Sources */,
+				B68A5546190E28D90002A4CE /* main.m in Sources */,
 				B61CD6511918328100E172CD /* MagicalRecord+ErrorHandling.m in Sources */,
-				B609BBE41920F436004B930E /* GolfScorerTests.m in Sources */,
 				B61CD6501918328100E172CD /* MagicalRecord+Actions.m in Sources */,
-				B609BB961920F226004B930E /* EXTHomeViewController.m in Sources */,
-				B609BB951920F226004B930E /* EXTHolesRootViewController.m in Sources */,
-				B609BB991920F226004B930E /* EXTPlayersViewController.m in Sources */,
-				B609BBB81920F244004B930E /* PlayerGame.m in Sources */,
+				B61CD707191C108400E172CD /* PlayerGame+addon.m in Sources */,
 				B61CD6481918328100E172CD /* NSManagedObject+MagicalRequests.m in Sources */,
-				B609BBB21920F244004B930E /* Game.m in Sources */,
 				B61CD6441918328100E172CD /* NSManagedObject+MagicalAggregation.m in Sources */,
-				B609BBB41920F244004B930E /* Hole.m in Sources */,
+				B61CD7A0191E89EC00E172CD /* Player.m in Sources */,
 				B61CD63F1918328100E172CD /* NSEntityDescription+MagicalDataImport.m in Sources */,
+				B68A554D190E28D90002A4CE /* EXTHolesRootViewController.m in Sources */,
+				B61CD6E0191A0A2800E172CD /* Hole+create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,7 +693,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B609BBE51920F442004B930E /* GolfScorerTests.m in Sources */,
+				B68A556B190E28D90002A4CE /* CaddieMennecyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,26 +702,26 @@
 /* Begin PBXTargetDependency section */
 		B68A5563190E28D90002A4CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B68A5535190E28D90002A4CE /* GolfScorer */;
+			target = B68A5535190E28D90002A4CE /* CaddieMennecy */;
 			targetProxy = B68A5562190E28D90002A4CE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B609BBD61920F2AD004B930E /* Main.storyboard */ = {
+		B68A5542190E28D90002A4CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B609BBD71920F2AD004B930E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B609BBE01920F307004B930E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B609BBE11920F307004B930E /* en */,
+				B68A5543190E28D90002A4CE /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B68A5554190E28D90002A4CE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B68A5555190E28D90002A4CE /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		B68A5567190E28D90002A4CE /* InfoPlist.strings */ = {
@@ -817,9 +814,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GolfScorer/GolfScorer-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/GolfScorer/GolfScorer-Info.plist";
-				PRODUCT_NAME = GolfScorer;
+				GCC_PREFIX_HEADER = "CaddieMennecy/CaddieMennecy-Prefix.pch";
+				INFOPLIST_FILE = "CaddieMennecy/CaddieMennecy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -831,9 +828,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GolfScorer/GolfScorer-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/GolfScorer/GolfScorer-Info.plist";
-				PRODUCT_NAME = GolfScorer;
+				GCC_PREFIX_HEADER = "CaddieMennecy/CaddieMennecy-Prefix.pch";
+				INFOPLIST_FILE = "CaddieMennecy/CaddieMennecy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -841,19 +838,21 @@
 		B68A5572190E28D90002A4CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CaddieMennecy.app/CaddieMennecy";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GolfScorer/GolfScorer-Prefix.pch";
+				GCC_PREFIX_HEADER = "CaddieMennecy/CaddieMennecy-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "GolfScorerTests/GolfScorerTests-Info.plist";
-				PRODUCT_NAME = GolfScorerTests;
+				INFOPLIST_FILE = "CaddieMennecyTests/CaddieMennecyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -861,15 +860,17 @@
 		B68A5573190E28D90002A4CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CaddieMennecy.app/CaddieMennecy";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GolfScorer/GolfScorer-Prefix.pch";
-				INFOPLIST_FILE = "GolfScorerTests/GolfScorerTests-Info.plist";
-				PRODUCT_NAME = GolfScorerTests;
+				GCC_PREFIX_HEADER = "CaddieMennecy/CaddieMennecy-Prefix.pch";
+				INFOPLIST_FILE = "CaddieMennecyTests/CaddieMennecyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -877,7 +878,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B68A5531190E28D90002A4CE /* Build configuration list for PBXProject "GolfScorer" */ = {
+		B68A5531190E28D90002A4CE /* Build configuration list for PBXProject "CaddieMennecy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B68A556C190E28D90002A4CE /* Debug */,
@@ -886,7 +887,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B68A556E190E28D90002A4CE /* Build configuration list for PBXNativeTarget "GolfScorer" */ = {
+		B68A556E190E28D90002A4CE /* Build configuration list for PBXNativeTarget "CaddieMennecy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B68A556F190E28D90002A4CE /* Debug */,
@@ -895,7 +896,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B68A5571190E28D90002A4CE /* Build configuration list for PBXNativeTarget "GolfScorerTests" */ = {
+		B68A5571190E28D90002A4CE /* Build configuration list for PBXNativeTarget "CaddieMennecyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B68A5572190E28D90002A4CE /* Debug */,

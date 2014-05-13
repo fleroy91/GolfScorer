@@ -169,49 +169,4 @@
         }
     }
 }
-
-- (NSUInteger)nb_players
-{
-    return [self.thePlayerGames count];
-}
-- (NSString *)the_course
-{
-    if(self.forCourse) {
-        return self.forCourse.name;
-    } else {
-        return nil;
-    }
-}
-- (void)setValue:(id)value forKey:(NSString *)key
-{
-    if([key isEqualToString:@"the_course"]) {
-        Course *course = [Course MR_findFirstByAttribute:@"name" withValue:(NSString *)value];
-        if(course) {
-            self.forCourse = course;
-        }
-        
-    } else {
-        [super setValue:value forKeyPath:key];
-    }
-}
-
-- (NSArray *)getCoursesOptions
-{
-    NSArray *courses = [Course MR_findAllSortedBy:@"name" ascending:YES];
-    NSMutableArray *ret = [[NSMutableArray alloc] init];
-    for(Course *course in courses) {
-        [ret addObject:course.name];
-    }
-    return ret;
-}
-
-- (NSArray *)fields
-{
-    return @[
-             @{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"},
-             @{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: @[@"18 trous", @"9 trous aller", @"9 trous retour"]},
-             @{FXFormFieldKey: @"the_course", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]},
-             @{FXFormFieldKey: @"nb_players", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}
-             ];
-}
 @end

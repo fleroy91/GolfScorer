@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface GolfScorerTests : XCTestCase
+@interface CaddieMennecyTests : XCTestCase
 
 @end
 
-@implementation GolfScorerTests
+@implementation CaddieMennecyTests
 
 - (void)setUp
 {

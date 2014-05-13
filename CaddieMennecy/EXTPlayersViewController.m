@@ -14,7 +14,6 @@
 @interface EXTPlayersViewController ()
 - (IBAction)showPicker:(id)sender;
 - (void)addPlayer:(ABRecordRef)person;
-- (IBAction)enterEditMode:(id)sender;
 
 @end
 
@@ -29,10 +28,6 @@
     playerGame.inGame = currentGame;
     [playerGame.managedObjectContext MR_saveToPersistentStoreAndWait];
     [self.tableView reloadData];
-}
-
-- (IBAction)enterEditMode:(id)sender {
-    
 }
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
 {

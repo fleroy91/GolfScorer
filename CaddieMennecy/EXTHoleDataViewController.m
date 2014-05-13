@@ -101,11 +101,6 @@
     }
 }
 
-- (void)doNothin:(UITableViewCell<FXFormFieldCell> *)cell
-{
-    // We do nothing on purpose
-}
-
 - (void)updateButtonWithPlayerAtIndex:(NSUInteger)index withButton:(UIButton *)button
 {
     // First we search for the player game
