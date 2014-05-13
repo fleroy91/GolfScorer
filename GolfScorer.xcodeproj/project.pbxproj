@@ -46,8 +46,8 @@
 		B609BBDE1920F2F0004B930E /* GolfScorer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B609BBDB1920F2F0004B930E /* GolfScorer-Info.plist */; };
 		B609BBDF1920F2F0004B930E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBDD1920F2F0004B930E /* main.m */; };
 		B609BBE21920F307004B930E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B609BBE01920F307004B930E /* InfoPlist.strings */; };
-		B609BBE81920F4DE004B930E /* GolfScorerTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B609BBE71920F4DE004B930E /* GolfScorerTests-Info.plist */; };
-		B609BBEB1920F4F3004B930E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B609BBE91920F4F3004B930E /* InfoPlist.strings */; };
+		B609BBE41920F436004B930E /* GolfScorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBE31920F436004B930E /* GolfScorerTests.m */; };
+		B609BBE51920F442004B930E /* GolfScorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B609BBE31920F436004B930E /* GolfScorerTests.m */; };
 		B61CD5FE19182E2800E172CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CD5FD19182E2800E172CD /* CoreData.framework */; };
 		B61CD63D1918328100E172CD /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6031918328100E172CD /* MagicalImportFunctions.m */; };
 		B61CD63E1918328100E172CD /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6051918328100E172CD /* NSAttributeDescription+MagicalDataImport.m */; };
@@ -84,6 +84,7 @@
 		B68A555F190E28D90002A4CE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A555E190E28D90002A4CE /* XCTest.framework */; };
 		B68A5560190E28D90002A4CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A5539190E28D90002A4CE /* Foundation.framework */; };
 		B68A5561190E28D90002A4CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553D190E28D90002A4CE /* UIKit.framework */; };
+		B68A5569190E28D90002A4CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A5567190E28D90002A4CE /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,8 +158,7 @@
 		B609BBDC1920F2F0004B930E /* GolfScorer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GolfScorer-Prefix.pch"; path = "GolfScorer/GolfScorer-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		B609BBDD1920F2F0004B930E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GolfScorer/main.m; sourceTree = SOURCE_ROOT; };
 		B609BBE11920F307004B930E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = GolfScorer/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		B609BBE71920F4DE004B930E /* GolfScorerTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GolfScorerTests-Info.plist"; path = "GolfScorerTests/GolfScorerTests-Info.plist"; sourceTree = SOURCE_ROOT; };
-		B609BBEA1920F4F3004B930E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = GolfScorerTests/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		B609BBE31920F436004B930E /* GolfScorerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GolfScorerTests.m; path = GolfScorerTests/GolfScorerTests.m; sourceTree = SOURCE_ROOT; };
 		B61CD5FD19182E2800E172CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B61CD6021918328100E172CD /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		B61CD6031918328100E172CD /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
@@ -225,6 +225,8 @@
 		B68A553D190E28D90002A4CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B68A555D190E28D90002A4CE /* GolfScorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GolfScorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68A555E190E28D90002A4CE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B68A5566190E28D90002A4CE /* GolfScorerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GolfScorerTests-Info.plist"; sourceTree = "<group>"; };
+		B68A5568190E28D90002A4CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -491,6 +493,7 @@
 		B68A5564190E28D90002A4CE /* GolfScorerTests */ = {
 			isa = PBXGroup;
 			children = (
+				B609BBE31920F436004B930E /* GolfScorerTests.m */,
 				B68A5565190E28D90002A4CE /* Supporting Files */,
 			);
 			name = GolfScorerTests;
@@ -500,8 +503,8 @@
 		B68A5565190E28D90002A4CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B609BBE91920F4F3004B930E /* InfoPlist.strings */,
-				B609BBE71920F4DE004B930E /* GolfScorerTests-Info.plist */,
+				B68A5566190E28D90002A4CE /* GolfScorerTests-Info.plist */,
+				B68A5567190E28D90002A4CE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -586,14 +589,12 @@
 			files = (
 				B609BBD51920F265004B930E /* settings@2x.png in Resources */,
 				B609BBCB1920F265004B930E /* games@2x.png in Resources */,
-				B609BBE81920F4DE004B930E /* GolfScorerTests-Info.plist in Resources */,
 				B609BBCC1920F265004B930E /* home.png in Resources */,
 				B609BBD31920F265004B930E /* launch@2x.png in Resources */,
 				B609BBCD1920F265004B930E /* home@2x.png in Resources */,
 				B609BB9A1920F226004B930E /* Images.xcassets in Resources */,
 				B609BBDA1920F2D3004B930E /* Podfile in Resources */,
 				B609BBE21920F307004B930E /* InfoPlist.strings in Resources */,
-				B609BBEB1920F4F3004B930E /* InfoPlist.strings in Resources */,
 				B609BBD81920F2AD004B930E /* Main.storyboard in Resources */,
 				B609BBD01920F265004B930E /* icon40@2x.png in Resources */,
 				B609BBC91920F265004B930E /* background.png in Resources */,
@@ -611,6 +612,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68A5569190E28D90002A4CE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +678,7 @@
 				B609BB941920F226004B930E /* EXTHoleDataViewController.m in Sources */,
 				B61CD6561918328100E172CD /* MagicalRecord.m in Sources */,
 				B61CD6511918328100E172CD /* MagicalRecord+ErrorHandling.m in Sources */,
+				B609BBE41920F436004B930E /* GolfScorerTests.m in Sources */,
 				B61CD6501918328100E172CD /* MagicalRecord+Actions.m in Sources */,
 				B609BB961920F226004B930E /* EXTHomeViewController.m in Sources */,
 				B609BB951920F226004B930E /* EXTHolesRootViewController.m in Sources */,
@@ -693,6 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B609BBE51920F442004B930E /* GolfScorerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,10 +727,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		B609BBE91920F4F3004B930E /* InfoPlist.strings */ = {
+		B68A5567190E28D90002A4CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B609BBEA1920F4F3004B930E /* en */,
+				B68A5568190E28D90002A4CE /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
