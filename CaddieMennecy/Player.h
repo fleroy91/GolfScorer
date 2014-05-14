@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSNumber * gender;
 @property (nonatomic, retain) NSNumber * start_color;
 @property (nonatomic, retain) NSSet *thePlayerGames;
+
 @end
 
 @interface Player (CoreDataGeneratedAccessors)

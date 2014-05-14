@@ -7,28 +7,105 @@
 //
 
 #import "EXTPlayersViewController.h"
+#import "EXTPlayerNavController.h"
+#import "EXTPlayerViewController.h"
 #import "Game+init.h"
 #import "Player+create.h"
 #import "PlayerGame.h"
 
 @interface EXTPlayersViewController ()
 - (IBAction)showPicker:(id)sender;
-- (void)addPlayer:(ABRecordRef)person;
+- (void)createPlayerFromPerson:(ABRecordRef)person;
+- (IBAction)enterEditMode:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAddPlayer;
+@property UIBarButtonItem *editBarButtonItem;
+@property UIBarButtonItem *addBarButtonItem;
+@property NSArray *players;
 
 @end
 
 @implementation EXTPlayersViewController
 
-- (void)addPlayer:(ABRecordRef)person
+- (void)createPlayerFromPerson:(ABRecordRef)person
 {
     Player * player = [Player createFromPerson:person];
+    /*
     PlayerGame *playerGame = [PlayerGame MR_createEntity];
     playerGame.forPlayer = player;
     playerGame.row = [NSNumber numberWithInteger:[currentGame.thePlayerGames count] + 1];
     playerGame.inGame = currentGame;
     [playerGame.managedObjectContext MR_saveToPersistentStoreAndWait];
-    [self.tableView reloadData];
+     */
+    [self editPlayer:player withIsNew:YES];
 }
+
+- (void)editPlayer:(Player *)player withIsNew:(BOOL)isNew
+{
+    EXTPlayerNavController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerNavController"];
+    EXTPlayerViewController *pv = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+    [vc addChildViewController:pv];
+    pv.player = player;
+    pv.isNewObject = isNew;
+    vc.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)enterEditMode:(id)sender {
+    if([self.tableView isEditing]) {
+        [self.tableView setEditing:NO animated:YES];
+        [self.editBarButtonItem setTitle:@"Editer"];
+    } else {
+        [self.editBarButtonItem setTitle:@"Done"];
+        [self.addBarButtonItem setEnabled:NO];
+        [self.tableView setEditing:YES animated:YES];
+    }
+}
+
+- (IBAction)addPlayerFromButton:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Créer un nouveau joueur"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Annuler"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Nouveau joueur", @"Choisir parmi les contacts", nil];
+    [actionSheet showInView:self.tableView];
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enterEditMode:)];
+    self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayerFromButton:)];
+    self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.addBarButtonItem, self.editBarButtonItem, nil];
+    self.players = [Player MR_findAllSortedBy:@"lastname" ascending:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // TODO : do not compare with strings
+    if(buttonIndex == 0) {
+        // We need to show a new player form
+        Player *player = [Player MR_createEntity];
+        [self editPlayer:player withIsNew:YES];
+    } else if(buttonIndex == 1) {
+        ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+        picker.peoplePickerDelegate = self;
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+}
+
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
 {
     [self dismissViewControllerAnimated:YES completion:^(void){ NSLog(@" Dismiss"); }];
@@ -39,7 +116,7 @@
 // Return NO  to do nothing (the delegate is responsible for dismissing the peoplePicker).
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {
-    [self addPlayer:person];
+    [self createPlayerFromPerson:person];
     [self dismissViewControllerAnimated:YES completion:^(void){ NSLog(@" Dismiss"); }];
     return NO;
 }
@@ -53,13 +130,11 @@
 
 - (IBAction)showPicker:(id)sender
 {
-    if([currentGame.thePlayerGames count] < 4) {
-        ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-        picker.peoplePickerDelegate = self;
-        [self presentViewController:picker animated:YES completion:^(void){
-            NSLog(@"Done");
-        }];
-    }
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    [self presentViewController:picker animated:YES completion:^(void){
+        NSLog(@"Done");
+    }];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -69,17 +144,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,42 +163,42 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [currentGame.thePlayerGames count];
+    return [self.players count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PlayerGame *playerGame = [currentGame.thePlayerGames objectAtIndex:indexPath.row];
-    Player *player = [playerGame forPlayer];
+    Player *player = [self.players objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"player" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", player.lastname, player.firstname];
+    cell.textLabel.text = [player description];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f", player.index.doubleValue];
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        Player *player = [self.players objectAtIndex:indexPath.row];
+        NSManagedObjectContext *context = player.managedObjectContext;
+        [player MR_deleteEntity];
+        [context MR_saveToPersistentStoreAndWait];
+        self.players = [Player MR_findAllSortedBy:@"lastname" ascending:YES];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.

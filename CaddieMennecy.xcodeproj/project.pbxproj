@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B19937F1D1145178ECDDA0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F4352125AD4C28BD64781E /* libPods.a */; };
+		B6007E871921FFDB00DF0F83 /* EXTPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6007E861921FFDB00DF0F83 /* EXTPlayerViewController.m */; };
 		B61CD5FE19182E2800E172CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CD5FD19182E2800E172CD /* CoreData.framework */; };
 		B61CD63D1918328100E172CD /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6031918328100E172CD /* MagicalImportFunctions.m */; };
 		B61CD63E1918328100E172CD /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6051918328100E172CD /* NSAttributeDescription+MagicalDataImport.m */; };
@@ -83,6 +84,7 @@
 		B68A5561190E28D90002A4CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553D190E28D90002A4CE /* UIKit.framework */; };
 		B68A5569190E28D90002A4CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A5567190E28D90002A4CE /* InfoPlist.strings */; };
 		B68A556B190E28D90002A4CE /* CaddieMennecyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A556A190E28D90002A4CE /* CaddieMennecyTests.m */; };
+		B6B22978192341950090E1A0 /* EXTPlayerNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B22977192341950090E1A0 /* EXTPlayerNavController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 
 /* Begin PBXFileReference section */
 		52F4352125AD4C28BD64781E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6007E851921FFDB00DF0F83 /* EXTPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTPlayerViewController.h; sourceTree = "<group>"; };
+		B6007E861921FFDB00DF0F83 /* EXTPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTPlayerViewController.m; sourceTree = "<group>"; };
 		B61CD5FD19182E2800E172CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B61CD6021918328100E172CD /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		B61CD6031918328100E172CD /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 		B68A5566190E28D90002A4CE /* CaddieMennecyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CaddieMennecyTests-Info.plist"; sourceTree = "<group>"; };
 		B68A5568190E28D90002A4CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B68A556A190E28D90002A4CE /* CaddieMennecyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaddieMennecyTests.m; sourceTree = "<group>"; };
+		B6B22976192341950090E1A0 /* EXTPlayerNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTPlayerNavController.h; sourceTree = "<group>"; };
+		B6B22977192341950090E1A0 /* EXTPlayerNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTPlayerNavController.m; sourceTree = "<group>"; };
 		BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -450,6 +456,8 @@
 		B68A553F190E28D90002A4CE /* CaddieMennecy */ = {
 			isa = PBXGroup;
 			children = (
+				B6B22976192341950090E1A0 /* EXTPlayerNavController.h */,
+				B6B22977192341950090E1A0 /* EXTPlayerNavController.m */,
 				B61CD6571918339700E172CD /* EXTGlobal.h */,
 				B68A5548190E28D90002A4CE /* EXTAppDelegate.h */,
 				B68A5549190E28D90002A4CE /* EXTAppDelegate.m */,
@@ -459,6 +467,8 @@
 				B62EECB4190F7BA300390F0D /* EXTGameViewController.m */,
 				B62EECC0190F88DC00390F0D /* EXTPlayersViewController.h */,
 				B62EECC1190F88DC00390F0D /* EXTPlayersViewController.m */,
+				B6007E851921FFDB00DF0F83 /* EXTPlayerViewController.h */,
+				B6007E861921FFDB00DF0F83 /* EXTPlayerViewController.m */,
 				B639269719136D8000AC48D0 /* EXTOldGamesTableViewController.h */,
 				B639269819136D8000AC48D0 /* EXTOldGamesTableViewController.m */,
 				B68A554B190E28D90002A4CE /* EXTHolesRootViewController.h */,
@@ -640,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B68A5550190E28D90002A4CE /* EXTHoleDataViewController.m in Sources */,
+				B6007E871921FFDB00DF0F83 /* EXTPlayerViewController.m in Sources */,
 				B61CD6521918328100E172CD /* MagicalRecord+iCloud.m in Sources */,
 				B61CD6421918328100E172CD /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				B639269919136D8000AC48D0 /* EXTOldGamesTableViewController.m in Sources */,
@@ -668,6 +679,7 @@
 				B61CD6401918328100E172CD /* NSNumber+MagicalDataImport.m in Sources */,
 				B61CD6461918328100E172CD /* NSManagedObject+MagicalFinders.m in Sources */,
 				B61CD6551918328100E172CD /* MagicalRecord+ShorthandSupport.m in Sources */,
+				B6B22978192341950090E1A0 /* EXTPlayerNavController.m in Sources */,
 				B61CD64A1918328100E172CD /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				B63926901911715100AC48D0 /* Model.xcdatamodeld in Sources */,
 				B61CD7A9191E89EC00E172CD /* Hole.m in Sources */,

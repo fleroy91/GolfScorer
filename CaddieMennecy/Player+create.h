@@ -8,8 +8,9 @@
 
 #import "Player.h"
 #import <AddressBookUI/AddressBookUI.h>
+#import <FXForms.h>
 
-@interface Player (create)
+@interface Player (create) <FXForm>
 
 +(Player *)createFromPerson:(ABRecordRef)person;
 

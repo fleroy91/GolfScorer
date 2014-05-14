@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *startGameButton;
 @property (weak, nonatomic) IBOutlet UIButton *endGameButton;
 - (IBAction)endGame:(id)sender;
+
+@property FXFormController *formController;
+
 @end
 
 @implementation EXTGameViewController
@@ -34,10 +37,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.formController = [[FXFormController alloc] init];
+    self.formController.tableView = self.tableView;
+    self.formController.delegate = self;
+    self.formController.form = currentGame;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.formController.form = currentGame;
+    [self.tableView reloadData];
+    /*
     [self.dateLabel setText:[currentGame.when description]];
     [self.kindLabel setText:currentGame.kind];
     [self.nbPlayersLabel setText:[NSString stringWithFormat:@"%d", [currentGame.thePlayerGames count]]];
@@ -48,6 +59,7 @@
     } else {
         [self.startGameButton setTitle: @"Démarrer la partie" forState:UIControlStateNormal];
     }
+     */
 }
 
 - (IBAction)endGame:(id)sender
@@ -76,5 +88,12 @@
     }
 }
 
+- (void)choosePlayers:(UITableViewCell<FXFormFieldCell> *)cell {
+    [self performSegueWithIdentifier: @"choosePlayers" sender: self];
+}
 
+- (void)doNothing:(UITableViewCell<FXFormFieldCell> *)cell
+{
+
+}
 @end

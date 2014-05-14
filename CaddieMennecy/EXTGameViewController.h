@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface EXTGameViewController : UITableViewController
+@interface EXTGameViewController : UITableViewController <FXFormControllerDelegate>
 @property Game *game;
 @end

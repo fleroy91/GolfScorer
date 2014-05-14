@@ -7,8 +7,9 @@
 //
 
 #import "Game.h"
+#import <FXForms.h>
 
-@interface Game (init)
+@interface Game (init) <FXForm>
 
 +(Game *)create;
 -(NSUInteger)nbPlayers;

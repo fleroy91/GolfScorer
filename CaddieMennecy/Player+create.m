@@ -26,4 +26,16 @@
     return player;
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %@ (%.1f)", self.lastname, self.firstname, self.index.doubleValue];
+}
+/*
+-(NSArray *)fields
+{
+    return @[
+             ];
+}
+*/
+
 @end
