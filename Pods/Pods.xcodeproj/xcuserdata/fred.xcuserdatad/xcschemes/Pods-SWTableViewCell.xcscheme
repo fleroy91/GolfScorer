@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "29ED9290C4B1416A8EA593EB"
-               BuildableName = "libPods-FXForms.a"
-               BlueprintName = "Pods-FXForms"
+               BlueprintIdentifier = "A9A929471910459A99B40EBE"
+               BuildableName = "libPods-SWTableViewCell.a"
+               BlueprintName = "Pods-SWTableViewCell"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

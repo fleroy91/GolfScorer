@@ -1,10 +1,13 @@
 PODS:
   - FXForms (1.1.6)
+  - SWTableViewCell (0.3.0)
 
 DEPENDENCIES:
   - FXForms (~> 1.1)
+  - SWTableViewCell (~> 0.3)
 
 SPEC CHECKSUMS:
   FXForms: d1c3fccab32a6702430b14808f7b46061008a4a9
+  SWTableViewCell: 0e8c00adc946c38ba9d7a5f8d7f39f3fd85f0bbb
 
 COCOAPODS: 0.32.1
