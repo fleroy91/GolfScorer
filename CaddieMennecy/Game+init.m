@@ -17,6 +17,9 @@
     game.when = [NSDate date];
     game.kind = @"18 trous";
     game.forCourse = [Course MR_findFirst];
+    for(Player *player in [Player MR_findByAttribute:@"is_default" withValue:@YES]) {
+        [game addPlayerInGame:player];
+    }
     NSManagedObjectContext* context = game.managedObjectContext;
     [context MR_saveToPersistentStoreAndWait];
     return game;
@@ -203,6 +206,44 @@
         [ret addObject:course.name];
     }
     return ret;
+}
+
+- (PlayerGame *)findPlayerGameForPlayer:(Player *)player
+{
+    for(PlayerGame *pg in self.thePlayerGames) {
+        if(pg.forPlayer == player) {
+            return pg;
+        }
+    }
+    return nil;
+}
+
+- (BOOL)addPlayerInGame:(Player *)player
+{
+    BOOL added = NO;
+    if([self.thePlayerGames count] < 4) {
+        added = YES;
+        [PlayerGame initInGame:self forPlayer:player andRow:[NSNumber numberWithInt:([self.thePlayerGames count] + 1)]];
+    }
+    return added;
+}
+- (BOOL)removePlayerFromGame:(Player *)player
+{
+    BOOL removed = true;
+    PlayerGame *pg = [self findPlayerGameForPlayer:player];
+    if(pg) {
+        NSInteger currentRow = pg.row.integerValue;
+        [pg MR_deleteEntity];
+        removed = YES;
+        // We need to rename the order the next PlayerGame
+        for(PlayerGame *next_pg in self.thePlayerGames) {
+            if(next_pg.row.integerValue > currentRow) {
+                next_pg.row = [NSNumber numberWithInt:(next_pg.row.integerValue - 1)];
+            }
+        }
+        [pg.managedObjectContext MR_saveToPersistentStoreAndWait];
+    }
+    return removed;
 }
 
 - (NSArray *)fields

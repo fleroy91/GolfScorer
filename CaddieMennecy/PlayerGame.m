@@ -2,7 +2,7 @@
 //  PlayerGame.m
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 10/05/2014.
+//  Created by Frédéric Leroy on 15/05/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 
 @implementation PlayerGame
 
-@dynamic row;
 @dynamic brut_score;
-@dynamic net_score;
 @dynamic game_total_hcp;
-@dynamic stbl_net_score;
+@dynamic net_score;
+@dynamic row;
 @dynamic stbl_brut_score;
+@dynamic stbl_net_score;
 @dynamic forPlayer;
 @dynamic inGame;
 @dynamic thePlayerGameHoles;

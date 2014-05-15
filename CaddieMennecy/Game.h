@@ -2,24 +2,23 @@
 //  Game.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 10/05/2014.
+//  Created by Frédéric Leroy on 15/05/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import <FXForms.h>
 
 @class Course, PlayerGame;
 
-@interface Game : NSManagedObject <FXForm>
+@interface Game : NSManagedObject
 
-@property (nonatomic, retain) NSString * kind;
-@property (nonatomic, retain) NSDate * when;
 @property (nonatomic, retain) NSNumber * is_over;
 @property (nonatomic, retain) NSNumber * is_started;
-@property (nonatomic, retain) NSOrderedSet *thePlayerGames;
+@property (nonatomic, retain) NSString * kind;
+@property (nonatomic, retain) NSDate * when;
 @property (nonatomic, retain) Course *forCourse;
+@property (nonatomic, retain) NSOrderedSet *thePlayerGames;
 @end
 
 @interface Game (CoreDataGeneratedAccessors)

@@ -18,7 +18,7 @@
     player.firstname = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     player.surname = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonNicknameProperty);
     player.start_color = @2;
-    player.gender = @1;
+    player.gender = @0;
     // TODO for note
     // NSString * note = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonNoteProperty);
     player.index = [NSNumber numberWithFloat:23.4];
@@ -30,12 +30,16 @@
 {
     return [NSString stringWithFormat:@"%@ %@ (%.1f)", self.lastname, self.firstname, self.index.doubleValue];
 }
-/*
 -(NSArray *)fields
 {
     return @[
+             @{FXFormFieldKey: @"lastname", FXFormFieldTitle: @"Nom", FXFormFieldHeader:@" "},
+             @{FXFormFieldKey: @"firstname", FXFormFieldTitle: @"Prénom"},
+             @{FXFormFieldKey: @"is_default", FXFormFieldTitle: @"Joueur principal", FXFormFieldType: FXFormFieldTypeBoolean},
+             @{FXFormFieldKey: @"index", FXFormFieldTitle: @"Index", FXFormFieldType: FXFormFieldTypeNumber},
+             @{FXFormFieldKey: @"gender", FXFormFieldTitle: @"Sexe", FXFormFieldOptions: @[@"Homme", @"Femme"]},
+             @{FXFormFieldKey: @"start_color", FXFormFieldTitle: @"Départ", FXFormFieldOptions: @[@"Noir", @"Blanc", @"Jaune", @"Rouge", @"Bleu"]}
              ];
 }
-*/
 
 @end

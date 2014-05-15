@@ -8,13 +8,19 @@
 
 #import "Game.h"
 #import <FXForms.h>
+@class PlayerGame;
+@class Player;
 
 @interface Game (init) <FXForm>
 
 +(Game *)create;
+
 -(NSUInteger)nbPlayers;
 -(void)findOrCreateHolesForPlayers;
 -(void)setIsOver:(BOOL)over;
 -(void)setIsStarted:(BOOL)started;
+- (PlayerGame *)findPlayerGameForPlayer:(Player *)player;
+- (BOOL)addPlayerInGame:(Player *)player;
+- (BOOL)removePlayerFromGame:(Player *)player;
 
 @end

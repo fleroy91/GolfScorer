@@ -8,11 +8,13 @@
 
 #import "PlayerGame.h"
 @class Hole;
+@class Player;
 
 @interface PlayerGame (addon)
 - (NSString *)getBrutScore:(BOOL)showStbl;
 - (NSString *)getNetScore:(BOOL)showStbl;
 
 - (void)saveAndComputeScoreUntil:(Hole *)hole;
++ (PlayerGame *)initInGame:(Game *)game forPlayer:(Player *)player andRow:(NSNumber*)row;
 
 @end

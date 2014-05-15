@@ -23,8 +23,8 @@
         <attribute name="sss4M" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sss5F" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sss5M" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="theGames" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" inverseName="forCourse" inverseEntity="Game" syncable="YES"/>
-        <relationship name="theHoles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hole" inverseName="forCourse" inverseEntity="Hole" syncable="YES"/>
+        <relationship name="theGames" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Game" inverseName="forCourse" inverseEntity="Game" syncable="YES"/>
+        <relationship name="theHoles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Hole" inverseName="forCourse" inverseEntity="Hole" syncable="YES"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
         <attribute name="is_over" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -44,16 +44,17 @@
         <attribute name="range4" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="range5" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="forCourse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="theHoles" inverseEntity="Course" syncable="YES"/>
-        <relationship name="thePlayerGameHoles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerGameHole" inverseName="forHole" inverseEntity="PlayerGameHole" syncable="YES"/>
+        <relationship name="thePlayerGameHoles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlayerGameHole" inverseName="forHole" inverseEntity="PlayerGameHole" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES">
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="index" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="is_default" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="start_color" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="thePlayerGames" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerGame" inverseName="forPlayer" inverseEntity="PlayerGame" syncable="YES"/>
+        <relationship name="thePlayerGames" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlayerGame" inverseName="forPlayer" inverseEntity="PlayerGame" syncable="YES"/>
     </entity>
     <entity name="PlayerGame" representedClassName="PlayerGame" syncable="YES">
         <attribute name="brut_score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -64,7 +65,7 @@
         <attribute name="stbl_net_score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="forPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="thePlayerGames" inverseEntity="Player" syncable="YES"/>
         <relationship name="inGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="thePlayerGames" inverseEntity="Game" syncable="YES"/>
-        <relationship name="thePlayerGameHoles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerGameHole" inverseName="inPlayerGame" inverseEntity="PlayerGameHole" syncable="YES"/>
+        <relationship name="thePlayerGameHoles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlayerGameHole" inverseName="inPlayerGame" inverseEntity="PlayerGameHole" syncable="YES"/>
     </entity>
     <entity name="PlayerGameHole" representedClassName="PlayerGameHole" syncable="YES">
         <attribute name="fairway" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -77,11 +78,11 @@
         <relationship name="inPlayerGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerGame" inverseName="thePlayerGameHoles" inverseEntity="PlayerGame" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Course" positionX="556" positionY="-342" width="128" height="403"/>
         <element name="Game" positionX="225" positionY="-342" width="128" height="133"/>
         <element name="Hole" positionX="405" positionY="86" width="128" height="193"/>
-        <element name="Player" positionX="403" positionY="-139" width="128" height="148"/>
+        <element name="Player" positionX="396" positionY="-190" width="128" height="163"/>
         <element name="PlayerGame" positionX="216" positionY="-141" width="128" height="178"/>
         <element name="PlayerGameHole" positionX="205" positionY="117" width="128" height="163"/>
-        <element name="Course" positionX="556" positionY="-342" width="128" height="403"/>
     </elements>
 </model>

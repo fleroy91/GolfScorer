@@ -65,12 +65,7 @@
 
 - (IBAction)doOK:(id)sender {
     if(self.isNewObject) {
-        // We need to create a player Game for the current Game
-        PlayerGame *pgh = [PlayerGame MR_createEntity];
-        pgh.forPlayer = self.player;
-        pgh.row = [NSNumber numberWithUnsignedInt:[currentGame.thePlayerGames count] + 1];
-        pgh.inGame = currentGame;
-        [pgh.managedObjectContext MR_saveToPersistentStoreAndWait];
+        [self.player.managedObjectContext MR_saveToPersistentStoreAndWait];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }

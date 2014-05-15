@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import <SWTableViewCell.h>
 #import "Game+init.h"
 
 @interface EXTPlayersViewController : UITableViewController
-<ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate>
+<ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate, SWTableViewCellDelegate>
 
 @end

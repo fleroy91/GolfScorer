@@ -63,4 +63,15 @@
     NSLog(@"After %@ H=%@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, hole.number, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
 }
+
++ (PlayerGame *)initInGame:(Game *)game forPlayer:(Player *)player andRow:(NSNumber *)row
+{
+    PlayerGame *pg = [PlayerGame MR_createEntity];
+    pg.row = row;
+    pg.forPlayer = player;
+    pg.inGame = game;
+    [pg.managedObjectContext MR_saveToPersistentStoreAndWait];
+    return pg;
+}
+
 @end
