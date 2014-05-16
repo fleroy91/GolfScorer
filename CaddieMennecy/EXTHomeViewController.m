@@ -44,7 +44,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    currentGame = [Game MR_findFirstByAttribute:@"is_over" withValue:@"NO"];
+    currentGame = [Game MR_findFirstOrderedByAttribute:@"when" ascending:NO];
+    if(currentGame.is_over) {
+        currentGame = nil;
+    }
     if(currentGame) {
         [self.gameButton setTitle: @"Partie en cours" forState:UIControlStateNormal];
     } else {
@@ -142,6 +145,6 @@
     [Player MR_truncateAll];
     [MagicalRecord saveWithBlockAndWait:nil];
     [self findOrCreateHolesInDB];
-    [self viewWillAppear:NO];
+    [self viewWillAppear:YES];
 }
 @end

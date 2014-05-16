@@ -62,12 +62,6 @@
      */
 }
 
-- (IBAction)endGame:(id)sender
-{
-    [currentGame setIsOver:YES];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -75,6 +69,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - actions
+
+- (IBAction)endGame:(id)sender
+{
+    [currentGame setIsOver:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)startGame:(id)sender
+{
+    [currentGame findOrCreateHolesForPlayers];
+    [currentGame setIsStarted:YES];
+    [self performSegueWithIdentifier:@"startGame" sender: self];
+}
 
 #pragma mark - Navigation
 
@@ -83,9 +91,6 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqualToString:@"startGame"] ){
-        [currentGame findOrCreateHolesForPlayers];
-    }
 }
 
 - (void)choosePlayers:(UITableViewCell<FXFormFieldCell> *)cell {

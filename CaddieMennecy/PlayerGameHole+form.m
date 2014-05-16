@@ -14,11 +14,12 @@
 - (NSArray *)fields
 {
     return @[
-             @{FXFormFieldKey: @"hole_score", FXFormFieldHeader:@" ", FXFormFieldTitle: @"Score", FXFormFieldCell: [FXFormStepperCell class]},
+             @{FXFormFieldKey: @"hole_score", FXFormFieldTitle: @"Score", FXFormFieldCell: [FXFormStepperCell class]},
              @{FXFormFieldKey: @"nb_putts", FXFormFieldTitle: @"Putts", FXFormFieldCell: [FXFormStepperCell class]},
              @{FXFormFieldKey: @"fairway", FXFormFieldTitle: @"Fairway",  FXFormFieldType: FXFormFieldTypeOption},
              @{FXFormFieldKey: @"gir", FXFormFieldTitle: @"Green en régulation",  FXFormFieldType: FXFormFieldTypeOption},
-             @{FXFormFieldTitle: @"Valider et suivant", FXFormFieldHeader: @" ", @"contentView.backgroundColor": [UIColor redColor], FXFormFieldAction: @"submitHole:"}
+             @{FXFormFieldTitle: @" ", FXFormFieldAction: @"doNothing:"},
+             @{FXFormFieldTitle: @"Valider et suivant", @"contentView.backgroundColor": [UIColor greenColor], FXFormFieldAction: @"submitHole:"}
              ];
 }
 

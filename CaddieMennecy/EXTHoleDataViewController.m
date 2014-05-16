@@ -14,27 +14,23 @@
 @property (weak, nonatomic) IBOutlet UILabel *holeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *parLabel;
 @property (weak, nonatomic) IBOutlet UILabel *handicapLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dist1Label;
-@property (weak, nonatomic) IBOutlet UILabel *dist2Label;
-@property (weak, nonatomic) IBOutlet UIView *dist2View;
-@property (weak, nonatomic) IBOutlet UIView *dist1View;
+@property (weak, nonatomic) IBOutlet UILabel *distLabel;
 @property (weak, nonatomic) IBOutlet UIButton *player1Button;
 @property (weak, nonatomic) IBOutlet UIButton *player2Button;
 @property (weak, nonatomic) IBOutlet UIButton *player3Button;
 @property (weak, nonatomic) IBOutlet UIButton *player4Button;
-@property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brutLabel;
 @property (weak, nonatomic) IBOutlet UILabel *netLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hcpLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brutTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *netTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hcpTitleLabel;
-@property (weak, nonatomic) IBOutlet UIView *hcpView;
-@property (weak, nonatomic) IBOutlet UIView *brutView;
-@property (weak, nonatomic) IBOutlet UIView *netView;
 @property (weak, nonatomic) IBOutlet UITableView *formView;
+@property (weak, nonatomic) IBOutlet UIView *playerView;
+@property NSInteger range_index;
 
 - (IBAction)toggleDisplay:(id)sender;
+- (IBAction)toggleDistance:(id)sender;
 @property NSUInteger indexPlayerSelected;
 @property BOOL showStableford;
 
@@ -59,6 +55,7 @@
     self.formController.tableView = self.formView;
     self.formController.delegate = self;
     self.formController.form = nil;
+    self.range_index = -1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,36 +70,62 @@
     self.holeLabel.text = [NSString stringWithFormat:@"%@", self.hole.number];
     self.parLabel.text = [NSString stringWithFormat:@"%@", self.hole.par];
     self.handicapLabel.text = [NSString stringWithFormat:@"%@", self.hole.handicap];
-    self.dist1Label.text = [NSString stringWithFormat:@"%@m", self.hole.range2];
-    self.dist2Label.text = [NSString stringWithFormat:@"%@m", self.hole.range3];
-    
     // We need to manage the players button
     [self updateButtonWithPlayerAtIndex:1 withButton:self.player1Button];
     [self updateButtonWithPlayerAtIndex:2 withButton:self.player2Button];
     [self updateButtonWithPlayerAtIndex:3 withButton:self.player3Button];
     [self updateButtonWithPlayerAtIndex:4 withButton:self.player4Button];
     
-    self.dataLabel.text = [NSString stringWithFormat:@"Trou #%@", self.hole.number];
-    
     self.formController.form = (id)self.modelController.playerGameHole;
     [self.formView reloadData];
 }
 
+- (void)doNothing:(UITableViewCell<FXFormFieldCell> *)cell
+{
+    
+}
 - (void)submitHole:(UITableViewCell<FXFormFieldCell> *)cell
 {
     [self.modelController saveCurrentHoleWithHole:self.hole];
     
     if(self.indexPlayerSelected < [self.playerGameHoles count]) {
-        self.indexPlayerSelected ++;
-        [self viewWillAppear:NO];
+        [self animateUpdateViewAtIndex:self.indexPlayerSelected+1];
     } else {
         // We have to go to the next hole
         [self.modelController pageForward:(UIPageViewController *)self.parentViewController];
     }
 }
 
+- (NSString *)getDistance
+{
+    NSUInteger dist = 0;
+    switch(self.range_index) {
+        case 0:
+            dist = self.hole.range1.unsignedIntegerValue;
+            break;
+        case 1:
+            dist = self.hole.range2.unsignedIntegerValue;
+            break;
+        case 2:
+            dist = self.hole.range3.unsignedIntegerValue;
+            break;
+        case 3:
+            dist = self.hole.range4.unsignedIntegerValue;
+            break;
+        case 4:
+            dist = self.hole.range5.unsignedIntegerValue;
+            break;
+        default:
+            dist = self.hole.range3.unsignedIntegerValue;
+            break;
+    }
+    return [NSString stringWithFormat:@"%d m", dist];
+}
+
 - (void)updateButtonWithPlayerAtIndex:(NSUInteger)index withButton:(UIButton *)button
 {
+    NSArray *dist_colors = [[NSArray alloc] initWithObjects:[UIColor blackColor], [UIColor whiteColor], [UIColor yellowColor], [UIColor redColor], [UIColor blueColor], nil];
+    
     // First we search for the player game
     PlayerGame *pg = nil;
     PlayerGameHole *currentPgh = nil;
@@ -115,31 +138,40 @@
     if(pg) {
         // We have a player !
         button.enabled = YES;
-        [button setTitle:[NSString stringWithFormat:@"%@\n%@", pg.forPlayer.firstname, [pg getBrutScore:NO]] forState:UIControlStateNormal];
+        [button setTitle:[NSString stringWithFormat:@"%@", pg.forPlayer.firstname] forState:UIControlStateNormal];
         if(index == self.indexPlayerSelected) {
+            if(self.range_index < 0) {
+                self.range_index = pg.forPlayer.start_color.integerValue;
+            }
             button.backgroundColor = [UIColor cyanColor];
             [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
             
-            self.playerNameLabel.text = [NSString stringWithFormat:@"%@ %@", pg.forPlayer.firstname, pg.forPlayer.lastname];
+            self.distLabel.text = [self getDistance];
+            [self.distLabel setTextColor:dist_colors[self.range_index]];
             self.brutLabel.text = [pg getBrutScore:self.showStableford];
             self.netLabel.text = [pg getNetScore:self.showStableford];
             if(self.showStableford) {
                 self.hcpLabel.text = [NSString stringWithFormat:@"%d",currentPgh.forHole.par.unsignedIntValue + currentPgh.game_hcp.unsignedIntValue];
+                [self.hcpLabel setTextColor:[UIColor yellowColor]];
+                [self.brutLabel setTextColor:[UIColor yellowColor]];
+                [self.netLabel setTextColor:[UIColor yellowColor]];
             } else {
                 self.hcpLabel.text = [NSString stringWithFormat:@"%@",currentPgh.game_hcp];
+                [self.hcpLabel setTextColor:[UIColor whiteColor]];
+                [self.brutLabel setTextColor:[UIColor whiteColor]];
+                [self.netLabel setTextColor:[UIColor whiteColor]];
             }
             // We need to display the score form
             self.modelController.playerGameHole = currentPgh;
-          
         } else {
-            button.backgroundColor = [UIColor whiteColor];
-            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         }
     } else {
         // There's no player
         button.enabled = NO;
         [button setTitle:@"" forState:UIControlStateNormal];
-        button.backgroundColor = [UIColor whiteColor];
+        button.backgroundColor = [UIColor clearColor];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
     
@@ -148,43 +180,82 @@
 - (IBAction)homeMenu:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+-(void)animateUpdateViewAtIndex:(NSInteger)index
+{
+    self.range_index = -1;
+    if(self.indexPlayerSelected != index) {
+        // We need to unselect the buttons
+        [self.player1Button setBackgroundColor:[UIColor clearColor]];
+        [self.player1Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.player2Button setBackgroundColor:[UIColor clearColor]];
+        [self.player2Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.player3Button setBackgroundColor:[UIColor clearColor]];
+        [self.player3Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.player4Button setBackgroundColor:[UIColor clearColor]];
+        [self.player4Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    }
+    UIButton *button = nil;
+    self.indexPlayerSelected = index;
+    switch(self.indexPlayerSelected) {
+        case 1:
+            button = self.player1Button;
+            break;
+        case 2:
+            button = self.player2Button;
+            break;
+        case 3:
+            button = self.player3Button;
+            break;
+        case 4:
+            button = self.player4Button;
+            break;
+    }
+    [UIView animateWithDuration:0.1 animations:^(void){
+        [self.playerView setAlpha:0];
+    } completion:^(BOOL finished) {
+        [self updateButtonWithPlayerAtIndex:index withButton:button];
+        
+        [UIView animateWithDuration:0.1 animations:^(void){
+            [self.playerView setAlpha:1];
+        } completion:nil];
+    }];
+}
+
 - (IBAction)chosePlayer1:(id)sender {
-    self.indexPlayerSelected = 1;
-    [self viewWillAppear:NO];
+    [self animateUpdateViewAtIndex:1];
 }
 
 - (IBAction)chosePlayer2:(id)sender {
-    self.indexPlayerSelected = 2;
-    [self viewWillAppear:NO];
+    [self animateUpdateViewAtIndex:2 ];
 }
 
 - (IBAction)chosePlayer3:(id)sender {
-    self.indexPlayerSelected = 3;
-    [self viewWillAppear:NO];
+    [self animateUpdateViewAtIndex:3 ];
 }
 
 - (IBAction)chosePlayer4:(id)sender {
-    self.indexPlayerSelected = 4;
-    [self viewWillAppear:NO];
+    [self animateUpdateViewAtIndex:4 ];
 }
 - (IBAction)toggleDisplay:(id)sender {
     self.showStableford = !self.showStableford;
     if(self.showStableford) {
-        self.hcpView.backgroundColor = UIColorFromRGB(0xcee25d);
-        self.brutView.backgroundColor = UIColorFromRGB(0xcee25d);
-        self.netView.backgroundColor = UIColorFromRGB(0xcee25d);
-        self.brutTitleLabel.text = @"S Brut";
-        self.netTitleLabel.text = @"S Net";
-        self.hcpTitleLabel.text = @"S Par";
+        [self.brutTitleLabel setText:@"S Brut"];
+        [self.netTitleLabel setText:@"S Net"];
+        [self.hcpTitleLabel setText: @"S Par"];
     } else {
-        self.hcpView.backgroundColor = [UIColor whiteColor];
-        self.brutView.backgroundColor = [UIColor whiteColor];
-        self.netView.backgroundColor = [UIColor whiteColor];
-        self.brutTitleLabel.text = @"Brut";
-        self.netTitleLabel.text = @"Net";
-        self.hcpTitleLabel.text = @"C. Reçus";
-        
+        [self.brutTitleLabel setText:@"Brut"];
+        [self.netTitleLabel setText:@"Net"];
+        [self.hcpTitleLabel setText: @"C. Reçus"];
     }
-    [self viewWillAppear:NO];
+    [self viewWillAppear:YES];
+}
+
+- (IBAction)toggleDistance:(id)sender {
+    self.range_index ++;
+    if(self.range_index > 4 ) {
+        self.range_index = 0;
+    }
+    [self viewWillAppear:YES];
 }
 @end

@@ -17,6 +17,8 @@
     game.when = [NSDate date];
     game.kind = @"18 trous";
     game.forCourse = [Course MR_findFirst];
+    game.is_over = NO;
+    game.is_started = NO;
     for(Player *player in [Player MR_findByAttribute:@"is_default" withValue:@YES]) {
         [game addPlayerInGame:player];
     }
@@ -248,11 +250,17 @@
 
 - (NSArray *)fields
 {
-    return @[
-             @{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"},
-             @{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: @[@"18 trous", @"9 trous aller", @"9 trous retour"]},
-             @{FXFormFieldKey: @"the_course", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]},
-             @{FXFormFieldKey: @"nb_players", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}
-             ];
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    [ret addObject:@{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"}];
+    [ret addObject:@{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: @[@"18 trous", @"9 trous aller", @"9 trous retour"]}];
+    [ret addObject:@{FXFormFieldKey: @"the_course", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
+    [ret addObject:@{FXFormFieldKey: @"nb_players", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];
+    if([self.thePlayerGames count] > 0) {
+        [ret addObject:@{FXFormFieldTitle: (self.is_started ? @"Continuer la partie" : @"Lancer la partie"), FXFormFieldHeader: @" ", @"contentView.backgroundColor": [UIColor greenColor], FXFormFieldAction: @"startGame:"}];
+        if(self.is_started) {
+            [ret addObject:@{FXFormFieldTitle: @"Terminer la partie", @"contentView.backgroundColor": [UIColor redColor], FXFormFieldAction: @"endGame:"}];
+        }
+    }
+    return ret;
 }
 @end
