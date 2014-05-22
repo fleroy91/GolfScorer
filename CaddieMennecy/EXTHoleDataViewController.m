@@ -8,6 +8,7 @@
 
 #import "EXTHoleDataViewController.h"
 #import "EXTHolesRootViewController.h"
+#import "EXTScoreCardViewController.h"
 
 @interface EXTHoleDataViewController ()
 - (IBAction)homeMenu:(id)sender;
@@ -28,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *formView;
 @property (weak, nonatomic) IBOutlet UIView *playerView;
 @property NSInteger range_index;
+@property PlayerGame *currentPlayerGame;
 
 - (IBAction)toggleDisplay:(id)sender;
 - (IBAction)toggleDistance:(id)sender;
@@ -56,6 +58,12 @@
     self.formController.delegate = self;
     self.formController.form = nil;
     self.range_index = -1;
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(deviceOrientationDidChangeNotification:)
+     name:UIDeviceOrientationDidChangeNotification
+     object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +72,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)deviceOrientationDidChangeNotification:(NSNotification*)note
+{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    switch (orientation)
+    {
+        case UIDeviceOrientationPortrait:
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+        {
+            UIStoryboard *storyboard = self.storyboard;
+            EXTScoreCardViewController * vc = (EXTScoreCardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scoreCardView"];
+            vc.playerGame = self.currentPlayerGame;
+            vc.notifOrientation = YES;
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            [self presentViewController:vc animated:YES completion:nil];
+            break;
+        }
+        default:
+            break;
+    }
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -83,6 +114,11 @@
 - (void)doNothing:(UITableViewCell<FXFormFieldCell> *)cell
 {
     
+}
+- (void)endGame:(UITableViewCell<FXFormFieldCell> *)cell
+{
+    [currentGame setIsOver:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)submitHole:(UITableViewCell<FXFormFieldCell> *)cell
 {
@@ -124,7 +160,7 @@
 
 - (void)updateButtonWithPlayerAtIndex:(NSUInteger)index withButton:(UIButton *)button
 {
-    NSArray *dist_colors = [[NSArray alloc] initWithObjects:[UIColor blackColor], [UIColor whiteColor], [UIColor yellowColor], [UIColor redColor], [UIColor blueColor], nil];
+    NSArray *dist_colors = [[NSArray alloc] initWithObjects:[UIColor blackColor], [UIColor whiteColor], [UIColor yellowColor], [UIColor blueColor], [UIColor redColor], nil];
     
     // First we search for the player game
     PlayerGame *pg = nil;
@@ -140,6 +176,7 @@
         button.enabled = YES;
         [button setTitle:[NSString stringWithFormat:@"%@", pg.forPlayer.firstname] forState:UIControlStateNormal];
         if(index == self.indexPlayerSelected) {
+            self.currentPlayerGame = pg;
             if(self.range_index < 0) {
                 self.range_index = pg.forPlayer.start_color.integerValue;
             }
@@ -180,7 +217,14 @@
 - (IBAction)homeMenu:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
 -(void)animateUpdateViewAtIndex:(NSInteger)index
 {
     self.range_index = -1;
@@ -237,6 +281,7 @@
 - (IBAction)chosePlayer4:(id)sender {
     [self animateUpdateViewAtIndex:4 ];
 }
+
 - (IBAction)toggleDisplay:(id)sender {
     self.showStableford = !self.showStableford;
     if(self.showStableford) {
@@ -258,4 +303,5 @@
     }
     [self viewWillAppear:YES];
 }
+
 @end

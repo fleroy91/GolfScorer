@@ -15,7 +15,7 @@
 {
     Game *game = [Game MR_createEntity];
     game.when = [NSDate date];
-    game.kind = @"18 trous";
+    game.kind = @0;
     game.forCourse = [Course MR_findFirst];
     game.is_over = NO;
     game.is_started = NO;
@@ -27,13 +27,10 @@
     return game;
 }
 
--(NSUInteger)nbPlayers
-{
-    return [self.thePlayerGames count];
-}
 -(void)setIsOver:(BOOL)over
 {
     self.is_over = [NSNumber numberWithBool:over];
+    self.end_at = [NSDate date];
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
 }
 -(void)setIsStarted:(BOOL)started
@@ -143,9 +140,8 @@
         float slope = [self getSlope:pg];
 
         pg.game_total_hcp = [NSNumber numberWithUnsignedInt:pg.forPlayer.index.floatValue * (slope / 113) + sss - self.forCourse.par.unsignedIntegerValue];
-
-        NSArray *holes = [Hole MR_findAll];
-        for(Hole* hole in holes) {
+        
+        for(Hole* hole in currentGame.forCourse.theHoles) {
             PlayerGameHole *found = nil;
             for(PlayerGameHole *pgh in pg.thePlayerGameHoles) {
                 if(pgh.number.integerValue == hole.number.integerValue) {
@@ -153,33 +149,88 @@
                     break;
                 }
             }
-            if(! found) {
-                PlayerGameHole *pgh = [PlayerGameHole MR_createEntity];
-                pgh.number = hole.number;
-                pgh.forHole = hole;
-                pgh.inPlayerGame = pg;
-                pgh.hole_score = hole.par;
-                pgh.nb_putts = [NSNumber numberWithInt:2];
-                [pgh.managedObjectContext MR_saveToPersistentStoreAndWait];
-                NSLog(@"Creation of %@ for \n\t%@", pgh, pg);
-                assert(pgh.forHole);
-                found = pgh;
+            if([currentGame getNbHolesPlayed] < 18 && (hole.number.integerValue < [currentGame getStartingHoleNumber]  || hole.number.integerValue > [currentGame getEndingHoleNumber]))
+            {
+                // We need to remove it
+                if(found) {
+                    [found MR_deleteEntity];
+                }
+            } else {
+                if(! found) {
+                    PlayerGameHole *pgh = [PlayerGameHole MR_createEntity];
+                    pgh.number = hole.number;
+                    pgh.forHole = hole;
+                    pgh.inPlayerGame = pg;
+                    pgh.hole_score = hole.par;
+                    pgh.nb_putts = [NSNumber numberWithInt:2];
+                    [pgh.managedObjectContext MR_saveToPersistentStoreAndWait];
+                    NSLog(@"Creation of %@ for \n\t%@", pgh, pg);
+                    assert(pgh.forHole);
+                    found = pgh;
+                }
+                // Game handicap
+                NSUInteger hcp_base = (NSUInteger)(pg.game_total_hcp.unsignedIntegerValue / 18);
+                NSUInteger hcp_rest = pg.game_total_hcp.unsignedIntegerValue - hcp_base * 18;
+                found.game_hcp = [NSNumber numberWithUnsignedInt:(hcp_base + (hole.handicap.unsignedIntegerValue <= hcp_rest ? 1 : 0))];
+                [found.managedObjectContext MR_saveToPersistentStoreAndWait];
+                assert(found.forHole);
             }
-            // Game handicap
-            NSUInteger hcp_base = (NSUInteger)(pg.game_total_hcp.unsignedIntegerValue / 18);
-            NSUInteger hcp_rest = pg.game_total_hcp.unsignedIntegerValue - hcp_base * 18;
-            found.game_hcp = [NSNumber numberWithUnsignedInt:(hcp_base + (hole.handicap.unsignedIntegerValue <= hcp_rest ? 1 : 0))];
-            [found.managedObjectContext MR_saveToPersistentStoreAndWait];
-            assert(found.forHole);
         }
     }
 }
+- (NSUInteger)getNbHolesPlayed
+{
+    NSUInteger ret = 0;
+    switch(self.kind.integerValue) {
+        case 0:
+        case 1:
+            ret = 18;
+            break;
+        case 2:
+        case 3:
+            ret = 9;
+            break;
+    }
+    return ret;
+}
 
-- (NSUInteger)nb_players
+- (NSUInteger)getStartingHoleNumber
+{
+    NSUInteger ret = 0;
+    switch(self.kind.integerValue) {
+        case 0:
+        case 2:
+            ret = 1;
+            break;
+        case 1:
+        case 3:
+            ret = 10;
+            break;
+    }
+    return ret;
+}
+- (NSUInteger)getEndingHoleNumber
+{
+    NSUInteger ret = 0;
+    switch(self.kind.integerValue) {
+        case 0:
+        case 3:
+            ret = 18;
+            break;
+        case 2:
+        case 1:
+            ret = 9;
+            break;
+    }
+    return ret;
+}
+
+
+- (NSUInteger)nbPlayers
 {
     return [self.thePlayerGames count];
 }
-- (NSString *)the_course
+- (NSString *)theCourse
 {
     if(self.forCourse) {
         return self.forCourse.name;
@@ -187,16 +238,12 @@
         return nil;
     }
 }
-- (void)setValue:(id)value forKey:(NSString *)key
-{
-    if([key isEqualToString:@"the_course"]) {
-        Course *course = [Course MR_findFirstByAttribute:@"name" withValue:(NSString *)value];
-        if(course) {
-            self.forCourse = course;
-        }
 
-    } else {
-        [super setValue:value forKeyPath:key];
+- (void)setTheCourse:(NSString *)course_name
+{
+    Course *course = [Course MR_findFirstByAttribute:@"name" withValue:(NSString *)course_name];
+    if(course) {
+        self.forCourse = course;
     }
 }
 
@@ -247,18 +294,31 @@
     }
     return removed;
 }
+-(NSArray *)kindOptions
+{
+    return @[@"18 trous - départ 1", @"18 trous - départ 10", @"9 trous - départ 1", @"9 trous - départ 10"];
+}
+-(NSString *)getKindName
+{
+    return [[self kindOptions] objectAtIndex:self.kind.integerValue];
+}
 
 - (NSArray *)fields
 {
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     [ret addObject:@{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"}];
-    [ret addObject:@{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: @[@"18 trous", @"9 trous aller", @"9 trous retour"]}];
-    [ret addObject:@{FXFormFieldKey: @"the_course", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
-    [ret addObject:@{FXFormFieldKey: @"nb_players", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];
-    if([self.thePlayerGames count] > 0) {
-        [ret addObject:@{FXFormFieldTitle: (self.is_started ? @"Continuer la partie" : @"Lancer la partie"), FXFormFieldHeader: @" ", @"contentView.backgroundColor": [UIColor greenColor], FXFormFieldAction: @"startGame:"}];
-        if(self.is_started) {
-            [ret addObject:@{FXFormFieldTitle: @"Terminer la partie", @"contentView.backgroundColor": [UIColor redColor], FXFormFieldAction: @"endGame:"}];
+    [ret addObject:@{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: [self kindOptions]}];
+    [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
+    [ret addObject:@{FXFormFieldKey: @"nbPlayers", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];
+    if(self.is_over) {
+        [ret addObject:@{FXFormFieldTitle: @"Afficher les résultats", FXFormFieldHeader: @" ", @"contentView.backgroundColor": [UIColor orangeColor], FXFormFieldAction: @"showResult:"}];
+        
+    } else {
+        if([self.thePlayerGames count] > 0) {
+            [ret addObject:@{FXFormFieldTitle: (self.is_started ? @"Continuer la partie" : @"Lancer la partie"), FXFormFieldHeader: @" ", @"contentView.backgroundColor": [UIColor greenColor], FXFormFieldAction: @"startGame:"}];
+            if(self.is_started) {
+                [ret addObject:@{FXFormFieldTitle: @"Terminer la partie", @"contentView.backgroundColor": [UIColor redColor], FXFormFieldAction: @"endGame:"}];
+            }
         }
     }
     return ret;

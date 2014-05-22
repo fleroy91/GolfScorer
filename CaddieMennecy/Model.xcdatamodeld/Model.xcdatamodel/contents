@@ -24,12 +24,13 @@
         <attribute name="sss5F" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sss5M" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="theGames" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Game" inverseName="forCourse" inverseEntity="Game" syncable="YES"/>
-        <relationship name="theHoles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Hole" inverseName="forCourse" inverseEntity="Hole" syncable="YES"/>
+        <relationship name="theHoles" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Hole" inverseName="forCourse" inverseEntity="Hole" syncable="YES"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
+        <attribute name="end_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="is_over" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="is_started" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="kind" optional="YES" attributeType="String" defaultValueString="18 trous" syncable="YES"/>
+        <attribute name="kind" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="when" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="forCourse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="theGames" inverseEntity="Course" syncable="YES"/>
         <relationship name="thePlayerGames" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PlayerGame" inverseName="inGame" inverseEntity="PlayerGame" syncable="YES"/>
@@ -72,6 +73,7 @@
         <attribute name="game_hcp" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="gir" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="hole_score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_saved" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="nb_putts" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="forHole" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hole" inverseName="thePlayerGameHoles" inverseEntity="Hole" syncable="YES"/>
@@ -79,10 +81,10 @@
     </entity>
     <elements>
         <element name="Course" positionX="556" positionY="-342" width="128" height="403"/>
-        <element name="Game" positionX="225" positionY="-342" width="128" height="133"/>
+        <element name="Game" positionX="225" positionY="-342" width="128" height="148"/>
         <element name="Hole" positionX="405" positionY="86" width="128" height="193"/>
         <element name="Player" positionX="396" positionY="-190" width="128" height="163"/>
         <element name="PlayerGame" positionX="216" positionY="-141" width="128" height="178"/>
-        <element name="PlayerGameHole" positionX="205" positionY="117" width="128" height="163"/>
+        <element name="PlayerGameHole" positionX="205" positionY="117" width="128" height="178"/>
     </elements>
 </model>

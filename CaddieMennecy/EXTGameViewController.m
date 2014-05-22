@@ -8,6 +8,7 @@
 
 #import "EXTGameViewController.h"
 #import "EXTPlayersViewController.h"
+#import "EXTResultGameViewController.h"
 
 @interface EXTGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -84,6 +85,18 @@
     [self performSegueWithIdentifier:@"startGame" sender: self];
 }
 
+- (void)showResult:(id)sender
+{
+    [self performSegueWithIdentifier:@"showResult" sender: self];
+}
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -91,6 +104,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"showResult"] ){
+        EXTResultGameViewController *vc = (EXTResultGameViewController *)[segue destinationViewController];
+        vc.game = currentGame;
+    }
 }
 
 - (void)choosePlayers:(UITableViewCell<FXFormFieldCell> *)cell {

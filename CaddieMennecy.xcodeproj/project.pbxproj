@@ -53,6 +53,7 @@
 		B61CD7C5191EA1F100E172CD /* games@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C1191EA1F100E172CD /* games@2x.png */; };
 		B61CD7C6191EA1F100E172CD /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C2191EA1F100E172CD /* play@2x.png */; };
 		B61CD7C7191EA1F100E172CD /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C3191EA1F100E172CD /* settings@2x.png */; };
+		B62579CF192DDA7D00F747E1 /* EXTNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62579CE192DDA7D00F747E1 /* EXTNavViewController.m */; };
 		B62EECB5190F7BA300390F0D /* EXTGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EECB4190F7BA300390F0D /* EXTGameViewController.m */; };
 		B62EECB8190F7D3500390F0D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB6190F7D3500390F0D /* AddressBook.framework */; };
 		B62EECB9190F7D3500390F0D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB7190F7D3500390F0D /* AddressBookUI.framework */; };
@@ -81,10 +82,13 @@
 		B6B22978192341950090E1A0 /* EXTPlayerNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B22977192341950090E1A0 /* EXTPlayerNavController.m */; };
 		B6B229841924A4310090E1A0 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229831924A4310090E1A0 /* Course.m */; };
 		B6B229871924A4320090E1A0 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229861924A4320090E1A0 /* Player.m */; };
-		B6B2298A1924A4320090E1A0 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229891924A4320090E1A0 /* Game.m */; };
 		B6B2298D1924A4320090E1A0 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B2298C1924A4320090E1A0 /* Hole.m */; };
 		B6B229901924A4320090E1A0 /* PlayerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B2298F1924A4320090E1A0 /* PlayerGame.m */; };
-		B6B229931924A4320090E1A0 /* PlayerGameHole.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229921924A4320090E1A0 /* PlayerGameHole.m */; };
+		B6B2299C192681000090E1A0 /* EXTPlayerResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B2299B192681000090E1A0 /* EXTPlayerResultTableViewCell.m */; };
+		B6B2299F1926817A0090E1A0 /* EXTResultGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B2299E1926817A0090E1A0 /* EXTResultGameViewController.m */; };
+		B6B229A2192794C70090E1A0 /* PlayerGameHole.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229A1192794C70090E1A0 /* PlayerGameHole.m */; };
+		B6B229A51927B0AD0090E1A0 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229A41927B0AD0090E1A0 /* Game.m */; };
+		B6B229A8192B31520090E1A0 /* EXTScoreCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229A7192B31520090E1A0 /* EXTScoreCardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +183,8 @@
 		B61CD7C1191EA1F100E172CD /* games@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "games@2x.png"; path = "CaddieMennecy/images/games@2x.png"; sourceTree = "<group>"; };
 		B61CD7C2191EA1F100E172CD /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@2x.png"; path = "CaddieMennecy/images/play@2x.png"; sourceTree = "<group>"; };
 		B61CD7C3191EA1F100E172CD /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "CaddieMennecy/images/settings@2x.png"; sourceTree = "<group>"; };
+		B62579CD192DDA7D00F747E1 /* EXTNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTNavViewController.h; sourceTree = "<group>"; };
+		B62579CE192DDA7D00F747E1 /* EXTNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTNavViewController.m; sourceTree = "<group>"; };
 		B62EECB3190F7BA300390F0D /* EXTGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTGameViewController.h; sourceTree = "<group>"; };
 		B62EECB4190F7BA300390F0D /* EXTGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTGameViewController.m; sourceTree = "<group>"; };
 		B62EECB6190F7D3500390F0D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -223,14 +229,20 @@
 		B6B229831924A4310090E1A0 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		B6B229851924A4320090E1A0 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		B6B229861924A4320090E1A0 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		B6B229881924A4320090E1A0 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		B6B229891924A4320090E1A0 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		B6B2298B1924A4320090E1A0 /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
 		B6B2298C1924A4320090E1A0 /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
 		B6B2298E1924A4320090E1A0 /* PlayerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGame.h; sourceTree = "<group>"; };
 		B6B2298F1924A4320090E1A0 /* PlayerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGame.m; sourceTree = "<group>"; };
-		B6B229911924A4320090E1A0 /* PlayerGameHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGameHole.h; sourceTree = "<group>"; };
-		B6B229921924A4320090E1A0 /* PlayerGameHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGameHole.m; sourceTree = "<group>"; };
+		B6B2299A192681000090E1A0 /* EXTPlayerResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTPlayerResultTableViewCell.h; sourceTree = "<group>"; };
+		B6B2299B192681000090E1A0 /* EXTPlayerResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTPlayerResultTableViewCell.m; sourceTree = "<group>"; };
+		B6B2299D1926817A0090E1A0 /* EXTResultGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTResultGameViewController.h; sourceTree = "<group>"; };
+		B6B2299E1926817A0090E1A0 /* EXTResultGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTResultGameViewController.m; sourceTree = "<group>"; };
+		B6B229A0192794C70090E1A0 /* PlayerGameHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGameHole.h; sourceTree = "<group>"; };
+		B6B229A1192794C70090E1A0 /* PlayerGameHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGameHole.m; sourceTree = "<group>"; };
+		B6B229A31927B0AD0090E1A0 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		B6B229A41927B0AD0090E1A0 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		B6B229A6192B31520090E1A0 /* EXTScoreCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScoreCardViewController.h; sourceTree = "<group>"; };
+		B6B229A7192B31520090E1A0 /* EXTScoreCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScoreCardViewController.m; sourceTree = "<group>"; };
 		BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -398,14 +410,14 @@
 				B61CD705191C108400E172CD /* PlayerGame+addon.h */,
 				B61CD706191C108400E172CD /* PlayerGame+addon.m */,
 				B639268E1911715100AC48D0 /* Model.xcdatamodeld */,
-				B6B229911924A4320090E1A0 /* PlayerGameHole.h */,
-				B6B229921924A4320090E1A0 /* PlayerGameHole.m */,
+				B6B229A31927B0AD0090E1A0 /* Game.h */,
+				B6B229A41927B0AD0090E1A0 /* Game.m */,
+				B6B229A0192794C70090E1A0 /* PlayerGameHole.h */,
+				B6B229A1192794C70090E1A0 /* PlayerGameHole.m */,
 				B6B2298E1924A4320090E1A0 /* PlayerGame.h */,
 				B6B2298F1924A4320090E1A0 /* PlayerGame.m */,
 				B6B2298B1924A4320090E1A0 /* Hole.h */,
 				B6B2298C1924A4320090E1A0 /* Hole.m */,
-				B6B229881924A4320090E1A0 /* Game.h */,
-				B6B229891924A4320090E1A0 /* Game.m */,
 				B6B229851924A4320090E1A0 /* Player.h */,
 				B6B229861924A4320090E1A0 /* Player.m */,
 				B6B229821924A4310090E1A0 /* Course.h */,
@@ -461,6 +473,8 @@
 				B61CD6571918339700E172CD /* EXTGlobal.h */,
 				B68A5548190E28D90002A4CE /* EXTAppDelegate.h */,
 				B68A5549190E28D90002A4CE /* EXTAppDelegate.m */,
+				B62579CD192DDA7D00F747E1 /* EXTNavViewController.h */,
+				B62579CE192DDA7D00F747E1 /* EXTNavViewController.m */,
 				B639269A19136ED000AC48D0 /* EXTHomeViewController.h */,
 				B639269B19136ED000AC48D0 /* EXTHomeViewController.m */,
 				B62EECB3190F7BA300390F0D /* EXTGameViewController.h */,
@@ -477,6 +491,12 @@
 				B68A5552190E28D90002A4CE /* EXTModelController.m */,
 				B68A554E190E28D90002A4CE /* EXTHoleDataViewController.h */,
 				B68A554F190E28D90002A4CE /* EXTHoleDataViewController.m */,
+				B6B2299D1926817A0090E1A0 /* EXTResultGameViewController.h */,
+				B6B2299E1926817A0090E1A0 /* EXTResultGameViewController.m */,
+				B6B2299A192681000090E1A0 /* EXTPlayerResultTableViewCell.h */,
+				B6B2299B192681000090E1A0 /* EXTPlayerResultTableViewCell.m */,
+				B6B229A6192B31520090E1A0 /* EXTScoreCardViewController.h */,
+				B6B229A7192B31520090E1A0 /* EXTScoreCardViewController.m */,
 				B68A5554190E28D90002A4CE /* Main.storyboard */,
 				B68A5557190E28D90002A4CE /* Images.xcassets */,
 				B63926A61914070800AC48D0 /* Model */,
@@ -649,7 +669,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B229A51927B0AD0090E1A0 /* Game.m in Sources */,
 				B68A5550190E28D90002A4CE /* EXTHoleDataViewController.m in Sources */,
+				B6B2299F1926817A0090E1A0 /* EXTResultGameViewController.m in Sources */,
 				B6007E871921FFDB00DF0F83 /* EXTPlayerViewController.m in Sources */,
 				B61CD6521918328100E172CD /* MagicalRecord+iCloud.m in Sources */,
 				B61CD6421918328100E172CD /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
@@ -663,7 +685,6 @@
 				B61CD6471918328100E172CD /* NSManagedObject+MagicalRecord.m in Sources */,
 				B61CD6431918328100E172CD /* NSString+MagicalDataImport.m in Sources */,
 				B61CD6411918328100E172CD /* NSObject+MagicalDataImport.m in Sources */,
-				B6B229931924A4320090E1A0 /* PlayerGameHole.m in Sources */,
 				B63926A91914081000AC48D0 /* Player+create.m in Sources */,
 				B61CD63D1918328100E172CD /* MagicalImportFunctions.m in Sources */,
 				B61CD6531918328100E172CD /* MagicalRecord+Options.m in Sources */,
@@ -674,6 +695,7 @@
 				B61CD6451918328100E172CD /* NSManagedObject+MagicalDataImport.m in Sources */,
 				B61CD6491918328100E172CD /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				B68A5553190E28D90002A4CE /* EXTModelController.m in Sources */,
+				B6B229A2192794C70090E1A0 /* PlayerGameHole.m in Sources */,
 				B63926A51914065A00AC48D0 /* Game+init.m in Sources */,
 				B61CD6401918328100E172CD /* NSNumber+MagicalDataImport.m in Sources */,
 				B61CD6461918328100E172CD /* NSManagedObject+MagicalFinders.m in Sources */,
@@ -684,16 +706,18 @@
 				B6B229871924A4320090E1A0 /* Player.m in Sources */,
 				B61CD63E1918328100E172CD /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				B6B229841924A4310090E1A0 /* Course.m in Sources */,
+				B6B229A8192B31520090E1A0 /* EXTScoreCardViewController.m in Sources */,
 				B61CD64E1918328100E172CD /* NSPersistentStore+MagicalRecord.m in Sources */,
+				B62579CF192DDA7D00F747E1 /* EXTNavViewController.m in Sources */,
 				B61CD72E191E30AB00E172CD /* PlayerGameHole+form.m in Sources */,
 				B61CD6561918328100E172CD /* MagicalRecord.m in Sources */,
 				B68A5546190E28D90002A4CE /* main.m in Sources */,
-				B6B2298A1924A4320090E1A0 /* Game.m in Sources */,
 				B61CD6511918328100E172CD /* MagicalRecord+ErrorHandling.m in Sources */,
 				B61CD6501918328100E172CD /* MagicalRecord+Actions.m in Sources */,
 				B61CD707191C108400E172CD /* PlayerGame+addon.m in Sources */,
 				B61CD6481918328100E172CD /* NSManagedObject+MagicalRequests.m in Sources */,
 				B61CD6441918328100E172CD /* NSManagedObject+MagicalAggregation.m in Sources */,
+				B6B2299C192681000090E1A0 /* EXTPlayerResultTableViewCell.m in Sources */,
 				B61CD63F1918328100E172CD /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				B68A554D190E28D90002A4CE /* EXTHolesRootViewController.m in Sources */,
 				B61CD6E0191A0A2800E172CD /* Hole+create.m in Sources */,

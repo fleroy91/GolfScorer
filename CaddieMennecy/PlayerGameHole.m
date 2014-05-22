@@ -2,7 +2,7 @@
 //  PlayerGameHole.m
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 17/05/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @dynamic hole_score;
 @dynamic nb_putts;
 @dynamic number;
+@dynamic is_saved;
 @dynamic forHole;
 @dynamic inPlayerGame;
 

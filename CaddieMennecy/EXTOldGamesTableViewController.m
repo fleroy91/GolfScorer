@@ -10,6 +10,7 @@
 #import <CoreData/NSFetchRequest.h>
 #import <CoreData/NSManagedObjectContext.h>
 #import "EXTGlobal.h"
+#import "EXTResultGameViewController.h"
 
 @interface EXTOldGamesTableViewController ()
 @property NSArray* games;
@@ -56,32 +57,35 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OldGame" forIndexPath:indexPath];
     Game * game = self.games[indexPath.row];
-    cell.textLabel.text = [game.when description];
-    cell.detailTextLabel.text = game.kind;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    cell.textLabel.text = [dateFormatter stringFromDate:game.when];
+    cell.detailTextLabel.text = [game getKindName];
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        Game * game = self.games[indexPath.row];
+        [game MR_deleteEntity];
+        self.games = [Game MR_findAllSortedBy:@"when" ascending:YES];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -99,7 +103,15 @@
 }
 */
 
-/*
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -107,7 +119,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"showGameResult"] ){
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Game * game = self.games[indexPath.row];
+        EXTResultGameViewController *vc = (EXTResultGameViewController *)[segue destinationViewController];
+        vc.game = game;
+    } 
 }
-*/
 
 @end

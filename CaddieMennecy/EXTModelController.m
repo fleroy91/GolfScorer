@@ -20,7 +20,7 @@
  */
 
 @interface EXTModelController()
-@property (strong, nonatomic) NSArray *holes;
+@property (strong, nonatomic) NSMutableArray *holes;
 @end
 
 @implementation EXTModelController
@@ -30,7 +30,37 @@
     self = [super init];
     if (self) {
         // We need to create all the PlayerGameHoles for the currentGame
-        _holes = [Hole MR_findAllSortedBy:@"number" ascending:YES];
+        // TODO : Manage the course !!!!
+        _holes = [[NSMutableArray alloc] init];
+        int nbHolesAdded = 0;
+        self.startingPageIndex = -1;
+        NSUInteger number = [currentGame getStartingHoleNumber];
+        while (nbHolesAdded < [currentGame getNbHolesPlayed]) {
+            for(Hole *h in currentGame.forCourse.theHoles) {
+                if(h.number.integerValue == number) {
+                    [_holes addObject:h];
+                    if(self.startingPageIndex < 0) {
+                        // We need to find the first PGH not saved and show it
+                        NSMutableArray *pghs = [self findPlayerGameHolesForHole:h];
+                        for(PlayerGameHole *pgh in pghs) {
+                            if(! pgh.is_saved.boolValue) {
+                                self.startingPageIndex = nbHolesAdded;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            nbHolesAdded ++;
+            number ++;
+            if(number > 18) {
+                number = 1;
+            }
+        }
+        NSLog(@"Nb holes in game : %d", [_holes count]);
+        if(self.startingPageIndex == -1) {
+            self.startingPageIndex = nbHolesAdded - 1;
+        }
     }
     return self;
 }
@@ -57,7 +87,7 @@
     for(PlayerGame *pg in currentGame.thePlayerGames) {
         for(PlayerGameHole *pgh in pg.thePlayerGameHoles) {
             assert(pgh.forHole);
-            if(pgh.number == hole.number) {
+            if(pgh.number.integerValue == hole.number.integerValue) {
                 [ret addObject:pgh];
             }
         }
@@ -67,7 +97,7 @@
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
-    return [self.holes count];
+    return [currentGame getNbHolesPlayed];
 }
 - (void)saveCurrentHole:(UIPageViewController *)pageViewController {
     EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
@@ -76,6 +106,7 @@
 }
 - (void)saveCurrentHoleWithHole:(Hole *)hole
 {
+    self.playerGameHole.is_saved = @YES;
     [self.playerGameHole.managedObjectContext MR_saveToPersistentStoreAndWait];
     [self.playerGameHole.inPlayerGame saveAndComputeScoreUntil:hole];
 }

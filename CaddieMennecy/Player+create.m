@@ -38,7 +38,7 @@
              @{FXFormFieldKey: @"is_default", FXFormFieldTitle: @"Joueur principal", FXFormFieldType: FXFormFieldTypeBoolean},
              @{FXFormFieldKey: @"index", FXFormFieldTitle: @"Index", FXFormFieldType: FXFormFieldTypeNumber},
              @{FXFormFieldKey: @"gender", FXFormFieldTitle: @"Sexe", FXFormFieldOptions: @[@"Homme", @"Femme"]},
-             @{FXFormFieldKey: @"start_color", FXFormFieldTitle: @"Départ", FXFormFieldOptions: @[@"Noir", @"Blanc", @"Jaune", @"Rouge", @"Bleu"]}
+             @{FXFormFieldKey: @"start_color", FXFormFieldTitle: @"Départ", FXFormFieldOptions: @[@"Noir", @"Blanc", @"Jaune", @"Bleu", @"Rouge"]}
              ];
 }
 

@@ -18,5 +18,6 @@
 - (void)saveCurrentHole:(UIPageViewController *)pageViewController;
 - (void)saveCurrentHoleWithHole:(Hole *)hole;
 @property PlayerGameHole *playerGameHole;
+@property NSInteger startingPageIndex;
 
 @end

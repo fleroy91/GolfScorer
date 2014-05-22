@@ -2,7 +2,7 @@
 //  Game.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 17/05/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -15,8 +15,9 @@
 
 @property (nonatomic, retain) NSNumber * is_over;
 @property (nonatomic, retain) NSNumber * is_started;
-@property (nonatomic, retain) NSString * kind;
+@property (nonatomic, retain) NSNumber * kind;
 @property (nonatomic, retain) NSDate * when;
+@property (nonatomic, retain) NSDate * end_at;
 @property (nonatomic, retain) Course *forCourse;
 @property (nonatomic, retain) NSOrderedSet *thePlayerGames;
 @end

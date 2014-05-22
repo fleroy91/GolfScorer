@@ -22,5 +22,10 @@
 - (PlayerGame *)findPlayerGameForPlayer:(Player *)player;
 - (BOOL)addPlayerInGame:(Player *)player;
 - (BOOL)removePlayerFromGame:(Player *)player;
+-(NSString *)getKindName;
+- (NSUInteger)getStartingHoleNumber;
+- (NSUInteger)getEndingHoleNumber;
+- (NSUInteger)getNbHolesPlayed;
+
 
 @end

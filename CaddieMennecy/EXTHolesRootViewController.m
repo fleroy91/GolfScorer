@@ -7,9 +7,7 @@
 //
 
 #import "EXTHolesRootViewController.h"
-
 #import "EXTModelController.h"
-
 #import "EXTHoleDataViewController.h"
 
 @interface EXTHolesRootViewController ()
@@ -27,12 +25,11 @@
     // Configure the page view controller and add it as a child view controller.
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
+    self.pageViewController.dataSource = self.modelController;
 
-    EXTHoleDataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
+    EXTHoleDataViewController *startingViewController = [self.modelController viewControllerAtIndex:self.modelController.startingPageIndex storyboard:self.storyboard];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-
-    self.pageViewController.dataSource = self.modelController;
 
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
@@ -64,13 +61,21 @@
     return _modelController;
 }
 
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 #pragma mark - UIPageViewController delegate methods
 
 -(void)pageViewController:(UIPageViewController *)pvc willTransitionToViewControllers:(NSArray *)pendingViewControllers
 {
     [self.modelController saveCurrentHole:pvc];
 }
-
 /*
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {

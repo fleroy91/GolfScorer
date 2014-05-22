@@ -13,6 +13,10 @@
 @interface PlayerGame (addon)
 - (NSString *)getBrutScore:(BOOL)showStbl;
 - (NSString *)getNetScore:(BOOL)showStbl;
+- (NSString *)getFairwayScore:(BOOL)showRatio;
+- (NSString *)getGIRScore:(BOOL)showRatio;
+- (NSString *)getAvgPuttScore:(BOOL)showRatio;
+- (NSInteger)getNbHolesFrom:(NSInteger)min to:(NSInteger)max forNet:(BOOL)showNet;
 
 - (void)saveAndComputeScoreUntil:(Hole *)hole;
 + (PlayerGame *)initInGame:(Game *)game forPlayer:(Player *)player andRow:(NSNumber*)row;

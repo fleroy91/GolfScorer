@@ -42,7 +42,14 @@
     vc.modalPresentationStyle = UIModalTransitionStyleCoverVertical;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
-
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 - (IBAction)addPlayerFromButton:(id)sender
 {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Créer un nouveau joueur"
