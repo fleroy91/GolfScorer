@@ -30,11 +30,13 @@
 @property (weak, nonatomic) IBOutlet UIView *playerView;
 @property NSInteger range_index;
 @property PlayerGame *currentPlayerGame;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 - (IBAction)toggleDisplay:(id)sender;
 - (IBAction)toggleDistance:(id)sender;
 @property NSUInteger indexPlayerSelected;
 @property BOOL showStableford;
+@property (weak, nonatomic) IBOutlet UILabel *elapsedLabel;
 
 - (IBAction)chosePlayer1:(id)sender;
 - (IBAction)chosePlayer2:(id)sender;
@@ -42,6 +44,10 @@
 - (IBAction)chosePlayer4:(id)sender;
 
 @property (nonatomic, strong) FXFormController *formController;
+@property BOOL canHandleOrientation;
+
+@property NSTimer *myTimer;
+- (void)updateTime:(id)sender;
 
 @end
 
@@ -64,6 +70,13 @@
      selector:@selector(deviceOrientationDidChangeNotification:)
      name:UIDeviceOrientationDidChangeNotification
      object:nil];
+    self.canHandleOrientation = YES;
+    
+    self.myTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                     target:self
+                                   selector:@selector(updateTime:)
+                                   userInfo:nil
+                                    repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,27 +87,46 @@
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification*)note
 {
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    switch (orientation)
-    {
-        case UIDeviceOrientationPortrait:
-            break;
-        case UIDeviceOrientationLandscapeLeft:
-        case UIDeviceOrientationLandscapeRight:
+    if(self.canHandleOrientation) {
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        switch (orientation)
         {
-            UIStoryboard *storyboard = self.storyboard;
-            EXTScoreCardViewController * vc = (EXTScoreCardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scoreCardView"];
-            vc.playerGame = self.currentPlayerGame;
-            vc.notifOrientation = YES;
-            vc.modalPresentationStyle = UIModalPresentationFullScreen;
-            vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-            [self presentViewController:vc animated:YES completion:nil];
-            break;
+            case UIDeviceOrientationPortrait:
+                break;
+            case UIDeviceOrientationLandscapeLeft:
+            case UIDeviceOrientationLandscapeRight:
+            {
+                self.canHandleOrientation = NO;
+                UIStoryboard *storyboard = self.storyboard;
+                EXTScoreCardViewController * vc = (EXTScoreCardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scoreCardView"];
+                vc.playerGame = self.currentPlayerGame;
+                vc.notifOrientation = YES;
+                vc.modalPresentationStyle = UIModalPresentationFullScreen;
+                vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+                [self presentViewController:vc animated:YES completion:^{
+                    self.canHandleOrientation = YES;
+                }];
+                break;
+            }
+            default:
+                break;
         }
-        default:
-            break;
     }
 }
+
+- (void)updateTime:(id)sender
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSDate * now = [NSDate date];
+    NSString *formattedDateString = [dateFormatter stringFromDate:now];
+    [self.timeLabel setText:formattedDateString];
+    NSTimeInterval duration = [now timeIntervalSinceDate:currentGame.when];
+    NSUInteger seconds = (NSUInteger)round(duration);
+    [self.elapsedLabel setText:[NSString stringWithFormat:@"%02u:%02u",
+                                 seconds / 3600, (seconds / 60) % 60]];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -109,6 +141,7 @@
     
     self.formController.form = (id)self.modelController.playerGameHole;
     [self.formView reloadData];
+    [self updateTime:nil];
 }
 
 - (void)doNothing:(UITableViewCell<FXFormFieldCell> *)cell
@@ -171,6 +204,8 @@
             currentPgh = pgh;
         }
     }
+    [button setBackgroundColor:[UIColor clearColor]];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     if(pg) {
         // We have a player !
         button.enabled = YES;
@@ -180,8 +215,7 @@
             if(self.range_index < 0) {
                 self.range_index = pg.forPlayer.start_color.integerValue;
             }
-            button.backgroundColor = [UIColor cyanColor];
-            [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"btn-back2px.png"] forState:UIControlStateNormal];
             
             self.distLabel.text = [self getDistance];
             [self.distLabel setTextColor:dist_colors[self.range_index]];
@@ -201,8 +235,8 @@
             // We need to display the score form
             self.modelController.playerGameHole = currentPgh;
         } else {
-            [button setBackgroundColor:[UIColor clearColor]];
-            [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage alloc] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
     } else {
         // There's no player
@@ -213,6 +247,7 @@
     }
     
 }
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 - (IBAction)homeMenu:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -230,14 +265,10 @@
     self.range_index = -1;
     if(self.indexPlayerSelected != index) {
         // We need to unselect the buttons
-        [self.player1Button setBackgroundColor:[UIColor clearColor]];
-        [self.player1Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [self.player2Button setBackgroundColor:[UIColor clearColor]];
-        [self.player2Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [self.player3Button setBackgroundColor:[UIColor clearColor]];
-        [self.player3Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [self.player4Button setBackgroundColor:[UIColor clearColor]];
-        [self.player4Button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.player1Button setBackgroundImage:nil forState:UIControlStateNormal];
+        [self.player2Button setBackgroundImage:nil forState:UIControlStateNormal];
+        [self.player3Button setBackgroundImage:nil forState:UIControlStateNormal];
+        [self.player4Button setBackgroundImage:nil forState:UIControlStateNormal];
     }
     UIButton *button = nil;
     self.indexPlayerSelected = index;
@@ -259,7 +290,8 @@
         [self.playerView setAlpha:0];
     } completion:^(BOOL finished) {
         [self updateButtonWithPlayerAtIndex:index withButton:button];
-        
+        self.formController.form = (id)self.modelController.playerGameHole;
+        [self.formView reloadData];
         [UIView animateWithDuration:0.1 animations:^(void){
             [self.playerView setAlpha:1];
         } completion:nil];

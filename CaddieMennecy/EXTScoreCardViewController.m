@@ -135,6 +135,25 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    for(UILabel *lbl in self.distLabels) {
+        lbl.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px.png"]];
+    }
+    for(UILabel *lbl in self.parLabels) {
+        lbl.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px.png"]];
+    }
+    for(UILabel *lbl in self.scoreLabels) {
+        lbl.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px.png"]];
+    }
+    self.inTotalParLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.inTotalDistLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.inTotalScoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.outTotalParLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.outTotalDistLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.outTotalScoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.totalParLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.totalDistLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    self.totalScoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
+    
     [self.titleLabel setText:[self.playerGame.forPlayer description]];
     int totalScore = 0;
     int totalDist = 0;
@@ -185,7 +204,18 @@
             [self.parLabels[holeIndex] setText:[NSString stringWithFormat:@"%d", par]];
             [self.distLabels[holeIndex] setText:[NSString stringWithFormat:@"%dm", dist]];
             if(found.is_saved.boolValue) {
-                [self.scoreLabels[holeIndex] setText:[NSString stringWithFormat:@"%d", score]];
+                UILabel *scoreLabel =self.scoreLabels[holeIndex];
+                [scoreLabel setText:[NSString stringWithFormat:@"%d", score]];
+                if(score < par - 1) {
+                    scoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-eagle.png"]];
+                } else if(score < par) {
+                    scoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-birdie.png"]];
+                } else if(score > par + 1) {
+                    scoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-double.png"]];
+                } else if(score > par) {
+                    scoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-bogey.png"]];
+                }
+
             } else {
                 [self.scoreLabels[holeIndex] setText:@""];
             }

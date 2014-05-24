@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B19937F1D1145178ECDDA0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F4352125AD4C28BD64781E /* libPods.a */; };
 		B6007E871921FFDB00DF0F83 /* EXTPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6007E861921FFDB00DF0F83 /* EXTPlayerViewController.m */; };
+		B607B8E3192FB3AE00015F2E /* white-ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B607B8E2192FB3AE00015F2E /* white-ball@2x.png */; };
+		B607B8E5192FB45400015F2E /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B607B8E4192FB45400015F2E /* flag@2x.png */; };
 		B61CD5FE19182E2800E172CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61CD5FD19182E2800E172CD /* CoreData.framework */; };
 		B61CD63D1918328100E172CD /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6031918328100E172CD /* MagicalImportFunctions.m */; };
 		B61CD63E1918328100E172CD /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD6051918328100E172CD /* NSAttributeDescription+MagicalDataImport.m */; };
@@ -63,6 +65,21 @@
 		B639269C19136ED000AC48D0 /* EXTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B639269B19136ED000AC48D0 /* EXTHomeViewController.m */; };
 		B63926A51914065A00AC48D0 /* Game+init.m in Sources */ = {isa = PBXBuildFile; fileRef = B63926A41914065A00AC48D0 /* Game+init.m */; };
 		B63926A91914081000AC48D0 /* Player+create.m in Sources */ = {isa = PBXBuildFile; fileRef = B63926A81914081000AC48D0 /* Player+create.m */; };
+		B64EDC60192E5EFF00376B70 /* background-home.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC5F192E5EFF00376B70 /* background-home.png */; };
+		B64EDC64192E687700376B70 /* btn-back1px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC61192E687700376B70 /* btn-back1px@2x.png */; };
+		B64EDC65192E687700376B70 /* btn-back2px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC62192E687700376B70 /* btn-back2px@2x.png */; };
+		B64EDC66192E687700376B70 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC63192E687700376B70 /* close@2x.png */; };
+		B64EDC6A192E718700376B70 /* btn-back2px-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC67192E718700376B70 /* btn-back2px-green@2x.png */; };
+		B64EDC6B192E718700376B70 /* btn-back2px-orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC68192E718700376B70 /* btn-back2px-orange@2x.png */; };
+		B64EDC6C192E718700376B70 /* btn-back2px-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC69192E718700376B70 /* btn-back2px-red@2x.png */; };
+		B64EDC6E192F386700376B70 /* green-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B64EDC6D192F386700376B70 /* green-bar@2x.png */; };
+		B652C6A0192FBCFA00ADE96F /* btn-back1px-birdie@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C69C192FBCFA00ADE96F /* btn-back1px-birdie@2x.png */; };
+		B652C6A1192FBCFA00ADE96F /* btn-back1px-bogey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C69D192FBCFA00ADE96F /* btn-back1px-bogey@2x.png */; };
+		B652C6A2192FBCFA00ADE96F /* btn-back1px-eagle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C69E192FBCFA00ADE96F /* btn-back1px-eagle@2x.png */; };
+		B652C6A51930A1D100ADE96F /* btn-back1px-double@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A41930A1D100ADE96F /* btn-back1px-double@2x.png */; };
+		B652C6A71930A2FC00ADE96F /* btn-back1px-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A61930A2FC00ADE96F /* btn-back1px-50@2x.png */; };
+		B652C6AA1930A5D900ADE96F /* elapsed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A81930A5D900ADE96F /* elapsed@2x.png */; };
+		B652C6AB1930A5D900ADE96F /* time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A91930A5D900ADE96F /* time@2x.png */; };
 		B68A553A190E28D90002A4CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A5539190E28D90002A4CE /* Foundation.framework */; };
 		B68A553C190E28D90002A4CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553B190E28D90002A4CE /* CoreGraphics.framework */; };
 		B68A553E190E28D90002A4CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553D190E28D90002A4CE /* UIKit.framework */; };
@@ -105,6 +122,8 @@
 		52F4352125AD4C28BD64781E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6007E851921FFDB00DF0F83 /* EXTPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTPlayerViewController.h; sourceTree = "<group>"; };
 		B6007E861921FFDB00DF0F83 /* EXTPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTPlayerViewController.m; sourceTree = "<group>"; };
+		B607B8E2192FB3AE00015F2E /* white-ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-ball@2x.png"; path = "CaddieMennecy/images/white-ball@2x.png"; sourceTree = "<group>"; };
+		B607B8E4192FB45400015F2E /* flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag@2x.png"; path = "CaddieMennecy/images/flag@2x.png"; sourceTree = "<group>"; };
 		B61CD5FD19182E2800E172CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B61CD6021918328100E172CD /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		B61CD6031918328100E172CD /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
@@ -200,6 +219,21 @@
 		B63926A41914065A00AC48D0 /* Game+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Game+init.m"; sourceTree = "<group>"; };
 		B63926A71914081000AC48D0 /* Player+create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Player+create.h"; sourceTree = "<group>"; };
 		B63926A81914081000AC48D0 /* Player+create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Player+create.m"; sourceTree = "<group>"; };
+		B64EDC5F192E5EFF00376B70 /* background-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-home.png"; path = "CaddieMennecy/images/background-home.png"; sourceTree = "<group>"; };
+		B64EDC61192E687700376B70 /* btn-back1px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back1px@2x.png"; path = "CaddieMennecy/images/btn-back1px@2x.png"; sourceTree = "<group>"; };
+		B64EDC62192E687700376B70 /* btn-back2px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back2px@2x.png"; path = "CaddieMennecy/images/btn-back2px@2x.png"; sourceTree = "<group>"; };
+		B64EDC63192E687700376B70 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close@2x.png"; path = "CaddieMennecy/images/close@2x.png"; sourceTree = "<group>"; };
+		B64EDC67192E718700376B70 /* btn-back2px-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back2px-green@2x.png"; path = "CaddieMennecy/images/btn-back2px-green@2x.png"; sourceTree = "<group>"; };
+		B64EDC68192E718700376B70 /* btn-back2px-orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back2px-orange@2x.png"; path = "CaddieMennecy/images/btn-back2px-orange@2x.png"; sourceTree = "<group>"; };
+		B64EDC69192E718700376B70 /* btn-back2px-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back2px-red@2x.png"; path = "CaddieMennecy/images/btn-back2px-red@2x.png"; sourceTree = "<group>"; };
+		B64EDC6D192F386700376B70 /* green-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-bar@2x.png"; path = "CaddieMennecy/images/green-bar@2x.png"; sourceTree = "<group>"; };
+		B652C69C192FBCFA00ADE96F /* btn-back1px-birdie@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back1px-birdie@2x.png"; path = "CaddieMennecy/images/btn-back1px-birdie@2x.png"; sourceTree = "<group>"; };
+		B652C69D192FBCFA00ADE96F /* btn-back1px-bogey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back1px-bogey@2x.png"; path = "CaddieMennecy/images/btn-back1px-bogey@2x.png"; sourceTree = "<group>"; };
+		B652C69E192FBCFA00ADE96F /* btn-back1px-eagle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back1px-eagle@2x.png"; path = "CaddieMennecy/images/btn-back1px-eagle@2x.png"; sourceTree = "<group>"; };
+		B652C6A41930A1D100ADE96F /* btn-back1px-double@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back1px-double@2x.png"; path = "CaddieMennecy/images/btn-back1px-double@2x.png"; sourceTree = "<group>"; };
+		B652C6A61930A2FC00ADE96F /* btn-back1px-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back1px-50@2x.png"; path = "CaddieMennecy/images/btn-back1px-50@2x.png"; sourceTree = "<group>"; };
+		B652C6A81930A5D900ADE96F /* elapsed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "elapsed@2x.png"; path = "CaddieMennecy/images/elapsed@2x.png"; sourceTree = "<group>"; };
+		B652C6A91930A5D900ADE96F /* time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "time@2x.png"; path = "CaddieMennecy/images/time@2x.png"; sourceTree = "<group>"; };
 		B68A5536190E28D90002A4CE /* CaddieMennecy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaddieMennecy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68A5539190E28D90002A4CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B68A553B190E28D90002A4CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -381,6 +415,22 @@
 		B61CD7AD191E90CC00E172CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B652C6A81930A5D900ADE96F /* elapsed@2x.png */,
+				B652C6A91930A5D900ADE96F /* time@2x.png */,
+				B652C6A61930A2FC00ADE96F /* btn-back1px-50@2x.png */,
+				B652C6A41930A1D100ADE96F /* btn-back1px-double@2x.png */,
+				B652C69C192FBCFA00ADE96F /* btn-back1px-birdie@2x.png */,
+				B652C69D192FBCFA00ADE96F /* btn-back1px-bogey@2x.png */,
+				B652C69E192FBCFA00ADE96F /* btn-back1px-eagle@2x.png */,
+				B607B8E2192FB3AE00015F2E /* white-ball@2x.png */,
+				B64EDC6D192F386700376B70 /* green-bar@2x.png */,
+				B64EDC67192E718700376B70 /* btn-back2px-green@2x.png */,
+				B64EDC68192E718700376B70 /* btn-back2px-orange@2x.png */,
+				B64EDC69192E718700376B70 /* btn-back2px-red@2x.png */,
+				B64EDC61192E687700376B70 /* btn-back1px@2x.png */,
+				B64EDC62192E687700376B70 /* btn-back2px@2x.png */,
+				B64EDC63192E687700376B70 /* close@2x.png */,
+				B64EDC5F192E5EFF00376B70 /* background-home.png */,
 				B61CD7C0191EA1F100E172CD /* game@2x.png */,
 				B61CD7C1191EA1F100E172CD /* games@2x.png */,
 				B61CD7C2191EA1F100E172CD /* play@2x.png */,
@@ -431,6 +481,7 @@
 		B68A552D190E28D90002A4CE = {
 			isa = PBXGroup;
 			children = (
+				B607B8E4192FB45400015F2E /* flag@2x.png */,
 				B61CD7AD191E90CC00E172CD /* Images */,
 				B61CD5FF1918328100E172CD /* MagicalRecord */,
 				B68A553F190E28D90002A4CE /* CaddieMennecy */,
@@ -542,6 +593,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B68A556E190E28D90002A4CE /* Build configuration list for PBXNativeTarget "CaddieMennecy" */;
 			buildPhases = (
+				B6CF75641930AEC3003EF310 /* Run Script */,
 				B68A5532190E28D90002A4CE /* Sources */,
 				B68A5533190E28D90002A4CE /* Frameworks */,
 				B68A5534190E28D90002A4CE /* Resources */,
@@ -617,10 +669,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61CD7BF191E9F2A00E172CD /* icon40@2x.png in Resources */,
+				B652C6A0192FBCFA00ADE96F /* btn-back1px-birdie@2x.png in Resources */,
 				B61CD7C6191EA1F100E172CD /* play@2x.png in Resources */,
 				B61CD7BD191E9E1F00E172CD /* icon60.png in Resources */,
+				B652C6A1192FBCFA00ADE96F /* btn-back1px-bogey@2x.png in Resources */,
+				B607B8E3192FB3AE00015F2E /* white-ball@2x.png in Resources */,
+				B64EDC65192E687700376B70 /* btn-back2px@2x.png in Resources */,
 				B61CD7C7191EA1F100E172CD /* settings@2x.png in Resources */,
 				B68A5558190E28D90002A4CE /* Images.xcassets in Resources */,
+				B64EDC6B192E718700376B70 /* btn-back2px-orange@2x.png in Resources */,
+				B64EDC6C192E718700376B70 /* btn-back2px-red@2x.png in Resources */,
+				B652C6AB1930A5D900ADE96F /* time@2x.png in Resources */,
+				B652C6A51930A1D100ADE96F /* btn-back1px-double@2x.png in Resources */,
 				B61CD7B7191E9BCC00E172CD /* icon@2x.png in Resources */,
 				B61CD7B6191E9BCC00E172CD /* icon.png in Resources */,
 				B61CD7B0191E90DE00E172CD /* home.png in Resources */,
@@ -628,11 +688,20 @@
 				B68A5544190E28D90002A4CE /* InfoPlist.strings in Resources */,
 				B61CD6951919256D00E172CD /* Podfile in Resources */,
 				B68A5556190E28D90002A4CE /* Main.storyboard in Resources */,
+				B64EDC6A192E718700376B70 /* btn-back2px-green@2x.png in Resources */,
 				B61CD7B1191E90DE00E172CD /* home@2x.png in Resources */,
 				B61CD7BB191E9C4100E172CD /* background.png in Resources */,
+				B652C6A2192FBCFA00ADE96F /* btn-back1px-eagle@2x.png in Resources */,
+				B64EDC6E192F386700376B70 /* green-bar@2x.png in Resources */,
+				B652C6AA1930A5D900ADE96F /* elapsed@2x.png in Resources */,
+				B607B8E5192FB45400015F2E /* flag@2x.png in Resources */,
+				B64EDC66192E687700376B70 /* close@2x.png in Resources */,
+				B64EDC60192E5EFF00376B70 /* background-home.png in Resources */,
+				B64EDC64192E687700376B70 /* btn-back1px@2x.png in Resources */,
 				B61CD7B9191E9BCC00E172CD /* launch@2x.png in Resources */,
 				B61CD7C5191EA1F100E172CD /* games@2x.png in Resources */,
 				B61CD7C4191EA1F100E172CD /* game@2x.png in Resources */,
+				B652C6A71930A2FC00ADE96F /* btn-back1px-50@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +730,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B6CF75641930AEC3003EF310 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\nbN=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbN=$((0x$bN))\nbN=$(($bN + 1))\nbN=$(printf \"%X\" $bN)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bN\" \"$INFOPLIST_FILE\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

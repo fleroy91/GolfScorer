@@ -42,6 +42,11 @@
 {
     return UIInterfaceOrientationMaskPortrait;
 }
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 /*
 #pragma mark - Navigation

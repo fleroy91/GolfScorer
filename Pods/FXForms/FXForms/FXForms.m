@@ -719,6 +719,12 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
     }
     
     _action = [action copy];
+
+}
+
+-(void)setImageName:(NSString *)imageName
+{
+    _imageName = imageName;
 }
 
 - (void)setClass:(Class)valueClass
@@ -1196,7 +1202,14 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
     NSParameterAssert([controllerClass conformsToProtocol:@protocol(FXFormFieldViewController)]);
     self.controllerClassesForFieldTypes[fieldType] = controllerClass;
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Background color
+    view.tintColor = [UIColor clearColor];
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+}
 - (void)setDelegate:(id<FXFormControllerDelegate>)delegate
 {
     _delegate = delegate;
@@ -1558,6 +1571,10 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
     {
         self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame
                                                       style:UITableViewStyleGrouped];
+    
+        UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+        [tempImageView setFrame:self.tableView.frame];
+        self.tableView.backgroundView = tempImageView;
     }
     if (!self.tableView.superview)
     {
@@ -1598,6 +1615,7 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
 #pragma mark -
 #pragma mark Views
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation FXFormBaseCell
 
@@ -1611,7 +1629,12 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
         FXFormLabelSetMinFontSize(self.textLabel, FXFormFieldMinFontSize);
         self.detailTextLabel.font = [UIFont systemFontOfSize:17];
         FXFormLabelSetMinFontSize(self.detailTextLabel, FXFormFieldMinFontSize);
-        
+        // Overloaded
+        self.backgroundColor = [UIColor clearColor];
+        self.textLabel.textColor = [UIColor whiteColor];
+        self.detailTextLabel.textColor = UIColorFromRGB(0xebebeb);
+        [[UITableViewCell appearance] setTintColor:[UIColor whiteColor]];
+
         if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0)
         {
             self.selectionStyle = UITableViewCellSelectionStyleDefault;
@@ -1690,6 +1713,12 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
         {
             self.accessoryType = UITableViewCellAccessoryNone;
             self.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        if(self.field.imageName) {
+            // Overloaded
+            self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:self.field.imageName]];
+        //stretchableImageWithLeftCapWidth:0.1 topCapHeight:5.0] ];
+            
         }
     }
 }
@@ -1805,6 +1834,8 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
     self.textField.font = [UIFont systemFontOfSize:self.textLabel.font.pointSize];
     self.textField.minimumFontSize = FXFormLabelMinFontSize(self.textLabel);
     self.textField.textColor = [UIColor colorWithRed:0.275f green:0.376f blue:0.522f alpha:1.000f];
+    // Overloaded
+    self.textField.textColor = UIColorFromRGB(0xebebeb);
     self.textField.delegate = self;
     [self.contentView addSubview:self.textField];
     

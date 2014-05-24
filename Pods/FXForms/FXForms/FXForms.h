@@ -46,6 +46,7 @@ static NSString *const FXFormFieldPlaceholder = @"placeholder";
 static NSString *const FXFormFieldOptions = @"options";
 static NSString *const FXFormFieldValueTransformer = @"valueTransformer";
 static NSString *const FXFormFieldAction = @"action";
+static NSString *const FXFormFieldImageName = @"imageName";
 static NSString *const FXFormFieldHeader = @"header";
 static NSString *const FXFormFieldFooter = @"footer";
 static NSString *const FXFormFieldInline = @"inline";
@@ -107,6 +108,7 @@ static NSString *const FXFormFieldTypeImage = @"image";
 @property (nonatomic, readonly) NSArray *options;
 @property (nonatomic, readonly) Class viewController;
 @property (nonatomic, readonly) void (^action)(id sender);
+@property (nonatomic, readonly) NSString *imageName;
 @property (nonatomic, strong) id value;
 
 @end

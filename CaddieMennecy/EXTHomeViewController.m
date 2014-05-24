@@ -15,6 +15,7 @@
 @interface EXTHomeViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *gameButton;
 - (IBAction)resetAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @end
 
 @implementation EXTHomeViewController
@@ -40,6 +41,7 @@
     NSLog(@"Loading !");
     NSLog(@"We need to display a spinner !");
     [self findOrCreateHolesInDB];
+    [self.versionLabel setText:[NSString stringWithFormat:@"Version %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,6 +56,7 @@
         [self.gameButton setTitle: @"Nouvelle partie" forState:UIControlStateNormal];
     }
 }
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 - (NSFetchedResultsController *)fetchedResultsController {
     // Set up the fetched results controller if needed.

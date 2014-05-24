@@ -77,6 +77,8 @@
 {
     return UIInterfaceOrientationMaskPortrait;
 }
+- (BOOL)prefersStatusBarHidden {return YES;}
+
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     EXTPlayerResultTableViewCell *cell = (EXTPlayerResultTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];

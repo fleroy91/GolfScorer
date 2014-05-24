@@ -30,7 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.games = [Game MR_findAllSortedBy:@"when" ascending:YES];
+    self.games = [Game MR_findAllSortedBy:@"when" ascending:NO];
+
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +67,10 @@
     
     cell.textLabel.text = [dateFormatter stringFromDate:game.when];
     cell.detailTextLabel.text = [game getKindName];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = UIColorFromRGB(0xebebeb);
+    [[UITableViewCell appearance] setTintColor:[UIColor whiteColor]];
     return cell;
 }
 
@@ -111,6 +119,7 @@
 {
     return UIInterfaceOrientationMaskPortrait;
 }
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 #pragma mark - Navigation
 

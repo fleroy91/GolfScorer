@@ -32,7 +32,12 @@
     self.formController = [[FXFormController alloc] init];
     self.formController.tableView = self.tableView;
     self.formController.delegate = self;
+
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
 }
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 - (void)viewWillAppear:(BOOL)animated
 {

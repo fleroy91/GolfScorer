@@ -311,13 +311,13 @@
     [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
     [ret addObject:@{FXFormFieldKey: @"nbPlayers", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];
     if(self.is_over) {
-        [ret addObject:@{FXFormFieldTitle: @"Afficher les résultats", FXFormFieldHeader: @" ", @"contentView.backgroundColor": [UIColor orangeColor], FXFormFieldAction: @"showResult:"}];
+        [ret addObject:@{FXFormFieldTitle: @"Afficher les résultats", FXFormFieldHeader: @" ", @"textLabel.backgroundColor": [UIColor orangeColor], FXFormFieldAction: @"showResult:"}];
         
     } else {
         if([self.thePlayerGames count] > 0) {
-            [ret addObject:@{FXFormFieldTitle: (self.is_started ? @"Continuer la partie" : @"Lancer la partie"), FXFormFieldHeader: @" ", @"contentView.backgroundColor": [UIColor greenColor], FXFormFieldAction: @"startGame:"}];
+            [ret addObject:@{FXFormFieldTitle: (self.is_started ? @"Continuer la partie" : @"Lancer la partie"), FXFormFieldHeader: @" ", FXFormFieldAction: @"startGame:", @"textLabel.backgroundColor": UIColorFromRGB(0x72ed64) }];
             if(self.is_started) {
-                [ret addObject:@{FXFormFieldTitle: @"Terminer la partie", @"contentView.backgroundColor": [UIColor redColor], FXFormFieldAction: @"endGame:"}];
+                [ret addObject:@{FXFormFieldTitle: @"Terminer la partie", FXFormFieldImageName: @"btn-back2ps-red.png", FXFormFieldAction: @"endGame:", @"textLabel.backgroundColor": [UIColor redColor] }];
             }
         }
     }

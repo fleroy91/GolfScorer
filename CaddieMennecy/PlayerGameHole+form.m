@@ -38,7 +38,7 @@
     if([self isLastHole] && [self isLastPlayer]) {
         [ret addObject:@{FXFormFieldTitle: @"Terminer la partie", @"contentView.backgroundColor": [UIColor redColor], FXFormFieldAction: @"endGame:"}];
     } else {
-        [ret addObject:@{FXFormFieldTitle: @"Valider et suivant", @"contentView.backgroundColor": [UIColor greenColor], FXFormFieldAction: @"submitHole:"}];
+        [ret addObject:@{FXFormFieldTitle: @"Valider et suivant", @"contentView.backgroundColor": UIColorFromRGB(0x72ed64), FXFormFieldAction: @"submitHole:"}];
     }
     return ret;
 }

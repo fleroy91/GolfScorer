@@ -46,6 +46,7 @@
 {
     return NO;
 }
+- (BOOL)prefersStatusBarHidden {return YES;}
 -(NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
@@ -67,7 +68,10 @@
     self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayerFromButton:)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.addBarButtonItem, nil];
     self.players = [Player MR_findAllSortedBy:@"lastname" ascending:YES];
-}
+
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -190,6 +194,9 @@
     SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.rightUtilityButtons = [self rightButtons];
     cell.delegate = self;
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = UIColorFromRGB(0xebebeb);
+    cell.backgroundColor = [UIColor clearColor];
 
     // Configure the cell...
     Player *player = [self.players objectAtIndex:indexPath.row];
