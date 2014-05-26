@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *formView;
 @property (weak, nonatomic) IBOutlet UIView *playerView;
 @property NSInteger range_index;
-@property PlayerGame *currentPlayerGame;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 - (IBAction)toggleDisplay:(id)sender;
@@ -52,6 +51,8 @@
 @end
 
 @implementation EXTHoleDataViewController
+
+PlayerGame *currentPlayerGame;
 
 - (void)viewDidLoad
 {
@@ -99,7 +100,7 @@
                 self.canHandleOrientation = NO;
                 UIStoryboard *storyboard = self.storyboard;
                 EXTScoreCardViewController * vc = (EXTScoreCardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scoreCardView"];
-                vc.playerGame = self.currentPlayerGame;
+                vc.playerGame = currentPlayerGame;
                 vc.notifOrientation = YES;
                 vc.modalPresentationStyle = UIModalPresentationFullScreen;
                 vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -211,7 +212,7 @@
         button.enabled = YES;
         [button setTitle:[NSString stringWithFormat:@"%@", pg.forPlayer.firstname] forState:UIControlStateNormal];
         if(index == self.indexPlayerSelected) {
-            self.currentPlayerGame = pg;
+            currentPlayerGame = pg;
             if(self.range_index < 0) {
                 self.range_index = pg.forPlayer.start_color.integerValue;
             }

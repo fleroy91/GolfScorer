@@ -47,7 +47,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     currentGame = [Game MR_findFirstOrderedByAttribute:@"when" ascending:NO];
-    if(currentGame.is_over) {
+    if(currentGame.is_over.boolValue) {
+        currentGame = nil;
+    }
+    if(! currentGame.is_started.boolValue) {
+        [currentGame MR_deleteEntity];
         currentGame = nil;
     }
     if(currentGame) {

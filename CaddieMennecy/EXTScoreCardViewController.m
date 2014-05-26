@@ -101,11 +101,13 @@
     _distLabels = [[NSArray alloc] initWithObjects:_d1,_d2,_d3,_d4,_d5,_d6,_d7,_d8,_d9, _d10, _d11, _d12, _d13, _d14, _d15, _d16, _d17, _d18, nil];
     _parLabels = [[NSArray alloc] initWithObjects:_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8,_p9, _p10, _p11, _p12, _p13, _p14, _p15, _p16, _p17, _p18,nil];
     _scoreLabels = [[NSArray alloc] initWithObjects:_s1,_s2,_s3,_s4,_s5,_s6,_s7,_s8,_s9, _s10, _s11, _s12, _s13, _s14, _s15, _s16, _s17, _s18,nil];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(deviceOrientationDidChangeNotification:)
-     name:UIDeviceOrientationDidChangeNotification
-     object:nil];
+    if(self.notifOrientation) {
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(deviceOrientationDidChangeNotification:)
+         name:UIDeviceOrientationDidChangeNotification
+         object:nil];
+    }
 }
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification*)note
