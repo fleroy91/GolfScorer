@@ -21,7 +21,11 @@
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3372dc)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
+    
+    settings = [Settings MR_findFirst];
+    if(! settings) {
+        settings = [Settings MR_createEntity];
+    }
     return YES;
 }
 

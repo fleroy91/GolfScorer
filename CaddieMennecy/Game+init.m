@@ -302,13 +302,20 @@
 {
     return [[self kindOptions] objectAtIndex:self.kind.integerValue];
 }
+- (NSString *)getWhenDescription
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    return [dateFormatter stringFromDate:self.when];
+}
 
 - (NSArray *)fields
 {
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     [ret addObject:@{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"}];
-    [ret addObject:@{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: [self kindOptions]}];
     [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
+    [ret addObject:@{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: [self kindOptions]}];
     [ret addObject:@{FXFormFieldKey: @"nbPlayers", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];
     if(self.is_over) {
         [ret addObject:@{FXFormFieldTitle: @"Afficher les résultats", FXFormFieldHeader: @" ", @"textLabel.backgroundColor": [UIColor orangeColor], FXFormFieldAction: @"showResult:"}];

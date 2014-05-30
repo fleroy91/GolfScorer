@@ -80,6 +80,8 @@
 		B652C6A71930A2FC00ADE96F /* btn-back1px-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A61930A2FC00ADE96F /* btn-back1px-50@2x.png */; };
 		B652C6AA1930A5D900ADE96F /* elapsed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A81930A5D900ADE96F /* elapsed@2x.png */; };
 		B652C6AB1930A5D900ADE96F /* time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A91930A5D900ADE96F /* time@2x.png */; };
+		B6545DFD193464D700E4D54D /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6545DFC193464D700E4D54D /* mail@2x.png */; };
+		B6545DFF19366BE100E4D54D /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6545DFE19366BE100E4D54D /* heart@2x.png */; };
 		B68A553A190E28D90002A4CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A5539190E28D90002A4CE /* Foundation.framework */; };
 		B68A553C190E28D90002A4CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553B190E28D90002A4CE /* CoreGraphics.framework */; };
 		B68A553E190E28D90002A4CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553D190E28D90002A4CE /* UIKit.framework */; };
@@ -106,6 +108,9 @@
 		B6B229A2192794C70090E1A0 /* PlayerGameHole.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229A1192794C70090E1A0 /* PlayerGameHole.m */; };
 		B6B229A51927B0AD0090E1A0 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229A41927B0AD0090E1A0 /* Game.m */; };
 		B6B229A8192B31520090E1A0 /* EXTScoreCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B229A7192B31520090E1A0 /* EXTScoreCardViewController.m */; };
+		B6CF756919331171003EF310 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF756819331171003EF310 /* Settings.m */; };
+		B6CF756C193311D9003EF310 /* Settings+addon.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF756B193311D9003EF310 /* Settings+addon.m */; };
+		B6CF756F19331424003EF310 /* EXTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF756E19331424003EF310 /* EXTSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +239,8 @@
 		B652C6A61930A2FC00ADE96F /* btn-back1px-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back1px-50@2x.png"; path = "CaddieMennecy/images/btn-back1px-50@2x.png"; sourceTree = "<group>"; };
 		B652C6A81930A5D900ADE96F /* elapsed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "elapsed@2x.png"; path = "CaddieMennecy/images/elapsed@2x.png"; sourceTree = "<group>"; };
 		B652C6A91930A5D900ADE96F /* time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "time@2x.png"; path = "CaddieMennecy/images/time@2x.png"; sourceTree = "<group>"; };
+		B6545DFC193464D700E4D54D /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "CaddieMennecy/images/mail@2x.png"; sourceTree = "<group>"; };
+		B6545DFE19366BE100E4D54D /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart@2x.png"; path = "CaddieMennecy/images/heart@2x.png"; sourceTree = "<group>"; };
 		B68A5536190E28D90002A4CE /* CaddieMennecy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaddieMennecy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68A5539190E28D90002A4CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B68A553B190E28D90002A4CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -277,6 +284,12 @@
 		B6B229A41927B0AD0090E1A0 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		B6B229A6192B31520090E1A0 /* EXTScoreCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScoreCardViewController.h; sourceTree = "<group>"; };
 		B6B229A7192B31520090E1A0 /* EXTScoreCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScoreCardViewController.m; sourceTree = "<group>"; };
+		B6CF756719331171003EF310 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		B6CF756819331171003EF310 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		B6CF756A193311D9003EF310 /* Settings+addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Settings+addon.h"; sourceTree = "<group>"; };
+		B6CF756B193311D9003EF310 /* Settings+addon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Settings+addon.m"; sourceTree = "<group>"; };
+		B6CF756D19331424003EF310 /* EXTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTSettingsViewController.h; sourceTree = "<group>"; };
+		B6CF756E19331424003EF310 /* EXTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTSettingsViewController.m; sourceTree = "<group>"; };
 		BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -415,6 +428,8 @@
 		B61CD7AD191E90CC00E172CD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B6545DFE19366BE100E4D54D /* heart@2x.png */,
+				B6545DFC193464D700E4D54D /* mail@2x.png */,
 				B652C6A81930A5D900ADE96F /* elapsed@2x.png */,
 				B652C6A91930A5D900ADE96F /* time@2x.png */,
 				B652C6A61930A2FC00ADE96F /* btn-back1px-50@2x.png */,
@@ -451,6 +466,8 @@
 		B63926A61914070800AC48D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6CF756A193311D9003EF310 /* Settings+addon.h */,
+				B6CF756B193311D9003EF310 /* Settings+addon.m */,
 				B61CD6DE191A0A2800E172CD /* Hole+create.h */,
 				B61CD6DF191A0A2800E172CD /* Hole+create.m */,
 				B63926A31914065A00AC48D0 /* Game+init.h */,
@@ -460,6 +477,8 @@
 				B61CD705191C108400E172CD /* PlayerGame+addon.h */,
 				B61CD706191C108400E172CD /* PlayerGame+addon.m */,
 				B639268E1911715100AC48D0 /* Model.xcdatamodeld */,
+				B6CF756719331171003EF310 /* Settings.h */,
+				B6CF756819331171003EF310 /* Settings.m */,
 				B6B229A31927B0AD0090E1A0 /* Game.h */,
 				B6B229A41927B0AD0090E1A0 /* Game.m */,
 				B6B229A0192794C70090E1A0 /* PlayerGameHole.h */,
@@ -549,6 +568,8 @@
 				B6B229A6192B31520090E1A0 /* EXTScoreCardViewController.h */,
 				B6B229A7192B31520090E1A0 /* EXTScoreCardViewController.m */,
 				B68A5554190E28D90002A4CE /* Main.storyboard */,
+				B6CF756D19331424003EF310 /* EXTSettingsViewController.h */,
+				B6CF756E19331424003EF310 /* EXTSettingsViewController.m */,
 				B68A5557190E28D90002A4CE /* Images.xcassets */,
 				B63926A61914070800AC48D0 /* Model */,
 				B68A5540190E28D90002A4CE /* Supporting Files */,
@@ -691,6 +712,7 @@
 				B64EDC6A192E718700376B70 /* btn-back2px-green@2x.png in Resources */,
 				B61CD7B1191E90DE00E172CD /* home@2x.png in Resources */,
 				B61CD7BB191E9C4100E172CD /* background.png in Resources */,
+				B6545DFD193464D700E4D54D /* mail@2x.png in Resources */,
 				B652C6A2192FBCFA00ADE96F /* btn-back1px-eagle@2x.png in Resources */,
 				B64EDC6E192F386700376B70 /* green-bar@2x.png in Resources */,
 				B652C6AA1930A5D900ADE96F /* elapsed@2x.png in Resources */,
@@ -700,6 +722,7 @@
 				B64EDC64192E687700376B70 /* btn-back1px@2x.png in Resources */,
 				B61CD7B9191E9BCC00E172CD /* launch@2x.png in Resources */,
 				B61CD7C5191EA1F100E172CD /* games@2x.png in Resources */,
+				B6545DFF19366BE100E4D54D /* heart@2x.png in Resources */,
 				B61CD7C4191EA1F100E172CD /* game@2x.png in Resources */,
 				B652C6A71930A2FC00ADE96F /* btn-back1px-50@2x.png in Resources */,
 			);
@@ -754,6 +777,7 @@
 			files = (
 				B6B229A51927B0AD0090E1A0 /* Game.m in Sources */,
 				B68A5550190E28D90002A4CE /* EXTHoleDataViewController.m in Sources */,
+				B6CF756919331171003EF310 /* Settings.m in Sources */,
 				B6B2299F1926817A0090E1A0 /* EXTResultGameViewController.m in Sources */,
 				B6007E871921FFDB00DF0F83 /* EXTPlayerViewController.m in Sources */,
 				B61CD6521918328100E172CD /* MagicalRecord+iCloud.m in Sources */,
@@ -779,6 +803,7 @@
 				B61CD6491918328100E172CD /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				B68A5553190E28D90002A4CE /* EXTModelController.m in Sources */,
 				B6B229A2192794C70090E1A0 /* PlayerGameHole.m in Sources */,
+				B6CF756C193311D9003EF310 /* Settings+addon.m in Sources */,
 				B63926A51914065A00AC48D0 /* Game+init.m in Sources */,
 				B61CD6401918328100E172CD /* NSNumber+MagicalDataImport.m in Sources */,
 				B61CD6461918328100E172CD /* NSManagedObject+MagicalFinders.m in Sources */,
@@ -797,6 +822,7 @@
 				B68A5546190E28D90002A4CE /* main.m in Sources */,
 				B61CD6511918328100E172CD /* MagicalRecord+ErrorHandling.m in Sources */,
 				B61CD6501918328100E172CD /* MagicalRecord+Actions.m in Sources */,
+				B6CF756F19331424003EF310 /* EXTSettingsViewController.m in Sources */,
 				B61CD707191C108400E172CD /* PlayerGame+addon.m in Sources */,
 				B61CD6481918328100E172CD /* NSManagedObject+MagicalRequests.m in Sources */,
 				B61CD6441918328100E172CD /* NSManagedObject+MagicalAggregation.m in Sources */,

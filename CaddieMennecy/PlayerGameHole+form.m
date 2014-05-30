@@ -22,6 +22,42 @@
     return (self.inPlayerGame.row.integerValue == [self.inPlayerGame.inGame.thePlayerGames count]);
 }
 
+- (BOOL)isLastHoleAndPlayer
+{
+    return ([self isLastHole] && [self isLastPlayer]);
+}
+
+-(NSUInteger)getDistanceForColor:(NSUInteger)start_color
+{
+    NSUInteger dist = 0;
+    switch(start_color) {
+        case 0:
+            dist = self.forHole.range1.unsignedIntegerValue;
+            break;
+        case 1:
+            dist = self.forHole.range2.unsignedIntegerValue;
+            break;
+        case 2:
+            dist = self.forHole.range3.unsignedIntegerValue;
+            break;
+        case 3:
+            dist = self.forHole.range4.unsignedIntegerValue;
+            break;
+        case 4:
+            dist = self.forHole.range5.unsignedIntegerValue;
+            break;
+        default:
+            dist = self.forHole.range3.unsignedIntegerValue;
+            break;
+    }
+    return [settings convertDistance:dist];
+}
+
+-(NSString *)formatDistanceForColor:(NSUInteger)start_color
+{
+    return [NSString stringWithFormat:@"%d %@", [self getDistanceForColor:start_color], [settings getDistanceUnit]];
+}
+
 - (NSArray *)fields
 {
     NSMutableArray *ret = [[NSMutableArray alloc] init];
@@ -34,12 +70,7 @@
         [ret addObject:@{FXFormFieldTitle: @" ", FXFormFieldAction: @"doNothing:"}];
     }*/
     [ret addObject:@{FXFormFieldKey: @"gir", FXFormFieldTitle: @"Green en régulation",  FXFormFieldType: FXFormFieldTypeOption}];
-    [ret addObject:@{FXFormFieldTitle: @" ", FXFormFieldAction: @"doNothing:"}];
-    if([self isLastHole] && [self isLastPlayer]) {
-        [ret addObject:@{FXFormFieldTitle: @"Terminer la partie", @"contentView.backgroundColor": [UIColor redColor], FXFormFieldAction: @"endGame:"}];
-    } else {
-        [ret addObject:@{FXFormFieldTitle: @"Valider et suivant", @"contentView.backgroundColor": UIColorFromRGB(0x72ed64), FXFormFieldAction: @"submitHole:"}];
-    }
+//    [ret addObject:@{FXFormFieldTitle: @" ", FXFormFieldAction: @"doNothing:"}];
     return ret;
 }
 

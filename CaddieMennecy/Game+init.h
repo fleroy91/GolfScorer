@@ -26,6 +26,7 @@
 - (NSUInteger)getStartingHoleNumber;
 - (NSUInteger)getEndingHoleNumber;
 - (NSUInteger)getNbHolesPlayed;
+- (NSString *)getWhenDescription;
 
 
 @end

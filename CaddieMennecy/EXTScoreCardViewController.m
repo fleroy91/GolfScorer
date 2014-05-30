@@ -12,6 +12,7 @@
 @property NSArray *distLabels;
 @property NSArray *parLabels;
 @property NSArray *scoreLabels;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *d1;
 @property (weak, nonatomic) IBOutlet UILabel *d2;
 @property (weak, nonatomic) IBOutlet UILabel *d3;
@@ -70,6 +71,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *s18;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 - (IBAction)btnCloseAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *inTotalDistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *inTotalParLabel;
@@ -80,6 +84,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalDistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalParLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
+- (IBAction)doShare:(id)sender;
 
 @end
 
@@ -133,6 +138,23 @@
 {
     return UIInterfaceOrientationMaskLandscape;
 }
+- (UIImage *)dumpViewToFile
+{
+//    NSString *filename = [NSString stringWithFormat:@"%@-%@.png", [self.playerGame.inGame.when description], [self.playerGame.forPlayer description]];
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+    [self.closeButton setHidden:YES];
+    [self.shareButton setHidden:YES];
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *imageView = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData *imageData = UIImageJPEGRepresentation(imageView, 1.0 ); //you can use PNG too
+//    [imageData writeToFile:filename atomically:YES];
+    [self.closeButton setHidden:NO];
+    [self.shareButton setHidden:NO];
+    
+    return [UIImage imageWithData:imageData];
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -146,6 +168,7 @@
     for(UILabel *lbl in self.scoreLabels) {
         lbl.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px.png"]];
     }
+    [self.dateLabel setText:[self.playerGame.inGame getWhenDescription]];
     self.inTotalParLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
     self.inTotalDistLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
     self.inTotalScoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
@@ -180,8 +203,7 @@
         if(found) {
             int par = found.forHole.par.integerValue;
             int score = found.hole_score.integerValue;
-            // TODO
-            int dist = found.forHole.range3.unsignedIntegerValue;
+            int dist = [found getDistanceForColor:found.inPlayerGame.forPlayer.start_color.unsignedIntegerValue];
             totalPar += par;
             if(! found.is_saved.boolValue) {
                 score = 0;
@@ -204,7 +226,7 @@
                 outTotalScore += score;
             }
             [self.parLabels[holeIndex] setText:[NSString stringWithFormat:@"%d", par]];
-            [self.distLabels[holeIndex] setText:[NSString stringWithFormat:@"%dm", dist]];
+            [self.distLabels[holeIndex] setText:[NSString stringWithFormat:@"%d%@", dist, [settings getDistanceUnit]]];
             if(found.is_saved.boolValue) {
                 UILabel *scoreLabel =self.scoreLabels[holeIndex];
                 [scoreLabel setText:[NSString stringWithFormat:@"%d", score]];
@@ -228,21 +250,21 @@
         }
     }
     [self.inTotalParLabel setText:[NSString stringWithFormat:@"%d", inTotalPar]];
-    [self.inTotalDistLabel setText:[NSString stringWithFormat:@"%dm", inTotalDist]];
+    [self.inTotalDistLabel setText:[NSString stringWithFormat:@"%d%@", inTotalDist, [settings getDistanceUnit]]];
     if(inFound) {
         [self.inTotalScoreLabel setText:[NSString stringWithFormat:@"%d", inTotalScore]];
     } else {
         [self.inTotalScoreLabel setText:@""];
     }
     [self.outTotalParLabel setText:[NSString stringWithFormat:@"%d", outTotalPar]];
-    [self.outTotalDistLabel setText:[NSString stringWithFormat:@"%dm", outTotalDist]];
+    [self.outTotalDistLabel setText:[NSString stringWithFormat:@"%d%@", outTotalDist, [settings getDistanceUnit]]];
     if(outFound) {
         [self.outTotalScoreLabel setText:[NSString stringWithFormat:@"%d", outTotalScore]];
     } else {
         [self.outTotalScoreLabel setText:@""];
     }
     [self.totalParLabel setText:[NSString stringWithFormat:@"%d", totalPar]];
-    [self.totalDistLabel setText:[NSString stringWithFormat:@"%dm", totalDist]];
+    [self.totalDistLabel setText:[NSString stringWithFormat:@"%d%@", totalDist, [settings getDistanceUnit]]];
     [self.totalScoreLabel setText:[NSString stringWithFormat:@"%d", totalScore]];
 }
 
@@ -265,5 +287,18 @@
 
 - (IBAction)btnCloseAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
+}
+- (IBAction)doShare:(id)sender {
+    NSArray *activityItems;
+    NSString *text = [NSString stringWithFormat:@"Score de %@ à %@", [self.playerGame getBrutScore:NO], self.playerGame.inGame.forCourse.name];
+    activityItems = @[text, [self dumpViewToFile]];
+    
+    UIActivityViewController *activityController =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:activityItems
+     applicationActivities:nil];
+    
+    [self presentViewController:activityController
+                       animated:YES completion:nil];
 }
 @end

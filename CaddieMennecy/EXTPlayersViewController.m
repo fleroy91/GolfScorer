@@ -79,7 +79,15 @@
     self.players = [Player MR_findAllSortedBy:@"lastname" ascending:YES];
     [self.tableView reloadData];
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Background color
+    view.tintColor = [UIColor clearColor];
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+    [header.textLabel setText:@"Sélectionnez les joueurs pour cette partie"];
+}
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     // TODO : do not compare with strings

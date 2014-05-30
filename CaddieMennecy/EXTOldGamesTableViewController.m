@@ -61,11 +61,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OldGame" forIndexPath:indexPath];
     Game * game = self.games[indexPath.row];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    
-    cell.textLabel.text = [dateFormatter stringFromDate:game.when];
+    cell.textLabel.text = [game getWhenDescription];
     cell.detailTextLabel.text = [game getKindName];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];

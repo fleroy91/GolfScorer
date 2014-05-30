@@ -36,6 +36,8 @@
 @property NSUInteger indexPlayerSelected;
 @property BOOL showStableford;
 @property (weak, nonatomic) IBOutlet UILabel *elapsedLabel;
+- (IBAction)doNext:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 - (IBAction)chosePlayer1:(id)sender;
 - (IBAction)chosePlayer2:(id)sender;
@@ -141,6 +143,7 @@ PlayerGame *currentPlayerGame;
     [self updateButtonWithPlayerAtIndex:4 withButton:self.player4Button];
     
     self.formController.form = (id)self.modelController.playerGameHole;
+    [self updateNextButton];
     [self.formView reloadData];
     [self updateTime:nil];
 }
@@ -166,31 +169,6 @@ PlayerGame *currentPlayerGame;
     }
 }
 
-- (NSString *)getDistance
-{
-    NSUInteger dist = 0;
-    switch(self.range_index) {
-        case 0:
-            dist = self.hole.range1.unsignedIntegerValue;
-            break;
-        case 1:
-            dist = self.hole.range2.unsignedIntegerValue;
-            break;
-        case 2:
-            dist = self.hole.range3.unsignedIntegerValue;
-            break;
-        case 3:
-            dist = self.hole.range4.unsignedIntegerValue;
-            break;
-        case 4:
-            dist = self.hole.range5.unsignedIntegerValue;
-            break;
-        default:
-            dist = self.hole.range3.unsignedIntegerValue;
-            break;
-    }
-    return [NSString stringWithFormat:@"%d m", dist];
-}
 
 - (void)updateButtonWithPlayerAtIndex:(NSUInteger)index withButton:(UIButton *)button
 {
@@ -218,7 +196,7 @@ PlayerGame *currentPlayerGame;
             }
             [button setBackgroundImage:[UIImage imageNamed:@"btn-back2px.png"] forState:UIControlStateNormal];
             
-            self.distLabel.text = [self getDistance];
+            self.distLabel.text = [currentPgh formatDistanceForColor:self.range_index];
             [self.distLabel setTextColor:dist_colors[self.range_index]];
             self.brutLabel.text = [pg getBrutScore:self.showStableford];
             self.netLabel.text = [pg getNetScore:self.showStableford];
@@ -292,11 +270,31 @@ PlayerGame *currentPlayerGame;
     } completion:^(BOOL finished) {
         [self updateButtonWithPlayerAtIndex:index withButton:button];
         self.formController.form = (id)self.modelController.playerGameHole;
+        [self updateNextButton];
         [self.formView reloadData];
         [UIView animateWithDuration:0.1 animations:^(void){
             [self.playerView setAlpha:1];
         } completion:nil];
     }];
+}
+
+-(void)updateNextButton
+{
+    if([self.modelController.playerGameHole isLastHoleAndPlayer]) {
+        [self.nextButton setTitle:@"Terminer la partie" forState:UIControlStateNormal];
+        [self.nextButton setBackgroundImage:[UIImage imageNamed:@"btn-back2px-red"] forState:UIControlStateNormal];
+    } else {
+        [self.nextButton setTitle:@"Valider et suivant" forState:UIControlStateNormal];
+        [self.nextButton setBackgroundImage:[UIImage imageNamed:@"btn-back2px-green"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)doNext:(id)sender {
+    if([self.modelController.playerGameHole isLastHoleAndPlayer]) {
+        [self endGame:nil];
+    } else {
+        [self submitHole:nil];
+    }
 }
 
 - (IBAction)chosePlayer1:(id)sender {

@@ -13,12 +13,16 @@
 #import "Player+create.h"
 #import "Hole+create.h"
 #import "PlayerGame+addon.h"
-#import "PlayerGameHole.h"
+#import "PlayerGameHole+form.h"
 #import "Course.h"
+#import "Settings+addon.h"
 
 Game *currentGame;
+Settings *settings;
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define UIColorFromRGBAndAlpha(rgbValue,alph) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:(alph)]
+#define SW ([[UIScreen mainScreen] bounds].size.width)
+#define SH ([[UIScreen mainScreen] bounds].size.height)
 
 #endif
