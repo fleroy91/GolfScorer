@@ -1591,7 +1591,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Nouvelle partie" backgroundImage="btn-back2px.png"/>
                                 <connections>
-                                    <segue destination="Hbk-ly-gtS" kind="push" identifier="NewGame" id="m7c-VG-dp1"/>
+                                    <segue destination="7IQ-yE-MbE" kind="push" identifier="NewGame2" id="4AJ-bU-4Or"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-R2-cz5">
@@ -1672,41 +1672,82 @@
             </objects>
             <point key="canvasLocation" x="360" y="-215"/>
         </scene>
-        <!--Game View Controller - Partie-->
-        <scene sceneID="QpE-rf-pgf">
+        <!--New Game View Controller - Partie-->
+        <scene sceneID="3Fw-Vz-a11">
             <objects>
-                <tableViewController id="Hbk-ly-gtS" customClass="EXTGameViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="p95-ai-ctK">
+                <viewController storyboardIdentifier="newGame" id="7IQ-yE-MbE" customClass="EXTNewGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GhD-Yp-YwB"/>
+                        <viewControllerLayoutGuide type="bottom" id="eVc-xB-3Rg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lyy-3p-NKf">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VXD-t0-wjT">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <segue destination="5wk-OX-rwA" kind="push" identifier="choosePlayers" id="bKG-Fp-BzK"/>
-                            </connections>
-                        </button>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="Hbk-ly-gtS" id="c1H-9o-0cw"/>
-                            <outlet property="delegate" destination="Hbk-ly-gtS" id="41H-ZW-fR2"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Partie" id="eae-Df-ilX"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="QzS-Ig-glO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3mO-Wj-PfG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="294"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="JMy-yf-DWw"/>
+                                    <constraint firstAttribute="height" constant="294" id="vd7-Eh-AVy"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DhY-iS-0Rp">
+                                <rect key="frame" x="20" y="302" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="x6r-hB-fHh"/>
+                                    <constraint firstAttribute="height" constant="40" id="zx6-xx-zEh"/>
+                                </constraints>
+                                <state key="normal" title="Démarrer" backgroundImage="btn-back2px-green.png"/>
+                                <connections>
+                                    <action selector="doStart:" destination="7IQ-yE-MbE" eventType="touchUpInside" id="FcP-Ap-aoi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="mhP-Et-hbM">
+                                <rect key="frame" x="20" y="350" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CGU-au-AvV"/>
+                                    <constraint firstAttribute="width" constant="280" id="oc9-Tw-gHe"/>
+                                </constraints>
+                                <state key="normal" title="Terminer" backgroundImage="btn-back2px-red.png"/>
+                                <connections>
+                                    <action selector="doEnd:" destination="7IQ-yE-MbE" eventType="touchUpInside" id="ZIQ-wY-7kI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3mO-Wj-PfG" firstAttribute="trailing" secondItem="QzS-Ig-glO" secondAttribute="trailing" id="67S-7l-3wu"/>
+                            <constraint firstItem="3mO-Wj-PfG" firstAttribute="centerX" secondItem="mhP-Et-hbM" secondAttribute="centerX" id="D3t-Dw-3b7"/>
+                            <constraint firstAttribute="trailing" secondItem="3mO-Wj-PfG" secondAttribute="trailing" id="S5f-YJ-BLT"/>
+                            <constraint firstItem="3mO-Wj-PfG" firstAttribute="leading" secondItem="QzS-Ig-glO" secondAttribute="leading" id="hp4-jD-fKM"/>
+                            <constraint firstItem="3mO-Wj-PfG" firstAttribute="centerX" secondItem="DhY-iS-0Rp" secondAttribute="centerX" id="m64-Ba-UWc"/>
+                            <constraint firstItem="3mO-Wj-PfG" firstAttribute="top" secondItem="Lyy-3p-NKf" secondAttribute="top" id="pV6-L7-29p"/>
+                            <constraint firstItem="mhP-Et-hbM" firstAttribute="top" secondItem="3mO-Wj-PfG" secondAttribute="bottom" constant="56" id="ppI-CU-3kj"/>
+                            <constraint firstItem="3mO-Wj-PfG" firstAttribute="leading" secondItem="Lyy-3p-NKf" secondAttribute="leading" id="qel-r2-AQ3"/>
+                            <constraint firstItem="DhY-iS-0Rp" firstAttribute="top" secondItem="3mO-Wj-PfG" secondAttribute="bottom" constant="8" id="vum-E6-9b7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Partie" id="anj-BJ-ySX"/>
                     <connections>
-                        <segue destination="PxF-Ax-wPy" kind="modal" identifier="startGame" modalTransitionStyle="coverVertical" id="zOI-mz-pOB"/>
-                        <segue destination="uLE-xM-MwG" kind="push" identifier="showResult" id="PuI-cK-Aua"/>
+                        <outlet property="endButton" destination="mhP-Et-hbM" id="u9D-kI-QqP"/>
+                        <outlet property="startButton" destination="DhY-iS-0Rp" id="vfN-KE-Ack"/>
+                        <outlet property="tableView" destination="3mO-Wj-PfG" id="g2b-jQ-RRx"/>
+                        <segue destination="5wk-OX-rwA" kind="push" identifier="choosePlayers" id="Jdf-ym-8LF"/>
+                        <segue destination="uLE-xM-MwG" kind="push" identifier="showResult" id="y52-xj-5KV"/>
+                        <segue destination="PxF-Ax-wPy" kind="modal" identifier="startGame" modalTransitionStyle="coverVertical" id="1R4-qx-SpQ"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x8P-rP-5Za" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lF-aq-NQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="895" y="-572"/>
+            <point key="canvasLocation" x="895" y="-638"/>
         </scene>
         <!--Players View Controller - Joueurs-->
         <scene sceneID="Gdx-gM-q3N">
@@ -1861,6 +1902,7 @@
         <image name="background-home.png" width="640" height="960"/>
         <image name="background.png" width="160" height="240"/>
         <image name="btn-back2px-green.png" width="140" height="20"/>
+        <image name="btn-back2px-red.png" width="140" height="20"/>
         <image name="btn-back2px.png" width="140" height="20"/>
         <image name="close.png" width="32" height="32"/>
         <image name="elapsed.png" width="16" height="16"/>
@@ -1875,6 +1917,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PuI-cK-Aua"/>
+        <segue reference="y52-xj-5KV"/>
     </inferredMetricsTieBreakers>
 </document>

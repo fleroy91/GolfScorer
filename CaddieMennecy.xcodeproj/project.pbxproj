@@ -56,7 +56,6 @@
 		B61CD7C6191EA1F100E172CD /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C2191EA1F100E172CD /* play@2x.png */; };
 		B61CD7C7191EA1F100E172CD /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B61CD7C3191EA1F100E172CD /* settings@2x.png */; };
 		B62579CF192DDA7D00F747E1 /* EXTNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62579CE192DDA7D00F747E1 /* EXTNavViewController.m */; };
-		B62EECB5190F7BA300390F0D /* EXTGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EECB4190F7BA300390F0D /* EXTGameViewController.m */; };
 		B62EECB8190F7D3500390F0D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB6190F7D3500390F0D /* AddressBook.framework */; };
 		B62EECB9190F7D3500390F0D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B62EECB7190F7D3500390F0D /* AddressBookUI.framework */; };
 		B62EECC2190F88DC00390F0D /* EXTPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62EECC1190F88DC00390F0D /* EXTPlayersViewController.m */; };
@@ -82,6 +81,7 @@
 		B652C6AB1930A5D900ADE96F /* time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B652C6A91930A5D900ADE96F /* time@2x.png */; };
 		B6545DFD193464D700E4D54D /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6545DFC193464D700E4D54D /* mail@2x.png */; };
 		B6545DFF19366BE100E4D54D /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6545DFE19366BE100E4D54D /* heart@2x.png */; };
+		B6545E021938EA8A00E4D54D /* EXTNewGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6545E011938EA8A00E4D54D /* EXTNewGameViewController.m */; };
 		B68A553A190E28D90002A4CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A5539190E28D90002A4CE /* Foundation.framework */; };
 		B68A553C190E28D90002A4CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553B190E28D90002A4CE /* CoreGraphics.framework */; };
 		B68A553E190E28D90002A4CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A553D190E28D90002A4CE /* UIKit.framework */; };
@@ -209,8 +209,6 @@
 		B61CD7C3191EA1F100E172CD /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "CaddieMennecy/images/settings@2x.png"; sourceTree = "<group>"; };
 		B62579CD192DDA7D00F747E1 /* EXTNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTNavViewController.h; sourceTree = "<group>"; };
 		B62579CE192DDA7D00F747E1 /* EXTNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTNavViewController.m; sourceTree = "<group>"; };
-		B62EECB3190F7BA300390F0D /* EXTGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTGameViewController.h; sourceTree = "<group>"; };
-		B62EECB4190F7BA300390F0D /* EXTGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTGameViewController.m; sourceTree = "<group>"; };
 		B62EECB6190F7D3500390F0D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		B62EECB7190F7D3500390F0D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		B62EECC0190F88DC00390F0D /* EXTPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTPlayersViewController.h; sourceTree = "<group>"; };
@@ -241,6 +239,8 @@
 		B652C6A91930A5D900ADE96F /* time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "time@2x.png"; path = "CaddieMennecy/images/time@2x.png"; sourceTree = "<group>"; };
 		B6545DFC193464D700E4D54D /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail@2x.png"; path = "CaddieMennecy/images/mail@2x.png"; sourceTree = "<group>"; };
 		B6545DFE19366BE100E4D54D /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart@2x.png"; path = "CaddieMennecy/images/heart@2x.png"; sourceTree = "<group>"; };
+		B6545E001938EA8A00E4D54D /* EXTNewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTNewGameViewController.h; sourceTree = "<group>"; };
+		B6545E011938EA8A00E4D54D /* EXTNewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTNewGameViewController.m; sourceTree = "<group>"; };
 		B68A5536190E28D90002A4CE /* CaddieMennecy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaddieMennecy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68A5539190E28D90002A4CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B68A553B190E28D90002A4CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -547,8 +547,8 @@
 				B62579CE192DDA7D00F747E1 /* EXTNavViewController.m */,
 				B639269A19136ED000AC48D0 /* EXTHomeViewController.h */,
 				B639269B19136ED000AC48D0 /* EXTHomeViewController.m */,
-				B62EECB3190F7BA300390F0D /* EXTGameViewController.h */,
-				B62EECB4190F7BA300390F0D /* EXTGameViewController.m */,
+				B6545E001938EA8A00E4D54D /* EXTNewGameViewController.h */,
+				B6545E011938EA8A00E4D54D /* EXTNewGameViewController.m */,
 				B62EECC0190F88DC00390F0D /* EXTPlayersViewController.h */,
 				B62EECC1190F88DC00390F0D /* EXTPlayersViewController.m */,
 				B6007E851921FFDB00DF0F83 /* EXTPlayerViewController.h */,
@@ -788,7 +788,6 @@
 				B61CD64D1918328100E172CD /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				B68A554A190E28D90002A4CE /* EXTAppDelegate.m in Sources */,
 				B61CD64C1918328100E172CD /* NSManagedObjectContext+MagicalThreading.m in Sources */,
-				B62EECB5190F7BA300390F0D /* EXTGameViewController.m in Sources */,
 				B61CD6471918328100E172CD /* NSManagedObject+MagicalRecord.m in Sources */,
 				B61CD6431918328100E172CD /* NSString+MagicalDataImport.m in Sources */,
 				B61CD6411918328100E172CD /* NSObject+MagicalDataImport.m in Sources */,
@@ -830,6 +829,7 @@
 				B61CD63F1918328100E172CD /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				B68A554D190E28D90002A4CE /* EXTHolesRootViewController.m in Sources */,
 				B61CD6E0191A0A2800E172CD /* Hole+create.m in Sources */,
+				B6545E021938EA8A00E4D54D /* EXTNewGameViewController.m in Sources */,
 				B6B2298D1924A4320090E1A0 /* Hole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@
 #import "EXTHomeViewController.h"
 #import "EXTAppDelegate.h"
 #import "EXTOldGamesTableViewController.h"
-#import "EXTGameViewController.h"
+#import "EXTNewGameViewController.h"
 #import "EXTGlobal.h"
 
 @interface EXTHomeViewController ()
@@ -145,7 +145,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"OldGames"] ){
-    } else if ([segue.identifier isEqualToString:@"NewGame"]) {
+    } else if ([segue.identifier isEqualToString:@"NewGame2"]) {
         if(! currentGame) {
             currentGame = [Game create];
         }
