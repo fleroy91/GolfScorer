@@ -179,6 +179,8 @@
     self.totalDistLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
     self.totalScoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
     
+//    self.shareButton.hidden = ! self.playerGame.inGame.is_over.boolValue;
+    
     [self.titleLabel setText:[self.playerGame.forPlayer description]];
     int totalScore = 0;
     int totalDist = 0;
@@ -297,6 +299,15 @@
     [[UIActivityViewController alloc]
      initWithActivityItems:activityItems
      applicationActivities:nil];
+    
+    
+    activityController.completionHandler = ^(NSString *activityType, BOOL completed) {
+        if(completed) {
+            UIAlertView* alert;
+            alert = [[UIAlertView alloc] initWithTitle:@"Partage" message:@"Opération effectuée avec succès !" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+    };
     
     [self presentViewController:activityController
                        animated:YES completion:nil];

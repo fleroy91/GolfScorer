@@ -9,6 +9,7 @@
 #import "EXTHolesRootViewController.h"
 #import "EXTModelController.h"
 #import "EXTHoleDataViewController.h"
+#import "EXTAppDelegate.h"
 
 @interface EXTHolesRootViewController ()
 @property (readonly, strong, nonatomic) EXTModelController *modelController;
@@ -77,10 +78,10 @@
 
 #pragma mark - UIPageViewController delegate methods
 
--(void)pageViewController:(UIPageViewController *)pvc willTransitionToViewControllers:(NSArray *)pendingViewControllers
-{
-    [self.modelController saveCurrentHole:pvc];
-}
+//-(void)pageViewController:(UIPageViewController *)pvc willTransitionToViewControllers:(NSArray *)pendingViewControllers
+//{
+//    [self.modelController saveCurrentHole:pvc];
+//}
 /*
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {

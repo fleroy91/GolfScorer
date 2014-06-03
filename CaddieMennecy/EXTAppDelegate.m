@@ -14,10 +14,6 @@
 {
     // Override point for customization after application launch.
     [MagicalRecord setupAutoMigratingCoreDataStack];
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-ball.png"]]; //[UIColor lightGrayColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"flag.png"]];
-    pageControl.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"green-bar.png"]];
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3372dc)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];

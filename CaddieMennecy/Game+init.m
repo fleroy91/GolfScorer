@@ -16,6 +16,8 @@
     Game *game = [Game MR_createEntity];
     game.when = [NSDate date];
     game.kind = @0;
+    game.start_hole = @0;
+    game.nb_holes = @0;
     game.forCourse = [Course MR_findFirst];
     game.is_over = NO;
     game.is_started = NO;
@@ -181,13 +183,11 @@
 - (NSUInteger)getNbHolesPlayed
 {
     NSUInteger ret = 0;
-    switch(self.kind.integerValue) {
+    switch(self.nb_holes.integerValue) {
         case 0:
-        case 1:
             ret = 18;
             break;
-        case 2:
-        case 3:
+        case 1:
             ret = 9;
             break;
     }
@@ -197,13 +197,11 @@
 - (NSUInteger)getStartingHoleNumber
 {
     NSUInteger ret = 0;
-    switch(self.kind.integerValue) {
+    switch(self.start_hole.integerValue) {
         case 0:
-        case 2:
             ret = 1;
             break;
         case 1:
-        case 3:
             ret = 10;
             break;
     }
@@ -212,15 +210,19 @@
 - (NSUInteger)getEndingHoleNumber
 {
     NSUInteger ret = 0;
-    switch(self.kind.integerValue) {
-        case 0:
-        case 3:
+    if([self getNbHolesPlayed] == 18) {
+        if([self getStartingHoleNumber] == 1) {
             ret = 18;
-            break;
-        case 2:
-        case 1:
+        } else {
             ret = 9;
-            break;
+        }
+    } else {
+        if([self getStartingHoleNumber] == 1) {
+            ret = 9;
+        } else {
+            ret = 18;
+        }
+        
     }
     return ret;
 }
@@ -315,7 +317,8 @@
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     [ret addObject:@{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"}];
     [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
-    [ret addObject:@{FXFormFieldKey: @"kind", FXFormFieldTitle: @"Type de partie", FXFormFieldOptions: [self kindOptions]}];
+    [ret addObject:@{FXFormFieldKey: @"nb_holes", FXFormFieldTitle: @"Nombre de trous", FXFormFieldOptions: @[@"18 trous", @"9 trous"]}];
+    [ret addObject:@{FXFormFieldKey: @"start_hole", FXFormFieldTitle: @"Trou de départ", FXFormFieldOptions: @[@"1", @"10"]}];
     [ret addObject:@{FXFormFieldKey: @"nbPlayers", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];
     return ret;
 }

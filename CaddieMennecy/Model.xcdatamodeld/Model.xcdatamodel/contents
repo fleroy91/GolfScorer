@@ -31,6 +31,8 @@
         <attribute name="is_over" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="is_started" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="kind" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nb_holes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="start_hole" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="when" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="forCourse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="theGames" inverseEntity="Course" syncable="YES"/>
         <relationship name="thePlayerGames" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PlayerGame" inverseName="inGame" inverseEntity="PlayerGame" syncable="YES"/>
@@ -85,7 +87,7 @@
     </entity>
     <elements>
         <element name="Course" positionX="556" positionY="-342" width="128" height="403"/>
-        <element name="Game" positionX="225" positionY="-342" width="128" height="148"/>
+        <element name="Game" positionX="225" positionY="-342" width="128" height="180"/>
         <element name="Hole" positionX="405" positionY="86" width="128" height="193"/>
         <element name="Player" positionX="396" positionY="-190" width="128" height="163"/>
         <element name="PlayerGame" positionX="216" positionY="-141" width="128" height="178"/>

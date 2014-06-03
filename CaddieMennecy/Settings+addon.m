@@ -25,7 +25,7 @@
 
 -(NSUInteger)convertDistance:(NSUInteger)meters
 {
-    if(self.displayKind == SettingsDisplayKindMeter) {
+    if(self.displayKind.intValue == SettingsDisplayKindMeter) {
         return meters;
     } else {
         return (NSUInteger)((double)meters / 1.0936133);
@@ -34,7 +34,7 @@
 
 -(NSString *)getDistanceUnit
 {
-    return (self.displayKind == SettingsDisplayKindMeter ? @"m" : @"y");
+    return (self.displayKind.intValue == SettingsDisplayKindMeter ? @"m" : @"y");
 }
 
 @end

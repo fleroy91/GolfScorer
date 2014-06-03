@@ -15,6 +15,7 @@
 
 - (EXTHoleDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 - (void)pageForward:(UIPageViewController *)pageViewController;
+- (void)pageBackward:(UIPageViewController *)pageViewController;
 - (void)saveCurrentHole:(UIPageViewController *)pageViewController;
 - (void)saveCurrentHoleWithHole:(Hole *)hole;
 @property PlayerGameHole *playerGameHole;

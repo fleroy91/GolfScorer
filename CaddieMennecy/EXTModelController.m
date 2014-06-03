@@ -21,6 +21,7 @@
 
 @interface EXTModelController()
 @property (strong, nonatomic) NSMutableArray *holes;
+@property BOOL moveInProgress;
 @end
 
 @implementation EXTModelController
@@ -95,10 +96,6 @@
     return ret;
 }
 
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
-{
-    return [currentGame getNbHolesPlayed];
-}
 - (void)saveCurrentHole:(UIPageViewController *)pageViewController {
     EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
     Hole * hole = self.holes[theCurrentViewController.pageIndex];
@@ -110,19 +107,24 @@
     [self.playerGameHole.managedObjectContext MR_saveToPersistentStoreAndWait];
     [self.playerGameHole.inPlayerGame saveAndComputeScoreUntil:hole];
 }
+/*
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
+{
+    return [currentGame getNbHolesPlayed];
+}
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
     EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
     return theCurrentViewController.pageIndex;
 }
-
+*/
 #pragma mark - Page View Controller Data Source
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
     NSUInteger index = ((EXTHoleDataViewController *) viewController).pageIndex;
-    if ((index == 0) || (index == NSNotFound)) {
+    if ((index == 0) || (index == NSNotFound) || self.moveInProgress) {
         return nil;
     }
     
@@ -133,7 +135,7 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     NSUInteger index = ((EXTHoleDataViewController *) viewController).pageIndex;
-    if (index == NSNotFound) {
+    if (index == NSNotFound || self.moveInProgress) {
         return nil;
     }
     
@@ -150,14 +152,41 @@
     EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
     NSUInteger retreivedIndex = ((EXTHoleDataViewController *) theCurrentViewController).pageIndex;
     
-    //check that current page isn't first page
-    if (retreivedIndex < [self.holes count]){
+    //check that current page isn't last page
+    if (retreivedIndex < [self.holes count] - 1){
         
         //get the page to go to
         EXTHoleDataViewController *targetPageViewController = [self viewControllerAtIndex:(retreivedIndex + 1) storyboard:theCurrentViewController.storyboard];
+        self.moveInProgress = YES;
         
         //add page view
-        [pageViewController setViewControllers:@[targetPageViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+        [pageViewController setViewControllers:@[targetPageViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
+            if(finished) {
+                self.moveInProgress = NO;
+            }
+        }];
+        
+    }
+    
+}
+- (void)pageBackward:(UIPageViewController *)pageViewController
+{
+    //get current index of current page
+    EXTHoleDataViewController *theCurrentViewController = [pageViewController.viewControllers objectAtIndex:0];
+    NSUInteger retreivedIndex = ((EXTHoleDataViewController *) theCurrentViewController).pageIndex;
+    
+    //check that current page isn't first page
+    if (retreivedIndex > 0){
+        
+        //get the page to go to
+        EXTHoleDataViewController *targetPageViewController = [self viewControllerAtIndex:(retreivedIndex - 1) storyboard:theCurrentViewController.storyboard];
+        self.moveInProgress = YES;
+        //add page view
+        [pageViewController setViewControllers:@[targetPageViewController] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL finished) {
+            if(finished) {
+                self.moveInProgress = NO;
+            }
+        }];
         
     }
     

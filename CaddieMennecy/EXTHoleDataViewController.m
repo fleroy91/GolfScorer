@@ -9,6 +9,7 @@
 #import "EXTHoleDataViewController.h"
 #import "EXTHolesRootViewController.h"
 #import "EXTScoreCardViewController.h"
+#import <SMPageControl.h>
 
 @interface EXTHoleDataViewController ()
 - (IBAction)homeMenu:(id)sender;
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIView *playerView;
 @property NSInteger range_index;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet SMPageControl *pageControl;
 
 - (IBAction)toggleDisplay:(id)sender;
 - (IBAction)toggleDistance:(id)sender;
@@ -38,6 +40,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *elapsedLabel;
 - (IBAction)doNext:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+- (IBAction)goBackward:(id)sender;
+- (IBAction)goForward:(id)sender;
 
 - (IBAction)chosePlayer1:(id)sender;
 - (IBAction)chosePlayer2:(id)sender;
@@ -68,6 +72,14 @@ PlayerGame *currentPlayerGame;
     self.formController.form = nil;
     self.range_index = -1;
     
+    self.pageControl.numberOfPages = [currentGame getNbHolesPlayed];
+    self.pageControl.pageIndicatorImage = [UIImage imageNamed:@"white-ball"];
+    self.pageControl.currentPageIndicatorImage = [UIImage imageNamed:@"flag"];
+    self.pageControl.currentPage = self.pageIndex;
+    self.pageControl.tapBehavior = SMPageControlTapBehaviorStep;
+//    [self.pageControl sizeToFit];
+    [self.pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(deviceOrientationDidChangeNotification:)
@@ -86,6 +98,20 @@ PlayerGame *currentPlayerGame;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    self.pageControl.currentPage = self.pageIndex;
+}
+
+- (void)pageControlValueChanged:(SMPageControl *)sender
+{
+	NSLog(@"Current Page (SMPageControl): %i", sender.currentPage);
+    if(sender.currentPage < self.pageIndex) {
+        [self.modelController pageBackward:(UIPageViewController *)self.parentViewController];
+    } else if(sender.currentPage > self.pageIndex) {
+        [self.modelController pageForward:(UIPageViewController *)self.parentViewController];
+    }
 }
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification*)note
@@ -295,6 +321,18 @@ PlayerGame *currentPlayerGame;
     } else {
         [self submitHole:nil];
     }
+}
+
+- (IBAction)goBackward:(id)sender {
+    [self.modelController saveCurrentHoleWithHole:self.hole];
+    
+    [self.modelController pageBackward:(UIPageViewController *)self.parentViewController];
+}
+
+- (IBAction)goForward:(id)sender {
+    [self.modelController saveCurrentHoleWithHole:self.hole];
+    
+    [self.modelController pageForward:(UIPageViewController *)self.parentViewController];
 }
 
 - (IBAction)chosePlayer1:(id)sender {
