@@ -89,9 +89,7 @@
 		B68A5544190E28D90002A4CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B68A5542190E28D90002A4CE /* InfoPlist.strings */; };
 		B68A5546190E28D90002A4CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A5545190E28D90002A4CE /* main.m */; };
 		B68A554A190E28D90002A4CE /* EXTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A5549190E28D90002A4CE /* EXTAppDelegate.m */; };
-		B68A554D190E28D90002A4CE /* EXTHolesRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A554C190E28D90002A4CE /* EXTHolesRootViewController.m */; };
 		B68A5550190E28D90002A4CE /* EXTHoleDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A554F190E28D90002A4CE /* EXTHoleDataViewController.m */; };
-		B68A5553190E28D90002A4CE /* EXTModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A5552190E28D90002A4CE /* EXTModelController.m */; };
 		B68A5556190E28D90002A4CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68A5554190E28D90002A4CE /* Main.storyboard */; };
 		B68A5558190E28D90002A4CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68A5557190E28D90002A4CE /* Images.xcassets */; };
 		B68A555F190E28D90002A4CE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68A555E190E28D90002A4CE /* XCTest.framework */; };
@@ -255,12 +253,8 @@
 		B68A5547190E28D90002A4CE /* CaddieMennecy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CaddieMennecy-Prefix.pch"; sourceTree = "<group>"; };
 		B68A5548190E28D90002A4CE /* EXTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTAppDelegate.h; sourceTree = "<group>"; };
 		B68A5549190E28D90002A4CE /* EXTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTAppDelegate.m; sourceTree = "<group>"; };
-		B68A554B190E28D90002A4CE /* EXTHolesRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTHolesRootViewController.h; sourceTree = "<group>"; };
-		B68A554C190E28D90002A4CE /* EXTHolesRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTHolesRootViewController.m; sourceTree = "<group>"; };
 		B68A554E190E28D90002A4CE /* EXTHoleDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTHoleDataViewController.h; sourceTree = "<group>"; };
 		B68A554F190E28D90002A4CE /* EXTHoleDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTHoleDataViewController.m; sourceTree = "<group>"; };
-		B68A5551190E28D90002A4CE /* EXTModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXTModelController.h; sourceTree = "<group>"; };
-		B68A5552190E28D90002A4CE /* EXTModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXTModelController.m; sourceTree = "<group>"; };
 		B68A5555190E28D90002A4CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B68A5557190E28D90002A4CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B68A555D190E28D90002A4CE /* CaddieMennecyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaddieMennecyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -565,10 +559,6 @@
 				B639269819136D8000AC48D0 /* EXTOldGamesTableViewController.m */,
 				B69C49CF193E42B20021E21E /* EXTScrollHolesViewController.h */,
 				B69C49D0193E42B20021E21E /* EXTScrollHolesViewController.m */,
-				B68A554B190E28D90002A4CE /* EXTHolesRootViewController.h */,
-				B68A554C190E28D90002A4CE /* EXTHolesRootViewController.m */,
-				B68A5551190E28D90002A4CE /* EXTModelController.h */,
-				B68A5552190E28D90002A4CE /* EXTModelController.m */,
 				B68A554E190E28D90002A4CE /* EXTHoleDataViewController.h */,
 				B68A554F190E28D90002A4CE /* EXTHoleDataViewController.m */,
 				B6B2299D1926817A0090E1A0 /* EXTResultGameViewController.h */,
@@ -812,7 +802,6 @@
 				B61CD6541918328100E172CD /* MagicalRecord+Setup.m in Sources */,
 				B61CD6451918328100E172CD /* NSManagedObject+MagicalDataImport.m in Sources */,
 				B61CD6491918328100E172CD /* NSManagedObjectContext+MagicalObserving.m in Sources */,
-				B68A5553190E28D90002A4CE /* EXTModelController.m in Sources */,
 				B6B229A2192794C70090E1A0 /* PlayerGameHole.m in Sources */,
 				B6CF756C193311D9003EF310 /* Settings+addon.m in Sources */,
 				B63926A51914065A00AC48D0 /* Game+init.m in Sources */,
@@ -839,7 +828,6 @@
 				B61CD6441918328100E172CD /* NSManagedObject+MagicalAggregation.m in Sources */,
 				B6B2299C192681000090E1A0 /* EXTPlayerResultTableViewCell.m in Sources */,
 				B61CD63F1918328100E172CD /* NSEntityDescription+MagicalDataImport.m in Sources */,
-				B68A554D190E28D90002A4CE /* EXTHolesRootViewController.m in Sources */,
 				B61CD6E0191A0A2800E172CD /* Hole+create.m in Sources */,
 				B6545E021938EA8A00E4D54D /* EXTNewGameViewController.m in Sources */,
 				B6B2298D1924A4320090E1A0 /* Hole.m in Sources */,

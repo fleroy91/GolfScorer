@@ -7,9 +7,7 @@
 //
 
 #import "EXTHoleDataViewController.h"
-#import "EXTHolesRootViewController.h"
 #import "EXTScoreCardViewController.h"
-#import <SMPageControl.h>
 
 @interface EXTHoleDataViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *parLabel;

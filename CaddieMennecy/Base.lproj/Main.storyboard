@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHE-GN-Yf3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="-176"/>
+            <point key="canvasLocation" x="1895" y="-193"/>
         </scene>
         <!--Scroll Holes View Controller-->
         <scene sceneID="j3H-ab-IAm">
@@ -390,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rc-A6-fEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="-255"/>
+            <point key="canvasLocation" x="1435" y="-193"/>
         </scene>
         <!--Settings View Controller - Paramètres-->
         <scene sceneID="KC1-kw-HOt">
@@ -1571,7 +1571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1R-uq-CMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968" y="590"/>
+            <point key="canvasLocation" x="1895" y="629"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="R6p-3r-NCf">
@@ -1840,28 +1840,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lS-3q-Ivs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="-1005"/>
-        </scene>
-        <!--Holes Root View Controller - Trou-->
-        <scene sceneID="3GU-QQ-JyJ">
-            <objects>
-                <viewController id="PxF-Ax-wPy" customClass="EXTHolesRootViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="17i-ZA-3zy"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Yh-h8-jIR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cc6-cB-pgf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Trou" id="3qq-Aw-p8U"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BPC-vx-IW7" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1435" y="-184"/>
+            <point key="canvasLocation" x="2350" y="-939"/>
         </scene>
         <!--Nav View Controller-->
         <scene sceneID="LD4-Xc-pHx">
@@ -1900,7 +1879,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcZ-QI-8Ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824" y="-1005"/>
+            <point key="canvasLocation" x="1895" y="-939"/>
         </scene>
     </scenes>
     <resources>
