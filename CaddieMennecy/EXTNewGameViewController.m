@@ -104,7 +104,7 @@
     } else {
         [currentGame findOrCreateHolesForPlayers];
         [currentGame setIsStarted:YES];
-        [self performSegueWithIdentifier:@"startGame" sender: self];
+        [self performSegueWithIdentifier:@"startGame2" sender: self];
     }
 }
 

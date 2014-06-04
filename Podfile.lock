@@ -1,14 +1,20 @@
 PODS:
+  - BMXSwitch (1.0)
+  - DAPagesContainer (1.0.1)
   - FXForms (1.1.6)
   - SMPageControl (1.2)
   - SWTableViewCell (0.3.0)
 
 DEPENDENCIES:
+  - BMXSwitch (~> 1.0)
+  - DAPagesContainer
   - FXForms (~> 1.1)
   - SMPageControl (~> 1.2)
   - SWTableViewCell (~> 0.3)
 
 SPEC CHECKSUMS:
+  BMXSwitch: 331bbdf828f759b30ee41344ce8e2a92b26e0a91
+  DAPagesContainer: 90123e9b119745515432e18e5b059e46c23451c7
   FXForms: 9387c60ee6f3e1c75e0f8998012acc1ce0ad8d0a
   SMPageControl: 506b0c561d3ddbe2d5df28cb33acc8e4b1f93f19
   SWTableViewCell: 1725f7607ce4c154264c18aeb78e4636b11b0b29

@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-BMXSwitch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-DAPagesContainer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FXForms.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>12C851EEFDC743EEA8F4DABC</key>
+		<key>0F1ED819C5374CD7B28736CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>799AD3EABED74DA294F4BA5C</key>
+		<key>4DD2BADA30DD435FB518F5F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9671AF9F13B049599454F04F</key>
+		<key>5C02EBEB0141472097648C37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BBF55B35B5C64D11B2C8AA43</key>
+		<key>6247994715344B218C096A30</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7ADA39A4E0C3497F80905AB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FFD2DD4C43CA4A0082C8B4DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -12,8 +12,6 @@
 #import <SMPageControl.h>
 
 @interface EXTHoleDataViewController ()
-- (IBAction)homeMenu:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *holeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *parLabel;
 @property (weak, nonatomic) IBOutlet UILabel *handicapLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distLabel;
@@ -30,18 +28,13 @@
 @property (weak, nonatomic) IBOutlet UITableView *formView;
 @property (weak, nonatomic) IBOutlet UIView *playerView;
 @property NSInteger range_index;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet SMPageControl *pageControl;
 
 - (IBAction)toggleDisplay:(id)sender;
 - (IBAction)toggleDistance:(id)sender;
 @property NSUInteger indexPlayerSelected;
 @property BOOL showStableford;
-@property (weak, nonatomic) IBOutlet UILabel *elapsedLabel;
 - (IBAction)doNext:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
-- (IBAction)goBackward:(id)sender;
-- (IBAction)goForward:(id)sender;
 
 - (IBAction)chosePlayer1:(id)sender;
 - (IBAction)chosePlayer2:(id)sender;
@@ -49,16 +42,10 @@
 - (IBAction)chosePlayer4:(id)sender;
 
 @property (nonatomic, strong) FXFormController *formController;
-@property BOOL canHandleOrientation;
-
-@property NSTimer *myTimer;
-- (void)updateTime:(id)sender;
 
 @end
 
 @implementation EXTHoleDataViewController
-
-PlayerGame *currentPlayerGame;
 
 - (void)viewDidLoad
 {
@@ -71,27 +58,11 @@ PlayerGame *currentPlayerGame;
     self.formController.delegate = self;
     self.formController.form = nil;
     self.range_index = -1;
-    
-    self.pageControl.numberOfPages = [currentGame getNbHolesPlayed];
-    self.pageControl.pageIndicatorImage = [UIImage imageNamed:@"white-ball"];
-    self.pageControl.currentPageIndicatorImage = [UIImage imageNamed:@"flag"];
-    self.pageControl.currentPage = self.pageIndex;
-    self.pageControl.tapBehavior = SMPageControlTapBehaviorStep;
-//    [self.pageControl sizeToFit];
-    [self.pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(deviceOrientationDidChangeNotification:)
-     name:UIDeviceOrientationDidChangeNotification
-     object:nil];
-    self.canHandleOrientation = YES;
-    
-    self.myTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
-                                     target:self
-                                   selector:@selector(updateTime:)
-                                   userInfo:nil
-                                    repeats:YES];
+}
+
+- (NSString *)getTitle
+{
+    return [NSString stringWithFormat:@"Trou n°%@", self.hole.number];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,66 +71,9 @@ PlayerGame *currentPlayerGame;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    self.pageControl.currentPage = self.pageIndex;
-}
-
-- (void)pageControlValueChanged:(SMPageControl *)sender
-{
-	NSLog(@"Current Page (SMPageControl): %i", sender.currentPage);
-    if(sender.currentPage < self.pageIndex) {
-        [self.modelController pageBackward:(UIPageViewController *)self.parentViewController];
-    } else if(sender.currentPage > self.pageIndex) {
-        [self.modelController pageForward:(UIPageViewController *)self.parentViewController];
-    }
-}
-
-- (void)deviceOrientationDidChangeNotification:(NSNotification*)note
-{
-    if(self.canHandleOrientation) {
-        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-        switch (orientation)
-        {
-            case UIDeviceOrientationPortrait:
-                break;
-            case UIDeviceOrientationLandscapeLeft:
-            case UIDeviceOrientationLandscapeRight:
-            {
-                self.canHandleOrientation = NO;
-                UIStoryboard *storyboard = self.storyboard;
-                EXTScoreCardViewController * vc = (EXTScoreCardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scoreCardView"];
-                vc.playerGame = currentPlayerGame;
-                vc.notifOrientation = YES;
-                vc.modalPresentationStyle = UIModalPresentationFullScreen;
-                vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-                [self presentViewController:vc animated:YES completion:^{
-                    self.canHandleOrientation = YES;
-                }];
-                break;
-            }
-            default:
-                break;
-        }
-    }
-}
-
-- (void)updateTime:(id)sender
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm"];
-    NSDate * now = [NSDate date];
-    NSString *formattedDateString = [dateFormatter stringFromDate:now];
-    [self.timeLabel setText:formattedDateString];
-    NSTimeInterval duration = [now timeIntervalSinceDate:currentGame.when];
-    NSUInteger seconds = (NSUInteger)round(duration);
-    [self.elapsedLabel setText:[NSString stringWithFormat:@"%02u:%02u",
-                                 seconds / 3600, (seconds / 60) % 60]];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.holeLabel.text = [NSString stringWithFormat:@"%@", self.hole.number];
     self.parLabel.text = [NSString stringWithFormat:@"%@", self.hole.par];
     self.handicapLabel.text = [NSString stringWithFormat:@"%@", self.hole.handicap];
     // We need to manage the players button
@@ -168,10 +82,9 @@ PlayerGame *currentPlayerGame;
     [self updateButtonWithPlayerAtIndex:3 withButton:self.player3Button];
     [self updateButtonWithPlayerAtIndex:4 withButton:self.player4Button];
     
-    self.formController.form = (id)self.modelController.playerGameHole;
+    self.formController.form = (id)self.currentPlayerGameHole;
     [self updateNextButton];
     [self.formView reloadData];
-    [self updateTime:nil];
 }
 
 - (void)doNothing:(UITableViewCell<FXFormFieldCell> *)cell
@@ -181,20 +94,24 @@ PlayerGame *currentPlayerGame;
 - (void)endGame:(UITableViewCell<FXFormFieldCell> *)cell
 {
     [currentGame setIsOver:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.modelController homeMenu:self];
+}
+- (void)saveHole
+{
+    self.currentPlayerGameHole.is_saved = @YES;
+    [self.currentPlayerGameHole.managedObjectContext MR_saveToPersistentStoreAndWait];
+    [self.currentPlayerGameHole.inPlayerGame saveAndComputeScoreUntil:self.hole];
 }
 - (void)submitHole:(UITableViewCell<FXFormFieldCell> *)cell
 {
-    [self.modelController saveCurrentHoleWithHole:self.hole];
-    
+    [self saveHole];
     if(self.indexPlayerSelected < [self.playerGameHoles count]) {
         [self animateUpdateViewAtIndex:self.indexPlayerSelected+1];
     } else {
         // We have to go to the next hole
-        [self.modelController pageForward:(UIPageViewController *)self.parentViewController];
+        [self.modelController pageForward];
     }
 }
-
 
 - (void)updateButtonWithPlayerAtIndex:(NSUInteger)index withButton:(UIButton *)button
 {
@@ -216,7 +133,7 @@ PlayerGame *currentPlayerGame;
         button.enabled = YES;
         [button setTitle:[NSString stringWithFormat:@"%@", pg.forPlayer.firstname] forState:UIControlStateNormal];
         if(index == self.indexPlayerSelected) {
-            currentPlayerGame = pg;
+            self.currentPlayerGame = pg;
             if(self.range_index < 0) {
                 self.range_index = pg.forPlayer.start_color.integerValue;
             }
@@ -238,7 +155,7 @@ PlayerGame *currentPlayerGame;
                 [self.netLabel setTextColor:[UIColor whiteColor]];
             }
             // We need to display the score form
-            self.modelController.playerGameHole = currentPgh;
+            self.currentPlayerGameHole = currentPgh;
         } else {
             [button setBackgroundImage:[UIImage alloc] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -252,11 +169,7 @@ PlayerGame *currentPlayerGame;
     }
     
 }
-- (BOOL)prefersStatusBarHidden {return YES;}
 
-- (IBAction)homeMenu:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 -(BOOL)shouldAutorotate
 {
     return YES;
@@ -295,7 +208,7 @@ PlayerGame *currentPlayerGame;
         [self.playerView setAlpha:0];
     } completion:^(BOOL finished) {
         [self updateButtonWithPlayerAtIndex:index withButton:button];
-        self.formController.form = (id)self.modelController.playerGameHole;
+        self.formController.form = (id)self.currentPlayerGameHole;
         [self updateNextButton];
         [self.formView reloadData];
         [UIView animateWithDuration:0.1 animations:^(void){
@@ -306,7 +219,7 @@ PlayerGame *currentPlayerGame;
 
 -(void)updateNextButton
 {
-    if([self.modelController.playerGameHole isLastHoleAndPlayer]) {
+    if([self.currentPlayerGameHole isLastHoleAndPlayer]) {
         [self.nextButton setTitle:@"Terminer la partie" forState:UIControlStateNormal];
         [self.nextButton setBackgroundImage:[UIImage imageNamed:@"btn-back2px-red"] forState:UIControlStateNormal];
     } else {
@@ -316,23 +229,11 @@ PlayerGame *currentPlayerGame;
 }
 
 - (IBAction)doNext:(id)sender {
-    if([self.modelController.playerGameHole isLastHoleAndPlayer]) {
+    if([self.currentPlayerGameHole isLastHoleAndPlayer]) {
         [self endGame:nil];
     } else {
         [self submitHole:nil];
     }
-}
-
-- (IBAction)goBackward:(id)sender {
-    [self.modelController saveCurrentHoleWithHole:self.hole];
-    
-    [self.modelController pageBackward:(UIPageViewController *)self.parentViewController];
-}
-
-- (IBAction)goForward:(id)sender {
-    [self.modelController saveCurrentHoleWithHole:self.hole];
-    
-    [self.modelController pageForward:(UIPageViewController *)self.parentViewController];
 }
 
 - (IBAction)chosePlayer1:(id)sender {

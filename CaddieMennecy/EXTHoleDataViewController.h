@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FXForms.h>
-#import "EXTModelController.h"
+#import "EXTScrollHolesViewController.h"
 
 @interface EXTHoleDataViewController : UIViewController <FXFormControllerDelegate>
 
@@ -16,6 +16,9 @@
 @property (strong, nonatomic) NSArray *playerGameHoles;
 @property (strong, nonatomic) Hole *hole;
 @property NSUInteger pageIndex;
-@property EXTModelController *modelController;
+@property EXTScrollHolesViewController *modelController;
+@property PlayerGame *currentPlayerGame;
+@property PlayerGameHole *currentPlayerGameHole;
+- (void)saveHole;
 
 @end
