@@ -17,8 +17,10 @@
 - (void)setSelectedIndex:(NSUInteger)selectedIndex animated:(BOOL)animated
 {
     // We need to save the current hole
-    EXTHoleDataViewController *currentVc = (EXTHoleDataViewController *)self.viewControllers[self.selectedIndex];
-    [currentVc saveHole];
+    if(selectedIndex > self.selectedIndex) {
+        EXTHoleDataViewController *currentVc = (EXTHoleDataViewController *)self.viewControllers[self.selectedIndex];
+        [currentVc saveHole];
+    }
     
     // And refresh the next page
     EXTHoleDataViewController *nextVc = (EXTHoleDataViewController *)self.viewControllers[selectedIndex];

@@ -129,11 +129,6 @@
         if(pgh.is_saved.boolValue) {
             NSInteger brut_score = pgh.hole_score.intValue - pgh.forHole.par.intValue;
             NSInteger net_score = pgh.hole_score.intValue - (pgh.forHole.par.intValue + pgh.game_hcp.intValue);
-            // We don't compute net score of future holes
-            if(pgh.number.unsignedIntValue > hole.number.unsignedIntValue) {
-                brut_score = 0;
-                net_score = 0;
-            }
             NSLog(@"PGH #%@ B=%d N=%d", pgh.number, brut_score, net_score);
             self.brut_score = [NSNumber numberWithInt:(self.brut_score.intValue + brut_score)];
             self.stbl_brut_score = [NSNumber numberWithInt:MAX(0, self.stbl_brut_score.intValue + 2 - brut_score) - 2];
