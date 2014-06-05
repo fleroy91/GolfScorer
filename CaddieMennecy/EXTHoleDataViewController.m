@@ -8,11 +8,11 @@
 
 #import "EXTHoleDataViewController.h"
 #import "EXTScoreCardViewController.h"
+#import "EXTDistanceView.h"
 
 @interface EXTHoleDataViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *parLabel;
 @property (weak, nonatomic) IBOutlet UILabel *handicapLabel;
-@property (weak, nonatomic) IBOutlet UILabel *distLabel;
 @property (weak, nonatomic) IBOutlet UIButton *player1Button;
 @property (weak, nonatomic) IBOutlet UIButton *player2Button;
 @property (weak, nonatomic) IBOutlet UIButton *player3Button;
@@ -25,10 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *hcpTitleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *formView;
 @property (weak, nonatomic) IBOutlet UIView *playerView;
-@property NSInteger range_index;
+@property (weak, nonatomic) IBOutlet EXTDistanceView *distanceView;
 
 - (IBAction)toggleDisplay:(id)sender;
-- (IBAction)toggleDistance:(id)sender;
 @property NSUInteger indexPlayerSelected;
 @property BOOL showStableford;
 - (IBAction)doNext:(id)sender;
@@ -55,7 +54,6 @@
     self.formController.tableView = self.formView;
     self.formController.delegate = self;
     self.formController.form = nil;
-    self.range_index = -1;
 }
 
 - (NSString *)getTitle
@@ -113,8 +111,6 @@
 
 - (void)updateButtonWithPlayerAtIndex:(NSUInteger)index withButton:(UIButton *)button
 {
-    NSArray *dist_colors = [[NSArray alloc] initWithObjects:[UIColor blackColor], [UIColor whiteColor], [UIColor yellowColor], [UIColor blueColor], [UIColor redColor], nil];
-    
     // First we search for the player game
     PlayerGame *pg = nil;
     PlayerGameHole *currentPgh = nil;
@@ -132,13 +128,9 @@
         [button setTitle:[NSString stringWithFormat:@"%@", pg.forPlayer.firstname] forState:UIControlStateNormal];
         if(index == self.indexPlayerSelected) {
             self.currentPlayerGame = pg;
-            if(self.range_index < 0) {
-                self.range_index = pg.forPlayer.start_color.integerValue;
-            }
             [button setBackgroundImage:[UIImage imageNamed:@"btn-back2px.png"] forState:UIControlStateNormal];
-            
-            self.distLabel.text = [currentPgh formatDistanceForColor:self.range_index];
-            [self.distLabel setTextColor:dist_colors[self.range_index]];
+
+            self.distanceView.playerGameHole = currentPgh;
             self.brutLabel.text = [pg getBrutScore:self.showStableford];
             self.netLabel.text = [pg getNetScore:self.showStableford];
             if(self.showStableford) {
@@ -178,7 +170,6 @@
 }
 -(void)animateUpdateViewAtIndex:(NSInteger)index
 {
-    self.range_index = -1;
     if(self.indexPlayerSelected != index) {
         // We need to unselect the buttons
         [self.player1Button setBackgroundImage:nil forState:UIControlStateNormal];
@@ -260,14 +251,6 @@
         [self.brutTitleLabel setText:@"Brut"];
         [self.netTitleLabel setText:@"Net"];
         [self.hcpTitleLabel setText: @"C. Reçus"];
-    }
-    [self viewWillAppear:YES];
-}
-
-- (IBAction)toggleDistance:(id)sender {
-    self.range_index ++;
-    if(self.range_index > 4 ) {
-        self.range_index = 0;
     }
     [self viewWillAppear:YES];
 }

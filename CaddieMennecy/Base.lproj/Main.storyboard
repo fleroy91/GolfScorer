@@ -171,35 +171,8 @@
                                             <action selector="toggleDisplay:" destination="hzS-jB-y9W" eventType="touchUpInside" id="9U6-ZV-b8P"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bi-6O-epr" userLabel="toggleDistance">
-                                        <rect key="frame" x="0.0" y="0.0" width="74" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="toggleDistance:" destination="hzS-jB-y9W" eventType="touchUpInside" id="QZ1-LC-nLG"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coups Reçus" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-hW-XRJ">
                                         <rect key="frame" x="75" y="0.0" width="80" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EI9-mN-62K">
-                                        <rect key="frame" x="0.0" y="30" width="74" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="74" id="cYe-48-Lvx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drw-SY-4pb">
-                                        <rect key="frame" x="0.0" y="0.0" width="74" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -278,6 +251,11 @@
                                             <action selector="doNext:" destination="hzS-jB-y9W" eventType="touchUpInside" id="ACd-Kx-Cmr"/>
                                         </connections>
                                     </button>
+                                    <view clipsSubviews="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLS-ne-DA5" userLabel="distanceView" customClass="EXTDistanceView">
+                                        <rect key="frame" x="5" y="5" width="68" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -293,7 +271,7 @@
                     <connections>
                         <outlet property="brutLabel" destination="Z0t-8H-JcH" id="o5D-49-L2k"/>
                         <outlet property="brutTitleLabel" destination="73K-2d-e9I" id="Liy-mw-ctm"/>
-                        <outlet property="distLabel" destination="EI9-mN-62K" id="1Xc-jh-gfH"/>
+                        <outlet property="distanceView" destination="kLS-ne-DA5" id="ORJ-A9-Vb1"/>
                         <outlet property="formView" destination="fq3-cs-43c" id="knu-hL-ord"/>
                         <outlet property="handicapLabel" destination="E0a-fk-twt" id="rcT-u7-diy"/>
                         <outlet property="hcpLabel" destination="lgf-6c-4VD" id="KZO-dL-i52"/>
