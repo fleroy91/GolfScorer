@@ -117,9 +117,9 @@
 }
 
 
-- (void)saveAndComputeScoreUntil:(Hole *)hole
+- (void)saveAndComputeScore
 {
-    NSLog(@"Before %@ H=%@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, hole.number, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);
+    NSLog(@"Before %@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);
     self.brut_score = @0;
     self.net_score = @0;
     self.stbl_brut_score = @36;
@@ -136,7 +136,7 @@
             self.stbl_net_score = [NSNumber numberWithInt:MAX(0, self.stbl_net_score.intValue + 2 - net_score) - 2];
         }
     }
-    NSLog(@"After %@ H=%@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, hole.number, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);
+    NSLog(@"After %@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
 }
 

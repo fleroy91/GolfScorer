@@ -141,7 +141,7 @@
                 UIStoryboard *storyboard = self.storyboard;
                 EXTHoleDataViewController *holeDataVc = self.vcs[self.pagesContainer.selectedIndex];
                 EXTScoreCardViewController * vc = (EXTScoreCardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scoreCardView"];
-                vc.playerGame = holeDataVc.currentPlayerGame;
+                vc.playerGame = [holeDataVc getCurrentPlayerGameHole].inPlayerGame;
                 vc.notifOrientation = YES;
                 vc.modalPresentationStyle = UIModalPresentationFullScreen;
                 vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;

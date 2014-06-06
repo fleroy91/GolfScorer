@@ -205,7 +205,7 @@
         if(found) {
             int par = found.forHole.par.integerValue;
             int score = found.hole_score.integerValue;
-            int dist = [found getDistanceForColor:found.inPlayerGame.forPlayer.start_color.unsignedIntegerValue];
+            int dist = [found.forHole getDistanceForColor:found.inPlayerGame.forPlayer.start_color.unsignedIntegerValue];
             totalPar += par;
             if(! found.is_saved.boolValue) {
                 score = 0;

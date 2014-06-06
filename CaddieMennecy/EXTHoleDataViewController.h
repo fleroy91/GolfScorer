@@ -10,15 +10,13 @@
 #import <FXForms.h>
 #import "EXTScrollHolesViewController.h"
 
-@interface EXTHoleDataViewController : UIViewController <FXFormControllerDelegate>
+@interface EXTHoleDataViewController : UIViewController 
 
-@property (strong, nonatomic) IBOutlet UILabel *dataLabel;
 @property (strong, nonatomic) NSArray *playerGameHoles;
 @property (strong, nonatomic) Hole *hole;
 @property NSUInteger pageIndex;
 @property EXTScrollHolesViewController *modelController;
-@property PlayerGame *currentPlayerGame;
-@property PlayerGameHole *currentPlayerGameHole;
 - (void)saveHole;
+- (PlayerGameHole *)getCurrentPlayerGameHole;
 
 @end

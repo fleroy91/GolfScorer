@@ -114,6 +114,7 @@
 		B6CF756C193311D9003EF310 /* Settings+addon.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF756B193311D9003EF310 /* Settings+addon.m */; };
 		B6CF756F19331424003EF310 /* EXTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF756E19331424003EF310 /* EXTSettingsViewController.m */; };
 		B6DF634A193F04BD0040F0F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6DF6349193F04BD0040F0F3 /* QuartzCore.framework */; };
+		B6DF634D1940E5150040F0F3 /* EXTHolePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF634C1940E5150040F0F3 /* EXTHolePlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +299,8 @@
 		B6CF756D19331424003EF310 /* EXTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTSettingsViewController.h; sourceTree = "<group>"; };
 		B6CF756E19331424003EF310 /* EXTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTSettingsViewController.m; sourceTree = "<group>"; };
 		B6DF6349193F04BD0040F0F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B6DF634B1940E5150040F0F3 /* EXTHolePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTHolePlayerViewController.h; sourceTree = "<group>"; };
+		B6DF634C1940E5150040F0F3 /* EXTHolePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTHolePlayerViewController.m; sourceTree = "<group>"; };
 		BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -582,6 +585,8 @@
 				B6B229A6192B31520090E1A0 /* EXTScoreCardViewController.h */,
 				B6B229A7192B31520090E1A0 /* EXTScoreCardViewController.m */,
 				B68A5554190E28D90002A4CE /* Main.storyboard */,
+				B6DF634B1940E5150040F0F3 /* EXTHolePlayerViewController.h */,
+				B6DF634C1940E5150040F0F3 /* EXTHolePlayerViewController.m */,
 				B6CF756D19331424003EF310 /* EXTSettingsViewController.h */,
 				B6CF756E19331424003EF310 /* EXTSettingsViewController.m */,
 				B68A5557190E28D90002A4CE /* Images.xcassets */,
@@ -793,6 +798,7 @@
 				B6CF756919331171003EF310 /* Settings.m in Sources */,
 				B6B2299F1926817A0090E1A0 /* EXTResultGameViewController.m in Sources */,
 				B6007E871921FFDB00DF0F83 /* EXTPlayerViewController.m in Sources */,
+				B6DF634D1940E5150040F0F3 /* EXTHolePlayerViewController.m in Sources */,
 				B61CD6521918328100E172CD /* MagicalRecord+iCloud.m in Sources */,
 				B61CD6421918328100E172CD /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				B639269919136D8000AC48D0 /* EXTOldGamesTableViewController.m in Sources */,
@@ -929,7 +935,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -962,7 +968,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -973,7 +979,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Frederic Leroy (3CX4H4KREM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CaddieMennecy/CaddieMennecy-Prefix.pch";
 				INFOPLIST_FILE = "CaddieMennecy/CaddieMennecy-Info.plist";
@@ -987,7 +993,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Frederic Leroy (3CX4H4KREM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CaddieMennecy/CaddieMennecy-Prefix.pch";
 				INFOPLIST_FILE = "CaddieMennecy/CaddieMennecy-Info.plist";

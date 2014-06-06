@@ -18,7 +18,7 @@
 - (NSString *)getAvgPuttScore:(BOOL)showRatio;
 - (NSInteger)getNbHolesFrom:(NSInteger)min to:(NSInteger)max forNet:(BOOL)showNet;
 
-- (void)saveAndComputeScoreUntil:(Hole *)hole;
+- (void)saveAndComputeScore;
 + (PlayerGame *)initInGame:(Game *)game forPlayer:(Player *)player andRow:(NSNumber*)row;
 
 @end

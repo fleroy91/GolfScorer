@@ -27,35 +27,16 @@
     return ([self isLastHole] && [self isLastPlayer]);
 }
 
--(NSUInteger)getDistanceForColor:(NSUInteger)start_color
+- (void)saveScore
 {
-    NSUInteger dist = 0;
-    switch(start_color) {
-        case 0:
-            dist = self.forHole.range1.unsignedIntegerValue;
-            break;
-        case 1:
-            dist = self.forHole.range2.unsignedIntegerValue;
-            break;
-        case 2:
-            dist = self.forHole.range3.unsignedIntegerValue;
-            break;
-        case 3:
-            dist = self.forHole.range4.unsignedIntegerValue;
-            break;
-        case 4:
-            dist = self.forHole.range5.unsignedIntegerValue;
-            break;
-        default:
-            dist = self.forHole.range3.unsignedIntegerValue;
-            break;
-    }
-    return [settings convertDistance:dist];
+    self.is_saved = @YES;
+    [self.managedObjectContext MR_saveToPersistentStoreAndWait];
+    [self.inPlayerGame saveAndComputeScore];
 }
 
 -(NSString *)formatDistanceForColor:(NSUInteger)start_color
 {
-    return [NSString stringWithFormat:@"%d %@", [self getDistanceForColor:start_color], [settings getDistanceUnit]];
+    return [self.forHole formatDistanceForColor:start_color];
 }
 
 - (NSArray *)fields

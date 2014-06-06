@@ -25,5 +25,35 @@
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
     return self;
 }
+-(NSString *)formatDistanceForColor:(NSUInteger)start_color
+{
+    return [NSString stringWithFormat:@"%d %@", [self getDistanceForColor:start_color], [settings getDistanceUnit]];
+}
+
+-(NSUInteger)getDistanceForColor:(NSUInteger)start_color
+{
+    NSUInteger dist = 0;
+    switch(start_color) {
+        case 0:
+            dist = self.range1.unsignedIntegerValue;
+            break;
+        case 1:
+            dist = self.range2.unsignedIntegerValue;
+            break;
+        case 2:
+            dist = self.range3.unsignedIntegerValue;
+            break;
+        case 3:
+            dist = self.range4.unsignedIntegerValue;
+            break;
+        case 4:
+            dist = self.range5.unsignedIntegerValue;
+            break;
+        default:
+            dist = self.range3.unsignedIntegerValue;
+            break;
+    }
+    return [settings convertDistance:dist];
+}
 
 @end
