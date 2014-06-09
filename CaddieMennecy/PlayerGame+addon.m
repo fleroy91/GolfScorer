@@ -16,9 +16,9 @@
     if(score == 0) {
         ret = @"E";
     } else if(score > 0) {
-        ret = [NSString stringWithFormat:@"+%d", score];
+        ret = [NSString stringWithFormat:@"+%ld", (long)score];
     } else {
-        ret = [NSString stringWithFormat:@"%d", score];
+        ret = [NSString stringWithFormat:@"%ld", (long)score];
     }
     return ret;
 }
@@ -92,7 +92,7 @@
     }
     if(nbHoles > 0) {
         if(showRatio) {
-            ret = [NSString stringWithFormat:@"%d/%d", nbPutts,nbHoles];
+            ret = [NSString stringWithFormat:@"%d", nbPutts];
         } else {
             ret = [NSString stringWithFormat:@"%.1f", (double)nbPutts / (double)nbHoles];
         }
@@ -129,11 +129,11 @@
         if(pgh.is_saved.boolValue) {
             NSInteger brut_score = pgh.hole_score.intValue - pgh.forHole.par.intValue;
             NSInteger net_score = pgh.hole_score.intValue - (pgh.forHole.par.intValue + pgh.game_hcp.intValue);
-            NSLog(@"PGH #%@ B=%d N=%d", pgh.number, brut_score, net_score);
-            self.brut_score = [NSNumber numberWithInt:(self.brut_score.intValue + brut_score)];
-            self.stbl_brut_score = [NSNumber numberWithInt:MAX(0, self.stbl_brut_score.intValue + 2 - brut_score) - 2];
-            self.net_score = [NSNumber numberWithInt:(self.net_score.intValue + net_score)];
-            self.stbl_net_score = [NSNumber numberWithInt:MAX(0, self.stbl_net_score.intValue + 2 - net_score) - 2];
+            NSLog(@"PGH #%@ B=%ld N=%ld", pgh.number, (long)brut_score, (long)net_score);
+            self.brut_score = [NSNumber numberWithLong:(self.brut_score.intValue + brut_score)];
+            self.stbl_brut_score = [NSNumber numberWithLong:MAX(0, self.stbl_brut_score.intValue + 2 - brut_score) - 2];
+            self.net_score = [NSNumber numberWithLong:(self.net_score.intValue + net_score)];
+            self.stbl_net_score = [NSNumber numberWithLong:MAX(0, self.stbl_net_score.intValue + 2 - net_score) - 2];
         }
     }
     NSLog(@"After %@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);

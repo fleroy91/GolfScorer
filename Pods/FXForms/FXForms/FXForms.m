@@ -1707,7 +1707,7 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
         else if (self.field.action)
         {
             self.accessoryType = UITableViewCellAccessoryNone;
-            self.textLabel.textAlignment = UITextAlignmentCenter;
+            self.textLabel.textAlignment = NSTextAlignmentCenter;
         }
         else
         {
@@ -2063,7 +2063,7 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
     self.textView.scrollEnabled = NO;
     [self.contentView addSubview:self.textView];
     
-    self.detailTextLabel.textAlignment = UITextAlignmentLeft;
+    self.detailTextLabel.textAlignment = NSTextAlignmentLeft;
     self.detailTextLabel.numberOfLines = 0;
     
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.textView action:NSSelectorFromString(@"becomeFirstResponder")]];
@@ -2111,7 +2111,7 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
     self.textView.text = [self.field fieldDescription];
     
     self.textView.returnKeyType = UIReturnKeyDefault;
-    self.textView.textAlignment = UITextAlignmentLeft;
+    self.textView.textAlignment = NSTextAlignmentLeft;
     self.textView.secureTextEntry = NO;
     
     if ([self.field.type isEqualToString:FXFormFieldTypeText])

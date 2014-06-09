@@ -34,6 +34,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (NSString *)getTitle
+{
+    return [NSString stringWithFormat:@"Trou n°%@", self.hole.number];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.parLabel.text = [NSString stringWithFormat:@"%@", self.hole.par];
+    self.handicapLabel.text = [NSString stringWithFormat:@"%@", self.hole.handicap];
+
     self.pagesContainer = [[EXTDAPagesContainer alloc] init];
     [self.pagesContainer willMoveToParentViewController:self];
     self.pagesContainer.view.frame = self.playerView.bounds;
@@ -56,24 +75,7 @@
         [_vcs addObject:holePlayerViewController];
     }
     self.pagesContainer.viewControllers = _vcs;
-}
-
-- (NSString *)getTitle
-{
-    return [NSString stringWithFormat:@"Trou n°%@", self.hole.number];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.parLabel.text = [NSString stringWithFormat:@"%@", self.hole.par];
-    self.handicapLabel.text = [NSString stringWithFormat:@"%@", self.hole.handicap];
+    
     [self updateNextButton];
 }
 
@@ -116,7 +118,7 @@
 }
 - (PlayerGameHole *)getCurrentPlayerGameHole
 {
-    int index = self.pagesContainer.selectedIndex;
+    NSUInteger index = self.pagesContainer.selectedIndex;
     EXTHolePlayerViewController *holePlayerViewController = self.vcs[index];
     return holePlayerViewController.playerGameHole;
 }

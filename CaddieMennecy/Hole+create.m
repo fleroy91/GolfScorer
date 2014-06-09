@@ -27,7 +27,7 @@
 }
 -(NSString *)formatDistanceForColor:(NSUInteger)start_color
 {
-    return [NSString stringWithFormat:@"%d %@", [self getDistanceForColor:start_color], [settings getDistanceUnit]];
+    return [NSString stringWithFormat:@"%lu %@", (unsigned long)[self getDistanceForColor:start_color], [settings getDistanceUnit]];
 }
 
 -(NSUInteger)getDistanceForColor:(NSUInteger)start_color

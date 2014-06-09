@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EXTScrollHolesViewController : UIViewController
-- (void)saveCurrentHoleWithHole:(Hole *)hole;
 - (void)pageForward;
 - (IBAction)homeMenu:(id)sender;
 

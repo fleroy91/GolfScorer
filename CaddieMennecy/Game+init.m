@@ -173,7 +173,7 @@
                 // Game handicap
                 NSUInteger hcp_base = (NSUInteger)(pg.game_total_hcp.unsignedIntegerValue / 18);
                 NSUInteger hcp_rest = pg.game_total_hcp.unsignedIntegerValue - hcp_base * 18;
-                found.game_hcp = [NSNumber numberWithUnsignedInt:(hcp_base + (hole.handicap.unsignedIntegerValue <= hcp_rest ? 1 : 0))];
+                found.game_hcp = [NSNumber numberWithUnsignedLong:(hcp_base + (hole.handicap.unsignedIntegerValue <= hcp_rest ? 1 : 0))];
                 [found.managedObjectContext MR_saveToPersistentStoreAndWait];
                 assert(found.forHole);
             }
@@ -274,7 +274,7 @@
     BOOL added = NO;
     if([self.thePlayerGames count] < 4) {
         added = YES;
-        [PlayerGame initInGame:self forPlayer:player andRow:[NSNumber numberWithInt:([self.thePlayerGames count] + 1)]];
+        [PlayerGame initInGame:self forPlayer:player andRow:[NSNumber numberWithUnsignedLong:([self.thePlayerGames count] + 1)]];
     }
     return added;
 }
@@ -289,7 +289,7 @@
         // We need to rename the order the next PlayerGame
         for(PlayerGame *next_pg in self.thePlayerGames) {
             if(next_pg.row.integerValue > currentRow) {
-                next_pg.row = [NSNumber numberWithInt:(next_pg.row.integerValue - 1)];
+                next_pg.row = [NSNumber numberWithLong:(next_pg.row.integerValue - 1)];
             }
         }
         [pg.managedObjectContext MR_saveToPersistentStoreAndWait];

@@ -18,7 +18,6 @@
 - (IBAction)showPicker:(id)sender;
 - (void)createPlayerFromPerson:(ABRecordRef)person;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAddPlayer;
-@property UIBarButtonItem *editBarButtonItem;
 @property UIBarButtonItem *addBarButtonItem;
 @property NSArray *players;
 
@@ -64,7 +63,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.editBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(enterEditMode:)];
     self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayerFromButton:)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.addBarButtonItem, nil];
     self.players = [Player MR_findAllSortedBy:@"lastname" ascending:YES];
@@ -176,9 +174,9 @@
     }
     [self updateCell:cell withPlayer:player];
     if([currentGame.thePlayerGames count] > 1) {
-        [self.navigationItem setTitle:[NSString stringWithFormat:@"%d joueurs", [currentGame.thePlayerGames count]]];
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"%lu joueurs", (unsigned long)[currentGame.thePlayerGames count]]];
     } else {
-        [self.navigationItem setTitle:[NSString stringWithFormat:@"%d joueur", [currentGame.thePlayerGames count]]];
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"%lu joueur", (unsigned long)[currentGame.thePlayerGames count]]];
     }
     [tableView reloadData];
     
@@ -210,9 +208,9 @@
     Player *player = [self.players objectAtIndex:indexPath.row];
     [self updateCell:cell withPlayer:player];
     if([currentGame.thePlayerGames count] > 1) {
-        [self.navigationItem setTitle:[NSString stringWithFormat:@"%d joueurs", [currentGame.thePlayerGames count]]];
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"%lu joueurs", (unsigned long)[currentGame.thePlayerGames count]]];
     } else {
-        [self.navigationItem setTitle:[NSString stringWithFormat:@"%d joueur", [currentGame.thePlayerGames count]]];
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"%lu joueur", (unsigned long)[currentGame.thePlayerGames count]]];
     }
     return cell;
 }

@@ -85,6 +85,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalParLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
 - (IBAction)doShare:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *fairwayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *girLabel;
+@property (weak, nonatomic) IBOutlet UILabel *avgPuttLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nbPuttLabel;
 
 @end
 
@@ -178,8 +182,11 @@
     self.totalParLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
     self.totalDistLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
     self.totalScoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-50.png"]];
-    
-//    self.shareButton.hidden = ! self.playerGame.inGame.is_over.boolValue;
+
+    [self.fairwayLabel setText:[NSString stringWithFormat:@"%@ (%@)", [self.playerGame getFairwayScore:NO], [self.playerGame getFairwayScore:YES]]];
+    [self.girLabel setText:[NSString stringWithFormat:@"%@ (%@)", [self.playerGame getGIRScore:NO], [self.playerGame getGIRScore:YES]]];
+    [self.avgPuttLabel setText:[self.playerGame getAvgPuttScore:NO]];
+    [self.nbPuttLabel setText:[self.playerGame getAvgPuttScore:YES]];
     
     [self.titleLabel setText:[self.playerGame.forPlayer description]];
     int totalScore = 0;
@@ -203,9 +210,9 @@
             }
         }
         if(found) {
-            int par = found.forHole.par.integerValue;
-            int score = found.hole_score.integerValue;
-            int dist = [found.forHole getDistanceForColor:found.inPlayerGame.forPlayer.start_color.unsignedIntegerValue];
+            NSInteger par = found.forHole.par.integerValue;
+            NSInteger score = found.hole_score.integerValue;
+            NSInteger dist = [found.forHole getDistanceForColor:found.inPlayerGame.forPlayer.start_color.unsignedIntegerValue];
             totalPar += par;
             if(! found.is_saved.boolValue) {
                 score = 0;
@@ -227,11 +234,11 @@
                 outTotalDist += dist;
                 outTotalScore += score;
             }
-            [self.parLabels[holeIndex] setText:[NSString stringWithFormat:@"%d", par]];
-            [self.distLabels[holeIndex] setText:[NSString stringWithFormat:@"%d%@", dist, [settings getDistanceUnit]]];
+            [self.parLabels[holeIndex] setText:[NSString stringWithFormat:@"%ld", (long)par]];
+            [self.distLabels[holeIndex] setText:[NSString stringWithFormat:@"%ld%@", (long)dist, [settings getDistanceUnit]]];
             if(found.is_saved.boolValue) {
                 UILabel *scoreLabel =self.scoreLabels[holeIndex];
-                [scoreLabel setText:[NSString stringWithFormat:@"%d", score]];
+                [scoreLabel setText:[NSString stringWithFormat:@"%ld", (long)score]];
                 if(score < par - 1) {
                     scoreLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn-back1px-eagle.png"]];
                 } else if(score < par) {

@@ -10,12 +10,6 @@
 
 @interface EXTPlayerResultTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *playerName;
-@property (weak, nonatomic) IBOutlet UILabel *fairwayResultLabel;
-@property (weak, nonatomic) IBOutlet UILabel *girResultLabel;
-@property (weak, nonatomic) IBOutlet UILabel *avgPuttResultLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fairwayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *girLabel;
-@property (weak, nonatomic) IBOutlet UILabel *avgPuttLabel;
 @property (weak, nonatomic) IBOutlet UILabel *birdieLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eagleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albatrosLabel;
@@ -23,14 +17,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *bogeyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *doubleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tripleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *displayLabel;
-- (IBAction)toggleDisplay:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *brutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *netLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sBrutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sNetLabel;
 
 @property PlayerGame *playerGame;
 -(void)update;
--(void)toggleDisplay;
-@property BOOL showStbl;
-@property BOOL showNet;
-@property BOOL showRatio;
 
 @end
