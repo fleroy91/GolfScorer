@@ -28,7 +28,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ %@", self.lastname, self.firstname];
+    return [NSString stringWithFormat:@"%@ %@", self.firstname, self.lastname];
 }
 -(NSArray *)fields
 {

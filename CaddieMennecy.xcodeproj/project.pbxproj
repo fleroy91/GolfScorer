@@ -115,6 +115,7 @@
 		B6CF756F19331424003EF310 /* EXTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CF756E19331424003EF310 /* EXTSettingsViewController.m */; };
 		B6DF634A193F04BD0040F0F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6DF6349193F04BD0040F0F3 /* QuartzCore.framework */; };
 		B6DF634D1940E5150040F0F3 /* EXTHolePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF634C1940E5150040F0F3 /* EXTHolePlayerViewController.m */; };
+		B6DF635019461E8A0040F0F3 /* Course+Addon.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF634F19461E8A0040F0F3 /* Course+Addon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,6 +302,8 @@
 		B6DF6349193F04BD0040F0F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B6DF634B1940E5150040F0F3 /* EXTHolePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTHolePlayerViewController.h; sourceTree = "<group>"; };
 		B6DF634C1940E5150040F0F3 /* EXTHolePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTHolePlayerViewController.m; sourceTree = "<group>"; };
+		B6DF634E19461E8A0040F0F3 /* Course+Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Course+Addon.h"; sourceTree = "<group>"; };
+		B6DF634F19461E8A0040F0F3 /* Course+Addon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Course+Addon.m"; sourceTree = "<group>"; };
 		BD3FD21268864AE7AA7CD4A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -496,6 +499,8 @@
 				B6B229A0192794C70090E1A0 /* PlayerGameHole.h */,
 				B6B229A1192794C70090E1A0 /* PlayerGameHole.m */,
 				B6B2298E1924A4320090E1A0 /* PlayerGame.h */,
+				B6DF634E19461E8A0040F0F3 /* Course+Addon.h */,
+				B6DF634F19461E8A0040F0F3 /* Course+Addon.m */,
 				B6B2298F1924A4320090E1A0 /* PlayerGame.m */,
 				B6B2298B1924A4320090E1A0 /* Hole.h */,
 				B6B2298C1924A4320090E1A0 /* Hole.m */,
@@ -801,6 +806,7 @@
 				B6DF634D1940E5150040F0F3 /* EXTHolePlayerViewController.m in Sources */,
 				B61CD6521918328100E172CD /* MagicalRecord+iCloud.m in Sources */,
 				B61CD6421918328100E172CD /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
+				B6DF635019461E8A0040F0F3 /* Course+Addon.m in Sources */,
 				B639269919136D8000AC48D0 /* EXTOldGamesTableViewController.m in Sources */,
 				B6B229901924A4320090E1A0 /* PlayerGame.m in Sources */,
 				B61CD64B1918328100E172CD /* NSManagedObjectContext+MagicalSaves.m in Sources */,

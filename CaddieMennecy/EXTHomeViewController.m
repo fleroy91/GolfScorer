@@ -73,8 +73,8 @@
 
 - (void)findOrCreateHolesInDB
 {
-    [self.fetchedResultsController performFetch:nil];
-    if([self.fetchedResultsController.fetchedObjects count] == 0) {
+    Course *course = [Course MR_findFirstByAttribute:@"name" withValue:@"Mennecy - Chevannes"];
+    if(! course) {
         // Create the data model.
         Course *course = [Course MR_createEntity];
         course.name = @"Mennecy - Chevannes";
@@ -113,14 +113,51 @@
                                @[@16, @5, @12, @484, @470, @409, @392],
                                @[@17, @3,  @7, @194, @150, @144, @122],
                                @[@18, @4,  @1, @430, @379, @326, @311]];
-        for(NSArray *holeData in holesData){
-            // We try to search for the hole in the DB
-            Hole *hole = [[Hole MR_createEntity] initWithArray:holeData andCourse:course];
-            NSManagedObjectContext* context = hole.managedObjectContext;
-            [context MR_saveToPersistentStoreAndWait];
-        }
-    
+        [course createHoles:holesData];
     }
+    course = [Course MR_findFirstByAttribute:@"name" withValue:@"Etioles"];
+    if(! course) {
+        // Create the data model.
+        Course *course = [Course MR_createEntity];
+        course.name = @"Etioles";
+        course.par = @73;
+        course.slope2M = @123;
+        course.slope3M = @118;
+        course.slope4M = @1114;
+        course.slope5M = @109;
+        course.sss2M = @72.9;
+        course.sss3M = @70.5;
+        course.sss4M = @68.4;
+        course.sss5M = @65.9;
+        course.slope2F = @133;
+        course.slope3F = @128;
+        course.slope4F = @118;
+        course.sss2F = @70.5;
+        course.sss3F = @73.8;
+        course.sss4F = @70.5;
+        [course.managedObjectContext MR_saveToPersistentStoreAndWait];
+        
+        NSArray *holesData = @[@[@1,  @5,  @8, @480, @450, @418, @392],
+                               @[@2,  @4, @12, @362, @351, @292, @262],
+                               @[@3,  @4, @2,  @391, @367, @357, @287],
+                               @[@4,  @4, @18, @280, @237, @227, @187],
+                               @[@5,  @3, @10, @184, @158, @138, @108],
+                               @[@6,  @5, @4,  @506, @466, @451, @445],
+                               @[@7,  @4, @14, @337, @327, @313, @302],
+                               @[@8,  @5, @6,  @467, @457, @405, @377],
+                               @[@9,  @3, @16, @160, @139, @120, @118],
+                               @[@10, @4, @13, @314, @284, @243, @206],
+                               @[@11, @4, @7,  @353, @331, @310, @271],
+                               @[@12, @4, @1,  @384, @375, @346, @324],
+                               @[@13, @5, @3,  @510, @468, @447, @404],
+                               @[@14, @4, @17, @289, @269, @262, @226],
+                               @[@15, @3, @15, @165, @145, @132, @103],
+                               @[@16, @5, @9,  @469, @440, @415, @408],
+                               @[@17, @3, @11, @195, @169, @155, @116],
+                               @[@18, @4, @5,  @386, @344, @323, @311]];
+        [course createHoles:holesData];
+    }
+
 }
 -(BOOL)shouldAutorotate
 {
