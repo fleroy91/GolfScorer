@@ -1123,6 +1123,8 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
 
 @implementation FXFormController
 
+- (BOOL)prefersStatusBarHidden {return YES;}
+
 - (instancetype)init
 {
     if ((self = [super init]))
@@ -1525,6 +1527,8 @@ static BOOL *FXFormSetValueForKey(id<FXForm> form, id value, NSString *key)
 @implementation FXFormViewController
 
 @synthesize field = _field;
+
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 - (void)dealloc
 {

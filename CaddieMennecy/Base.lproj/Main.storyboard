@@ -14,32 +14,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OldGame" textLabel="nfz-cr-jcP" detailTextLabel="nAk-8J-cbd" style="IBUITableViewCellStyleValue1" id="jru-Uh-MrK">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OldGame" textLabel="nfz-cr-jcP" detailTextLabel="nAk-8J-cbd" style="IBUITableViewCellStyleSubtitle" id="jru-Uh-MrK" customClass="SWTableViewCell">
                                 <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jru-Uh-MrK" id="S90-27-rIX">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nfz-cr-jcP">
-                                            <rect key="frame" x="15" y="13" width="29" height="18"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="nfz-cr-jcP">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nAk-8J-cbd">
-                                            <rect key="frame" x="246" y="13" width="39" height="18"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nAk-8J-cbd">
+                                            <rect key="frame" x="15" y="25" width="32" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="uLE-xM-MwG" kind="push" identifier="showGameResult" id="i0M-Af-4eA"/>
+                                    <segue destination="uLE-xM-MwG" kind="push" identifier="showGameResult" id="S1l-pd-dbQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -49,6 +49,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Anciennes parties" id="l9S-7u-w8V"/>
+                    <connections>
+                        <segue destination="qvx-Xz-ZdB" kind="modal" identifier="editGame" id="CxF-nz-G8L"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Yw-XL-kKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1950,6 +1953,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="y52-xj-5KV"/>
+        <segue reference="CxF-nz-G8L"/>
+        <segue reference="S1l-pd-dbQ"/>
     </inferredMetricsTieBreakers>
 </document>

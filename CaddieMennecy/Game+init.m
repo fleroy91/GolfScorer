@@ -308,8 +308,27 @@
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     return [dateFormatter stringFromDate:self.when];
+}
+- (NSString *)getPlayersNames
+{
+    NSString *ret = [[NSString alloc] init];
+    BOOL first = YES;
+    for(PlayerGame *pg in self.thePlayerGames) {
+        Player *player = pg.forPlayer;
+        if(! first) {
+            ret = [ret stringByAppendingString:@", "];
+        }
+        ret = [ret stringByAppendingString:player.firstname];
+        first = NO;
+    }
+    return ret;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ - %@ (%d Trous)", self.forCourse.name, [self getWhenDescription], [self getNbHolesPlayed]];
 }
 
 - (NSArray *)fields

@@ -84,6 +84,7 @@
 }
 - (void)endGame:(UITableViewCell<FXFormFieldCell> *)cell
 {
+    [self saveHole];
     [currentGame setIsOver:YES];
     [self.modelController homeMenu:self];
 }

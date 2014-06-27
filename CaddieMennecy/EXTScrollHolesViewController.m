@@ -93,7 +93,9 @@
     }
     
     self.pagesContainer.viewControllers = _vcs;
-    [self.pagesContainer setSelectedIndex:self.startingPageIndex animated:YES];
+    if(! currentGame.is_over.boolValue) {
+        [self.pagesContainer setSelectedIndex:self.startingPageIndex animated:YES];
+    }
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
