@@ -368,7 +368,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ql0-Jz-p9f">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ql0-Jz-p9f">
                                 <rect key="frame" x="280" y="8" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="close.png">
@@ -421,26 +421,24 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="C5R-Ay-l9S">
-                                <rect key="frame" x="0.0" y="0.0" width="367" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="nqC-3H-Lva">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="245" id="Jq3-g2-3Nl"/>
+                                    <constraint firstAttribute="height" constant="252" id="QeU-VO-dxI"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-2o-bk5">
-                                <rect key="frame" x="144" y="466" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-2o-bk5">
+                                <rect key="frame" x="80" y="473" width="160" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="IQz-mf-9cx"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="mail.png">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="  Contact" image="mail.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -451,15 +449,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="top" secondItem="Mc9-rX-RSh" secondAttribute="top" id="1u0-W2-9Mn"/>
-                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="leading" secondItem="nqC-3H-Lva" secondAttribute="leading" id="3Q8-7T-OzI"/>
-                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="trailing" secondItem="nqC-3H-Lva" secondAttribute="trailing" constant="47" id="ANc-R1-Mw9"/>
-                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="leading" secondItem="Mc9-rX-RSh" secondAttribute="leading" id="RzT-su-EHm"/>
-                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="top" secondItem="nqC-3H-Lva" secondAttribute="top" id="oL2-9C-EvS"/>
-                            <constraint firstAttribute="bottom" secondItem="C5R-Ay-l9S" secondAttribute="bottom" id="qFY-am-pU9"/>
-                            <constraint firstItem="cJ4-99-ji0" firstAttribute="top" secondItem="haZ-2o-bk5" secondAttribute="bottom" constant="6" id="rj9-Nz-l6j"/>
-                            <constraint firstItem="haZ-2o-bk5" firstAttribute="centerX" secondItem="nqC-3H-Lva" secondAttribute="centerX" id="set-xT-rAp"/>
-                            <constraint firstItem="haZ-2o-bk5" firstAttribute="leading" secondItem="Mc9-rX-RSh" secondAttribute="leading" constant="144" id="w3D-6I-HhL"/>
+                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="top" secondItem="Mc9-rX-RSh" secondAttribute="top" id="O7l-3V-OJV"/>
+                            <constraint firstItem="nqC-3H-Lva" firstAttribute="centerX" secondItem="haZ-2o-bk5" secondAttribute="centerX" id="PRS-4L-CiW"/>
+                            <constraint firstAttribute="bottom" secondItem="C5R-Ay-l9S" secondAttribute="bottom" id="i9F-6p-EFi"/>
+                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="top" secondItem="nqC-3H-Lva" secondAttribute="top" id="jFr-VP-Bwl"/>
+                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="leading" secondItem="nqC-3H-Lva" secondAttribute="leading" id="lUn-ga-te2"/>
+                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="trailing" secondItem="nqC-3H-Lva" secondAttribute="trailing" id="qdn-KE-VnQ"/>
+                            <constraint firstItem="C5R-Ay-l9S" firstAttribute="leading" secondItem="Mc9-rX-RSh" secondAttribute="leading" id="qeS-ve-jJv"/>
+                            <constraint firstItem="cJ4-99-ji0" firstAttribute="top" secondItem="haZ-2o-bk5" secondAttribute="bottom" constant="9" id="rj9-Nz-l6j"/>
+                            <constraint firstItem="haZ-2o-bk5" firstAttribute="leading" secondItem="Mc9-rX-RSh" secondAttribute="leading" constant="80" id="w3D-6I-HhL"/>
+                            <constraint firstAttribute="trailing" secondItem="nqC-3H-Lva" secondAttribute="trailing" id="x1R-Rd-jo2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Paramètres" id="WZB-7v-4Ub"/>
@@ -1491,7 +1490,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uho-ao-Dn7" userLabel="Like">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uho-ao-Dn7" userLabel="Like">
                                         <rect key="frame" x="20" y="8" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="heart.png">
@@ -1502,13 +1501,13 @@
                                             <action selector="doShare:" destination="vdt-o6-KD5" eventType="touchUpInside" id="nS7-gs-rEl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqE-JG-IkD">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqE-JG-IkD">
                                         <rect key="frame" x="526" y="8" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="AUR-UQ-u0i"/>
                                         </constraints>
-                                        <state key="normal" title="Fermer" image="close.png" backgroundImage="close.png">
+                                        <state key="normal" image="close.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1678,7 +1677,7 @@
                                     <constraint firstAttribute="width" constant="20" id="EfD-D5-I8O"/>
                                     <constraint firstAttribute="height" constant="20" id="J79-Rz-5lJ"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="settings.png">
+                                <state key="normal" image="settings.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1940,11 +1939,11 @@
         <image name="btn-back2px-green.png" width="140" height="20"/>
         <image name="btn-back2px-red.png" width="140" height="20"/>
         <image name="btn-back2px.png" width="140" height="20"/>
-        <image name="close.png" width="32" height="32"/>
+        <image name="close.png" width="16" height="16"/>
         <image name="elapsed.png" width="16" height="16"/>
-        <image name="heart.png" width="32" height="32"/>
-        <image name="mail.png" width="32" height="32"/>
-        <image name="settings.png" width="64" height="64"/>
+        <image name="heart.png" width="16" height="13"/>
+        <image name="mail.png" width="16" height="10"/>
+        <image name="settings.png" width="16" height="15"/>
         <image name="time.png" width="64" height="64"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
