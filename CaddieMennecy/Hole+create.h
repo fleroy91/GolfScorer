@@ -12,6 +12,7 @@
 @interface Hole (create)
 
 -(Hole *)initWithArray:(NSArray *)holeData andCourse:(Course *)course;
+-(Hole *)initWithDictionnary:(NSDictionary *)holeDictionnary andCourse:(Course *)course;
 -(NSUInteger)getDistanceForColor:(NSUInteger)start_color;
 -(NSString *)formatDistanceForColor:(NSUInteger)start_color;
 

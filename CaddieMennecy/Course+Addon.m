@@ -12,10 +12,16 @@
 -(void)createHoles:(NSArray *)holesData
 {
     for(NSArray *holeData in holesData){
-        // We try to search for the hole in the DB
-        Hole *hole = [[Hole MR_createEntity] initWithArray:holeData andCourse:self];
-        NSManagedObjectContext* context = hole.managedObjectContext;
-        [context MR_saveToPersistentStoreAndWait];
+        [[Hole MR_createEntity] initWithArray:holeData andCourse:self];
     }
 }
+
+-(void)createHolesWithJsonArray:(NSArray *)holesData
+{
+    for(NSDictionary *holeData in holesData){
+        [[Hole MR_createEntity] initWithDictionnary:holeData andCourse:self];
+    }
+    
+}
+
 @end

@@ -13,7 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [MagicalRecord setupAutoMigratingCoreDataStack];
+    [MagicalRecord setupCoreDataStack];
+//    [MagicalRecord setupAutoMigratingCoreDataStack];
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3372dc)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];

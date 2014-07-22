@@ -43,7 +43,7 @@
 - (float)getSSS:(PlayerGame *)pg
 {
     float ret = 0;
-    if(pg.forPlayer.gender.unsignedIntegerValue == 1)
+    if(pg.forPlayer.gender.unsignedIntegerValue == 0)
     {
         // Male
         switch(pg.forPlayer.start_color.unsignedIntegerValue) {
@@ -90,7 +90,7 @@
 - (float)getSlope:(PlayerGame *)pg
 {
     float ret = 0;
-    if(pg.forPlayer.gender.unsignedIntegerValue == 1)
+    if(pg.forPlayer.gender.unsignedIntegerValue == 0)
     {
         // Male
         switch(pg.forPlayer.start_color.unsignedIntegerValue) {
@@ -112,7 +112,7 @@
 
         }
     } else {
-        // Male
+        // Female
         switch(pg.forPlayer.start_color.unsignedIntegerValue) {
             case 1:
                 ret = self.forCourse.slope1F.floatValue;
@@ -335,7 +335,11 @@
 {
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     [ret addObject:@{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"}];
-    [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
+    if(self.is_started.boolValue) {
+        [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldAction: @"doNothing:"}];
+    } else {
+        [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
+    }
     [ret addObject:@{FXFormFieldKey: @"nb_holes", FXFormFieldTitle: @"Nombre de trous", FXFormFieldOptions: @[@"18 trous", @"9 trous"]}];
     [ret addObject:@{FXFormFieldKey: @"start_hole", FXFormFieldTitle: @"Trou de départ", FXFormFieldOptions: @[@"1", @"10"]}];
     [ret addObject:@{FXFormFieldKey: @"nbPlayers", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];

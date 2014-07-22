@@ -2,7 +2,7 @@
 //  Player.m
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -15,10 +15,10 @@
 @dynamic firstname;
 @dynamic gender;
 @dynamic index;
+@dynamic is_default;
 @dynamic lastname;
 @dynamic start_color;
 @dynamic surname;
-@dynamic is_default;
 @dynamic thePlayerGames;
 
 @end

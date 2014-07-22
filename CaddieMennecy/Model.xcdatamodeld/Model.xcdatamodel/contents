@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Course" representedClassName="Course" syncable="YES">
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="par" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="slope1F" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -23,6 +24,7 @@
         <attribute name="sss4M" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sss5F" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="sss5M" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="theGames" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Game" inverseName="forCourse" inverseEntity="Game" syncable="YES"/>
         <relationship name="theHoles" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Hole" inverseName="forCourse" inverseEntity="Hole" syncable="YES"/>
     </entity>
@@ -46,6 +48,7 @@
         <attribute name="range3" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="range4" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="range5" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="forCourse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="theHoles" inverseEntity="Course" syncable="YES"/>
         <relationship name="thePlayerGameHoles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlayerGameHole" inverseName="forHole" inverseEntity="PlayerGameHole" syncable="YES"/>
     </entity>
@@ -86,12 +89,12 @@
         <attribute name="useGPS" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Course" positionX="556" positionY="-342" width="128" height="403"/>
+        <element name="Course" positionX="556" positionY="-342" width="128" height="435"/>
         <element name="Game" positionX="225" positionY="-342" width="128" height="180"/>
-        <element name="Hole" positionX="405" positionY="86" width="128" height="193"/>
-        <element name="Player" positionX="396" positionY="-190" width="128" height="163"/>
-        <element name="PlayerGame" positionX="216" positionY="-141" width="128" height="178"/>
+        <element name="Hole" positionX="405" positionY="86" width="128" height="210"/>
+        <element name="Player" positionX="54" positionY="-136" width="128" height="163"/>
+        <element name="PlayerGame" positionX="223" positionY="-141" width="128" height="178"/>
         <element name="PlayerGameHole" positionX="205" positionY="117" width="128" height="178"/>
-        <element name="Settings" positionX="378" positionY="-135" width="128" height="73"/>
+        <element name="Settings" positionX="394" positionY="-342" width="128" height="73"/>
     </elements>
 </model>

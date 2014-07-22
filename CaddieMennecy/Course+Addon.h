@@ -10,4 +10,5 @@
 
 @interface Course (Addon)
 -(void)createHoles:(NSArray *)holesData;
+-(void)createHolesWithJsonArray:(NSArray *)holesData;
 @end

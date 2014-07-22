@@ -2,7 +2,7 @@
 //  PlayerGameHole.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 17/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -17,9 +17,9 @@
 @property (nonatomic, retain) NSNumber * game_hcp;
 @property (nonatomic, retain) NSNumber * gir;
 @property (nonatomic, retain) NSNumber * hole_score;
+@property (nonatomic, retain) NSNumber * is_saved;
 @property (nonatomic, retain) NSNumber * nb_putts;
 @property (nonatomic, retain) NSNumber * number;
-@property (nonatomic, retain) NSNumber * is_saved;
 @property (nonatomic, retain) Hole *forHole;
 @property (nonatomic, retain) PlayerGame *inPlayerGame;
 

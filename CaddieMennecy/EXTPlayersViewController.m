@@ -84,8 +84,14 @@
     // Text Color
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     [header.textLabel setTextColor:[UIColor whiteColor]];
-    [header.textLabel setText:@"Sélectionnez les joueurs pour cette partie"];
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName = @"Sélectionnez les joueurs pour cette partie";
+    return sectionName;
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     // TODO : do not compare with strings

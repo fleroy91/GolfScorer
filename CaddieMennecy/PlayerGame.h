@@ -2,7 +2,7 @@
 //  PlayerGame.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 

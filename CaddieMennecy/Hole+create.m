@@ -25,6 +25,22 @@
     [self.managedObjectContext MR_saveToPersistentStoreAndWait];
     return self;
 }
+
+-(Hole *)initWithDictionnary:(id)holeDictionnary andCourse:(Course *)course
+{
+    self.number = [holeDictionnary objectForKey:@"num"];
+    self.par = [holeDictionnary objectForKey:@"par"];
+    self.handicap = [holeDictionnary objectForKey:@"hcp"];
+    self.range1 = [holeDictionnary objectForKey:@"black"];
+    self.range2 = [holeDictionnary objectForKey:@"white"];
+    self.range3 = [holeDictionnary objectForKey:@"yellow"];
+    self.range4 = [holeDictionnary objectForKey:@"blue"];
+    self.range5  = [holeDictionnary objectForKey:@"red"];
+    self.forCourse = course;
+    [self.managedObjectContext MR_saveToPersistentStoreAndWait];
+    return self;
+}
+
 -(NSString *)formatDistanceForColor:(NSUInteger)start_color
 {
     return [NSString stringWithFormat:@"%lu %@", (unsigned long)[self getDistanceForColor:start_color], [settings getDistanceUnit]];

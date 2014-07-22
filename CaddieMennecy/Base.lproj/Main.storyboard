@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nWh-s0-m8A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nWh-s0-m8A">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -1651,6 +1651,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8vf-Tb-noj">
+                                <rect key="frame" x="140" y="186" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NnZ-Ie-pUK">
                                 <rect key="frame" x="20" y="86" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1729,6 +1733,8 @@
                     <navigationItem key="navigationItem" title="Golf Scorer" id="hjG-bQ-Pfq"/>
                     <connections>
                         <outlet property="gameButton" destination="NnZ-Ie-pUK" id="F7v-lQ-acC"/>
+                        <outlet property="indicator" destination="8vf-Tb-noj" id="bkp-tD-FrD"/>
+                        <outlet property="oldGamesButton" destination="5Sn-R2-cz5" id="YZO-hx-Kdy"/>
                         <outlet property="versionLabel" destination="ISR-hl-eBQ" id="mmE-NP-Qlz"/>
                     </connections>
                 </viewController>
@@ -1819,13 +1825,13 @@
         <scene sceneID="Gdx-gM-q3N">
             <objects>
                 <tableViewController id="5wk-OX-rwA" customClass="EXTPlayersViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Tar-YA-VrT">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tar-YA-VrT">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="player" editingAccessoryType="checkmark" textLabel="hoR-Au-R4O" detailTextLabel="r4Z-sQ-IXo" style="IBUITableViewCellStyleValue1" id="Uli-aY-PfH" customClass="SWTableViewCell">
-                                <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="player" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="player" editingAccessoryType="checkmark" textLabel="hoR-Au-R4O" detailTextLabel="r4Z-sQ-IXo" style="IBUITableViewCellStyleValue1" id="Uli-aY-PfH" customClass="SWTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uli-aY-PfH" id="ozG-O9-7iE">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1849,14 +1855,26 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="5wk-OX-rwA" id="tSL-rw-RMG"/>
                             <outlet property="delegate" destination="5wk-OX-rwA" id="tmu-7q-Wie"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Joueurs" id="WGT-WT-yxG"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="iqR-pC-EQe" id="LZx-HE-MT0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AaH-e2-V7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="iqR-pC-EQe">
+                    <connections>
+                        <outlet property="delegate" destination="5wk-OX-rwA" id="DJf-q0-w5m"/>
+                        <outlet property="searchContentsController" destination="5wk-OX-rwA" id="8c6-EZ-jTS"/>
+                        <outlet property="searchResultsDataSource" destination="5wk-OX-rwA" id="Xay-5M-lAP"/>
+                        <outlet property="searchResultsDelegate" destination="5wk-OX-rwA" id="4VO-0F-yGv"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1435" y="-939"/>
         </scene>

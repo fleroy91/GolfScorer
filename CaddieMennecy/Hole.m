@@ -2,7 +2,7 @@
 //  Hole.m
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -21,6 +21,7 @@
 @dynamic range3;
 @dynamic range4;
 @dynamic range5;
+@dynamic time;
 @dynamic forCourse;
 @dynamic thePlayerGameHoles;
 
