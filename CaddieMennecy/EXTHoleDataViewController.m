@@ -75,6 +75,9 @@
     [super viewWillAppear:animated];
     self.parLabel.text = [NSString stringWithFormat:@"%@", self.hole.par];
     self.handicapLabel.text = [NSString stringWithFormat:@"%@", self.hole.handicap];
+    for(EXTHolePlayerViewController *vc in self.vcs) {
+        [vc viewWillAppear:animated];
+    }
     [self updateNextButton];
 }
 
