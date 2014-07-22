@@ -42,59 +42,63 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // We need to create all the PlayerGameHoles for the currentGame
-    _holes = [[NSMutableArray alloc] init];
-    int nbHolesAdded = 0;
-    self.startingPageIndex = -1;
-    NSUInteger number = [currentGame getStartingHoleNumber];
-    while (nbHolesAdded < [currentGame getNbHolesPlayed]) {
-        for(Hole *h in currentGame.forCourse.theHoles) {
-            if(h.number.integerValue == number) {
-                [_holes addObject:h];
-                if(self.startingPageIndex < 0) {
-                    // We need to find the first PGH not saved and show it
-                    NSMutableArray *pghs = [self findPlayerGameHolesForHole:h];
-                    for(PlayerGameHole *pgh in pghs) {
-                        if(! pgh.is_saved.boolValue) {
-                            self.startingPageIndex = nbHolesAdded;
+    if(_holes == nil) {
+        NSLog(@"Initialisation of Holes for Current Game !");
+        // We need to create all the PlayerGameHoles for the currentGame
+        _holes = [[NSMutableArray alloc] init];
+        int nbHolesAdded = 0;
+        self.startingPageIndex = -1;
+        NSUInteger number = [currentGame getStartingHoleNumber];
+        while (nbHolesAdded < [currentGame getNbHolesPlayed]) {
+            for(Hole *h in currentGame.forCourse.theHoles) {
+                if(h.number.integerValue == number) {
+                    [_holes addObject:h];
+                    if(self.startingPageIndex < 0) {
+                        // We need to find the first PGH not saved and show it
+                        NSArray *pghs = [self findPlayerGameHolesForHole:h];
+                        for(PlayerGameHole *pgh in pghs) {
+                            if(! pgh.is_saved.boolValue) {
+                                self.startingPageIndex = nbHolesAdded;
+                            }
                         }
                     }
+                    break;
                 }
-                break;
+            }
+            nbHolesAdded ++;
+            number ++;
+            if(number > 18) {
+                number = 1;
             }
         }
-        nbHolesAdded ++;
-        number ++;
-        if(number > 18) {
-            number = 1;
+        NSLog(@"Nb holes in game : %lu", (unsigned long)[_holes count]);
+        if(self.startingPageIndex == -1) {
+            self.startingPageIndex = nbHolesAdded - 1;
+        }
+        
+        self.pagesContainer = [[EXTDAPagesContainer alloc] init];
+        [self.pagesContainer willMoveToParentViewController:self];
+        self.pagesContainer.view.frame = self.holesView.bounds;
+        self.pagesContainer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.pagesContainer.topBarBackgroundColor = UIColorFromRGBAndAlpha(0, 0.3);
+        [self.holesView addSubview:self.pagesContainer.view];
+        [self.pagesContainer didMoveToParentViewController:self];
+        
+        _vcs = [[NSMutableArray alloc] init];
+        for(Hole *hole in self.holes) {
+            EXTHoleDataViewController *dataViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EXTHoleDataViewController"];
+            dataViewController.hole = hole;
+            dataViewController.playerGameHoles = [self findPlayerGameHolesForHole:hole];
+            dataViewController.pageIndex = [_vcs count];
+            dataViewController.modelController = self;
+            [_vcs addObject:dataViewController];
+        }
+        
+        self.pagesContainer.viewControllers = _vcs;
+        if(! currentGame.is_over.boolValue) {
+            [self.pagesContainer setSelectedIndex:self.startingPageIndex animated:YES];
         }
     }
-    NSLog(@"Nb holes in game : %d", [_holes count]);
-    if(self.startingPageIndex == -1) {
-        self.startingPageIndex = nbHolesAdded - 1;
-    }
-    
-    self.pagesContainer = [[EXTDAPagesContainer alloc] init];
-    [self.pagesContainer willMoveToParentViewController:self];
-    self.pagesContainer.view.frame = self.holesView.bounds;
-    self.pagesContainer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.pagesContainer.topBarBackgroundColor = UIColorFromRGBAndAlpha(0, 0.3);
-    [self.holesView addSubview:self.pagesContainer.view];
-    [self.pagesContainer didMoveToParentViewController:self];
-    
-    _vcs = [[NSMutableArray alloc] init];
-    for(Hole *hole in self.holes) {
-        EXTHoleDataViewController *dataViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EXTHoleDataViewController"];
-        dataViewController.hole = hole;
-        dataViewController.playerGameHoles = [self findPlayerGameHolesForHole:hole];
-        dataViewController.pageIndex = [_vcs count];
-        dataViewController.modelController = self;
-        [_vcs addObject:dataViewController];
-    }
-    
-    self.pagesContainer.viewControllers = _vcs;
-    [self.pagesContainer setSelectedIndex:self.startingPageIndex animated:YES];
-    
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(deviceOrientationDidChangeNotification:)
@@ -118,8 +122,8 @@
     [self.timeLabel setText:formattedDateString];
     NSTimeInterval duration = [now timeIntervalSinceDate:currentGame.when];
     NSUInteger seconds = (NSUInteger)round(duration);
-    [self.elapsedTimeLabel setText:[NSString stringWithFormat:@"%02u:%02u",
-                                seconds / 3600, (seconds / 60) % 60]];
+    [self.elapsedTimeLabel setText:[NSString stringWithFormat:@"%02d:%02d",
+                                (int)(seconds / 3600), (int)((seconds / 60) % 60)]];
 }
 
 - (IBAction)homeMenu:(id)sender {
@@ -141,7 +145,7 @@
                 UIStoryboard *storyboard = self.storyboard;
                 EXTHoleDataViewController *holeDataVc = self.vcs[self.pagesContainer.selectedIndex];
                 EXTScoreCardViewController * vc = (EXTScoreCardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scoreCardView"];
-                vc.playerGame = holeDataVc.currentPlayerGame;
+                vc.playerGame = [holeDataVc getCurrentPlayerGameHole].inPlayerGame;
                 vc.notifOrientation = YES;
                 vc.modalPresentationStyle = UIModalPresentationFullScreen;
                 vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -161,17 +165,25 @@
     [self.pagesContainer setSelectedIndex:self.pagesContainer.selectedIndex + 1 animated:YES];
 }
 
--(NSMutableArray *)findPlayerGameHolesForHole:(Hole *)hole
+-(NSArray *)findPlayerGameHolesForHole:(Hole *)hole
 {
-    NSMutableArray *ret = [[NSMutableArray alloc] init];
-    for(PlayerGame *pg in currentGame.thePlayerGames) {
-        for(PlayerGameHole *pgh in pg.thePlayerGameHoles) {
-            assert(pgh.forHole);
-            if(pgh.number.integerValue == hole.number.integerValue) {
-                [ret addObject:pgh];
-            }
-        }
-    }
+    NSPredicate *holeFilter = [NSPredicate predicateWithFormat:@"number = %@ AND inPlayerGame.inGame = %@", hole.number, currentGame];
+    NSArray *ret = [PlayerGameHole MR_findAllWithPredicate:holeFilter];
+//    for(PlayerGameHole *pgh in ret) {
+//        NSLog(@"%@ %@", pgh.forHole.number, pgh.inPlayerGame.forPlayer.firstname);
+//    }
+//    NSMutableArray *ret2 = [[NSMutableArray alloc] init];
+//    for(PlayerGame *pg in currentGame.thePlayerGames) {
+//        for(PlayerGameHole *pgh in pg.thePlayerGameHoles) {
+//            assert(pgh.forHole);
+//            if(pgh.number.integerValue == hole.number.integerValue) {
+//                [ret2 addObject:pgh];
+//            }
+//        }
+//    }
+//    for(PlayerGameHole *pgh in ret2) {
+//        NSLog(@"%@ %@", pgh.forHole.number, pgh.inPlayerGame.forPlayer.firstname);
+//    }
     return ret;
 }
 

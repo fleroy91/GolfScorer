@@ -11,6 +11,5 @@
 @interface EXTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-- (void)setPageControlAppearance:(BOOL)withIcons;
 
 @end

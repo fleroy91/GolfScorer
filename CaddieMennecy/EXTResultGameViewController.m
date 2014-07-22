@@ -35,8 +35,8 @@
     self.tableView.dataSource = self;
     NSTimeInterval duration = [self.game.end_at timeIntervalSinceDate:self.game.when];
     NSUInteger seconds = (NSUInteger)round(duration);
-    [self.durationLabel setText:[NSString stringWithFormat:@"Durée de jeu : %02uh%02u",
-                        seconds / 3600, (seconds / 60) % 60]];
+    [self.durationLabel setText:[NSString stringWithFormat:@"Durée de jeu : %02dh%02d",
+                        (int)(seconds / 3600), (int)(seconds / 60) % 60]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,12 +79,6 @@
 }
 - (BOOL)prefersStatusBarHidden {return YES;}
 
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    EXTPlayerResultTableViewCell *cell = (EXTPlayerResultTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell toggleDisplay];
-}
-
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -92,7 +86,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"showScoreCard"] ){
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         EXTPlayerResultTableViewCell *cell = (EXTPlayerResultTableViewCell *)sender;
         EXTScoreCardViewController *vc = (EXTScoreCardViewController *)[segue destinationViewController];
         vc.playerGame = cell.playerGame;

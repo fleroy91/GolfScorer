@@ -2,7 +2,7 @@
 //  Hole.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSNumber * range3;
 @property (nonatomic, retain) NSNumber * range4;
 @property (nonatomic, retain) NSNumber * range5;
+@property (nonatomic, retain) NSNumber * time;
 @property (nonatomic, retain) Course *forCourse;
 @property (nonatomic, retain) NSSet *thePlayerGameHoles;
 @end

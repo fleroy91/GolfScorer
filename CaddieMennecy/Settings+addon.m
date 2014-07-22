@@ -19,7 +19,7 @@
 {
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     [ret addObject:@{FXFormFieldKey: @"displayKind", FXFormFieldTitle: @"Affichage", FXFormFieldHeader:@" ", FXFormFieldOptions: [Settings displayOptions]}];
-    [ret addObject:@{FXFormFieldKey: @"useGPS", FXFormFieldTitle: @"Me localiser avec le GPS", FXFormFieldType: FXFormFieldTypeBoolean}];
+//    [ret addObject:@{FXFormFieldKey: @"useGPS", FXFormFieldTitle: @"Me localiser avec le GPS", FXFormFieldType: FXFormFieldTypeBoolean}];
     return ret;
 }
 

@@ -14,7 +14,7 @@
 #import "Hole+create.h"
 #import "PlayerGame+addon.h"
 #import "PlayerGameHole+form.h"
-#import "Course.h"
+#import "Course+Addon.h"
 #import "Settings+addon.h"
 
 Game *currentGame;

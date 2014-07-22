@@ -2,7 +2,7 @@
 //  Player.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -16,10 +16,10 @@
 @property (nonatomic, retain) NSString * firstname;
 @property (nonatomic, retain) NSNumber * gender;
 @property (nonatomic, retain) NSNumber * index;
+@property (nonatomic, retain) NSNumber * is_default;
 @property (nonatomic, retain) NSString * lastname;
 @property (nonatomic, retain) NSNumber * start_color;
 @property (nonatomic, retain) NSString * surname;
-@property (nonatomic, retain) NSNumber * is_default;
 @property (nonatomic, retain) NSSet *thePlayerGames;
 @end
 

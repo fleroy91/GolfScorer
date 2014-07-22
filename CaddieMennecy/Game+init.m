@@ -43,7 +43,7 @@
 - (float)getSSS:(PlayerGame *)pg
 {
     float ret = 0;
-    if(pg.forPlayer.gender.unsignedIntegerValue == 1)
+    if(pg.forPlayer.gender.unsignedIntegerValue == 0)
     {
         // Male
         switch(pg.forPlayer.start_color.unsignedIntegerValue) {
@@ -90,7 +90,7 @@
 - (float)getSlope:(PlayerGame *)pg
 {
     float ret = 0;
-    if(pg.forPlayer.gender.unsignedIntegerValue == 1)
+    if(pg.forPlayer.gender.unsignedIntegerValue == 0)
     {
         // Male
         switch(pg.forPlayer.start_color.unsignedIntegerValue) {
@@ -112,7 +112,7 @@
 
         }
     } else {
-        // Male
+        // Female
         switch(pg.forPlayer.start_color.unsignedIntegerValue) {
             case 1:
                 ret = self.forCourse.slope1F.floatValue;
@@ -173,7 +173,7 @@
                 // Game handicap
                 NSUInteger hcp_base = (NSUInteger)(pg.game_total_hcp.unsignedIntegerValue / 18);
                 NSUInteger hcp_rest = pg.game_total_hcp.unsignedIntegerValue - hcp_base * 18;
-                found.game_hcp = [NSNumber numberWithUnsignedInt:(hcp_base + (hole.handicap.unsignedIntegerValue <= hcp_rest ? 1 : 0))];
+                found.game_hcp = [NSNumber numberWithUnsignedLong:(hcp_base + (hole.handicap.unsignedIntegerValue <= hcp_rest ? 1 : 0))];
                 [found.managedObjectContext MR_saveToPersistentStoreAndWait];
                 assert(found.forHole);
             }
@@ -274,7 +274,7 @@
     BOOL added = NO;
     if([self.thePlayerGames count] < 4) {
         added = YES;
-        [PlayerGame initInGame:self forPlayer:player andRow:[NSNumber numberWithInt:([self.thePlayerGames count] + 1)]];
+        [PlayerGame initInGame:self forPlayer:player andRow:[NSNumber numberWithUnsignedLong:([self.thePlayerGames count] + 1)]];
     }
     return added;
 }
@@ -289,7 +289,7 @@
         // We need to rename the order the next PlayerGame
         for(PlayerGame *next_pg in self.thePlayerGames) {
             if(next_pg.row.integerValue > currentRow) {
-                next_pg.row = [NSNumber numberWithInt:(next_pg.row.integerValue - 1)];
+                next_pg.row = [NSNumber numberWithLong:(next_pg.row.integerValue - 1)];
             }
         }
         [pg.managedObjectContext MR_saveToPersistentStoreAndWait];
@@ -308,15 +308,38 @@
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     return [dateFormatter stringFromDate:self.when];
+}
+- (NSString *)getPlayersNames
+{
+    NSString *ret = [[NSString alloc] init];
+    BOOL first = YES;
+    for(PlayerGame *pg in self.thePlayerGames) {
+        Player *player = pg.forPlayer;
+        if(! first) {
+            ret = [ret stringByAppendingString:@", "];
+        }
+        ret = [ret stringByAppendingString:player.firstname];
+        first = NO;
+    }
+    return ret;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ - %@ (%d Trous)", self.forCourse.name, [self getWhenDescription], [self getNbHolesPlayed]];
 }
 
 - (NSArray *)fields
 {
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     [ret addObject:@{FXFormFieldKey: @"when", FXFormFieldTitle: @"Date", FXFormFieldHeader:@" ", FXFormFieldType: FXFormFieldTypeLabel, FXFormFieldAction: @"doNothing:"}];
-    [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
+    if(self.is_started.boolValue) {
+        [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldAction: @"doNothing:"}];
+    } else {
+        [ret addObject:@{FXFormFieldKey: @"theCourse", FXFormFieldTitle: @"Parcours", FXFormFieldOptions: [self getCoursesOptions]}];
+    }
     [ret addObject:@{FXFormFieldKey: @"nb_holes", FXFormFieldTitle: @"Nombre de trous", FXFormFieldOptions: @[@"18 trous", @"9 trous"]}];
     [ret addObject:@{FXFormFieldKey: @"start_hole", FXFormFieldTitle: @"Trou de départ", FXFormFieldOptions: @[@"1", @"10"]}];
     [ret addObject:@{FXFormFieldKey: @"nbPlayers", FXFormFieldTitle: @"Joueurs", FXFormFieldAction: @"choosePlayers:"}];

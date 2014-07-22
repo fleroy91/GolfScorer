@@ -2,7 +2,7 @@
 //  Game.m
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 30/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -17,9 +17,9 @@
 @dynamic is_over;
 @dynamic is_started;
 @dynamic kind;
-@dynamic when;
 @dynamic nb_holes;
 @dynamic start_hole;
+@dynamic when;
 @dynamic forCourse;
 @dynamic thePlayerGames;
 

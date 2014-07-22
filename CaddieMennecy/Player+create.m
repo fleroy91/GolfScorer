@@ -17,18 +17,18 @@
     player.lastname = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
     player.firstname = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     player.surname = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonNicknameProperty);
-    player.start_color = @2;
-    player.gender = @0;
+    player.start_color = [NSNumber numberWithInt:2];
+    player.gender = [NSNumber numberWithInt:0];
     // TODO for note
     // NSString * note = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonNoteProperty);
-    player.index = [NSNumber numberWithFloat:23.4];
+    player.index = [NSNumber numberWithFloat:36.0];
     [player.managedObjectContext MR_saveToPersistentStoreAndWait];
     return player;
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ %@", self.lastname, self.firstname];
+    return [NSString stringWithFormat:@"%@ %@", self.firstname, self.lastname];
 }
 -(NSArray *)fields
 {

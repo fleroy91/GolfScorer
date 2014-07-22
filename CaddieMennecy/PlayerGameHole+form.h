@@ -11,7 +11,8 @@
 @interface PlayerGameHole (form)
 
 - (NSArray *)fields;
-- (NSUInteger)getDistanceForColor:(NSUInteger)start_color;
 - (NSString *)formatDistanceForColor:(NSUInteger)start_color;
 - (BOOL)isLastHoleAndPlayer;
+- (void)saveScore;
+
 @end

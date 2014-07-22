@@ -27,14 +27,25 @@
     return self;
 }
 
+- (void)loadGames
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"is_over = YES"];
+    self.games = [Game MR_findAllSortedBy:@"when" ascending:NO withPredicate:predicate];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.games = [Game MR_findAllSortedBy:@"when" ascending:NO];
+    [self loadGames];
 
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [tempImageView setFrame:self.tableView.frame];
     self.tableView.backgroundView = tempImageView;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,10 +70,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OldGame" forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"OldGame";
+    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
     Game * game = self.games[indexPath.row];
-    cell.textLabel.text = [game getWhenDescription];
-    cell.detailTextLabel.text = [game getKindName];
+    cell.textLabel.text = [game description];
+    cell.detailTextLabel.text = [game getPlayersNames];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.detailTextLabel.textColor = UIColorFromRGB(0xebebeb);
@@ -70,25 +84,48 @@
     return cell;
 }
 
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.55f green:0.27f blue:0.07f alpha:1.0] title:@"Editer"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
+                                                title:@"Supprimer"];
+    
+    return rightUtilityButtons;
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    switch (index) {
+        case 0:
+        {
+            NSLog(@"Edit button was pressed");
+            currentGame = [self.games objectAtIndex:cellIndexPath.row];
+            [self performSegueWithIdentifier:@"editGame" sender: self];
+            break;
+        }
+        case 1:
+        {
+            // Delete button was pressed
+            Game * game = self.games[cellIndexPath.row];
+            [game MR_deleteEntity];
+            [self loadGames];
+            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
-}
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        Game * game = self.games[indexPath.row];
-        [game MR_deleteEntity];
-        self.games = [Game MR_findAllSortedBy:@"when" ascending:YES];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
 }
 
 /*
@@ -118,6 +155,10 @@
 - (BOOL)prefersStatusBarHidden {return YES;}
 
 #pragma mark - Navigation
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"showGameResult" sender: self];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

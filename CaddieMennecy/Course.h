@@ -2,7 +2,7 @@
 //  Course.h
 //  CaddieMennecy
 //
-//  Created by Frédéric Leroy on 15/05/2014.
+//  Created by Frédéric Leroy on 04/07/2014.
 //  Copyright (c) 2014 Frédéric Leroy. All rights reserved.
 //
 
@@ -35,8 +35,10 @@
 @property (nonatomic, retain) NSNumber * sss4M;
 @property (nonatomic, retain) NSNumber * sss5F;
 @property (nonatomic, retain) NSNumber * sss5M;
+@property (nonatomic, retain) NSDate * lastUpdate;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSSet *theGames;
-@property (nonatomic, retain) NSSet *theHoles;
+@property (nonatomic, retain) NSOrderedSet *theHoles;
 @end
 
 @interface Course (CoreDataGeneratedAccessors)
@@ -46,9 +48,14 @@
 - (void)addTheGames:(NSSet *)values;
 - (void)removeTheGames:(NSSet *)values;
 
+- (void)insertObject:(Hole *)value inTheHolesAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromTheHolesAtIndex:(NSUInteger)idx;
+- (void)insertTheHoles:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeTheHolesAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInTheHolesAtIndex:(NSUInteger)idx withObject:(Hole *)value;
+- (void)replaceTheHolesAtIndexes:(NSIndexSet *)indexes withTheHoles:(NSArray *)values;
 - (void)addTheHolesObject:(Hole *)value;
 - (void)removeTheHolesObject:(Hole *)value;
-- (void)addTheHoles:(NSSet *)values;
-- (void)removeTheHoles:(NSSet *)values;
-
+- (void)addTheHoles:(NSOrderedSet *)values;
+- (void)removeTheHoles:(NSOrderedSet *)values;
 @end
