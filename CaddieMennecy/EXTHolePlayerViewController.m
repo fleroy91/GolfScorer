@@ -60,7 +60,7 @@
     self.netLabel.text = [self.playerGameHole.inPlayerGame getNetScore:NO];
     self.sBrutLabel.text = [self.playerGameHole.inPlayerGame getBrutScore:YES];
     self.sNetLabel.text = [self.playerGameHole.inPlayerGame getNetScore:YES];
-    self.hcpLabel.text = [NSString stringWithFormat:@"%@",self.playerGameHole.game_hcp];
+    self.hcpLabel.text = [NSString stringWithFormat:@"%@/%@",self.playerGameHole.game_hcp, self.playerGameHole.inPlayerGame.game_total_hcp];
     self.sParLabel.text = [NSString stringWithFormat:@"%d",self.playerGameHole.forHole.par.unsignedIntValue + self.playerGameHole.game_hcp.unsignedIntValue];
     self.formController.form = (id)self.playerGameHole;
     [self.formView reloadData];

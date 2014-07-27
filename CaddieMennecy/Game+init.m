@@ -142,7 +142,7 @@
         float slope = [self getSlope:pg];
 
         pg.game_total_hcp = [NSNumber numberWithUnsignedInt:pg.forPlayer.index.floatValue * (slope / 113) + sss - self.forCourse.par.unsignedIntegerValue];
-        
+        NSLog(@"Slope = %f, sss = %f, Index = %f, Par = %lu", slope, sss, pg.forPlayer.index.floatValue, (unsigned long)self.forCourse.par.unsignedIntegerValue);
         for(Hole* hole in currentGame.forCourse.theHoles) {
             PlayerGameHole *found = nil;
             for(PlayerGameHole *pgh in pg.thePlayerGameHoles) {

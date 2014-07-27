@@ -122,8 +122,8 @@
     NSLog(@"Before %@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);
     self.brut_score = @0;
     self.net_score = @0;
-    self.stbl_brut_score = @36;
-    self.stbl_net_score = @36;
+    self.stbl_brut_score = @0;
+    self.stbl_net_score = @0;
     assert([self.thePlayerGameHoles count] <= 18);
     for(PlayerGameHole *pgh in self.thePlayerGameHoles) {
         if(pgh.is_saved.boolValue) {
@@ -131,9 +131,9 @@
             NSInteger net_score = pgh.hole_score.intValue - (pgh.forHole.par.intValue + pgh.game_hcp.intValue);
             NSLog(@"PGH #%@ B=%ld N=%ld", pgh.number, (long)brut_score, (long)net_score);
             self.brut_score = [NSNumber numberWithLong:(self.brut_score.intValue + brut_score)];
-            self.stbl_brut_score = [NSNumber numberWithLong:MAX(0, self.stbl_brut_score.intValue + 2 - brut_score) - 2];
+            self.stbl_brut_score = [NSNumber numberWithLong:self.stbl_brut_score.intValue + MAX(0, 2 - brut_score)];
             self.net_score = [NSNumber numberWithLong:(self.net_score.intValue + net_score)];
-            self.stbl_net_score = [NSNumber numberWithLong:MAX(0, self.stbl_net_score.intValue + 2 - net_score) - 2];
+            self.stbl_net_score = [NSNumber numberWithLong:self.stbl_net_score.intValue + MAX(0, 2 - net_score)];
         }
     }
     NSLog(@"After %@ B=%@ N=%@ CP=%@ SB=%@ SN=%@", self.forPlayer.firstname, self.brut_score, self.net_score, self.game_total_hcp, self.stbl_brut_score, self.stbl_net_score);
